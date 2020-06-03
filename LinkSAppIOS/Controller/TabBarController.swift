@@ -11,7 +11,7 @@ import UIKit
 class TabBarController: UITabBarController {
     
     let services = ServicesController()
-    let myServices = MyServicesController()
+    let myServices = ServicesController()
     let messages = MessagesController()
     let profil = ProfilController()
 

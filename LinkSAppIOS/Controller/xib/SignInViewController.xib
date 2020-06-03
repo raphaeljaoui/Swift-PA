@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="LinkSAppIOS" customModuleProvider="target">
+            <connections>
+                <outlet property="mailFiels" destination="5BP-YM-c7z" id="Cou-pg-9G4"/>
+                <outlet property="passwordFields" destination="Iau-Wf-E63" id="dfZ-Ld-pdm"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr4-VB-HGj">
+                    <rect key="frame" x="401" y="541" width="32" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5BP-YM-c7z">
+                    <rect key="frame" x="10" y="588" width="814" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iau-Wf-E63">
+                    <rect key="frame" x="10" y="731" width="814" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uab-dQ-H7V">
+                    <rect key="frame" x="380" y="692" width="74" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ake-Vw-qaR">
+                    <rect key="frame" x="381" y="845" width="73" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Connexion"/>
+                    <connections>
+                        <action selector="loginButton:" destination="-1" eventType="touchUpInside" id="7fF-1T-Lwe"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5BP-YM-c7z" firstAttribute="top" secondItem="fr4-VB-HGj" secondAttribute="bottom" constant="26" id="87M-5k-q1c"/>
+                <constraint firstItem="Iau-Wf-E63" firstAttribute="centerX" secondItem="fr4-VB-HGj" secondAttribute="centerX" id="Bnn-6k-Kpf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Iau-Wf-E63" secondAttribute="trailing" constant="10" id="KBt-t8-AVh"/>
+                <constraint firstItem="Iau-Wf-E63" firstAttribute="top" secondItem="uab-dQ-H7V" secondAttribute="bottom" constant="18" id="QMb-re-DOe"/>
+                <constraint firstItem="5BP-YM-c7z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="ZVt-ku-f5l"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Iau-Wf-E63" secondAttribute="bottom" constant="409" id="dDF-Au-ekg"/>
+                <constraint firstItem="uab-dQ-H7V" firstAttribute="top" secondItem="5BP-YM-c7z" secondAttribute="bottom" constant="70" id="f3A-Fg-pbz"/>
+                <constraint firstItem="Iau-Wf-E63" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="ihe-8h-FwE"/>
+                <constraint firstItem="Iau-Wf-E63" firstAttribute="centerX" secondItem="uab-dQ-H7V" secondAttribute="centerX" id="q0N-Ci-rkC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5BP-YM-c7z" secondAttribute="trailing" constant="10" id="wFQ-n9-23s"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="78" y="131"/>
+        </view>
+    </objects>
+</document>

@@ -26,6 +26,10 @@ class ServicesController: UIViewController, UICollectionViewDelegate, UICollecti
         setupViews()
      }
     
+    func nav(){
+        let detail = CategoryController()
+        self.navigationController?.pushViewController(detail, animated:true)
+    }
     
     func configUI() {
         navigationItem.title = "Services"
@@ -95,7 +99,13 @@ class ServicesController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+         let detail = CategoryController()
+        self.navigationController?.pushViewController(detail, animated:true)
+    }
 
+  
 }
 
 class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -153,7 +163,13 @@ class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
     }
-     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        /*
+        let detail = CategoryController()
+        self.navigationController.pushViewController(detail, animated: true)
+        */
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

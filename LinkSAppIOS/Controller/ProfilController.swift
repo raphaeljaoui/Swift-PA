@@ -17,12 +17,19 @@ class ProfilController: UIViewController {
     var tableView: UITableView!
     var infoUser: InfoUser!
 
+    @objc func nav(){
+        self.navigationController?.pushViewController(ProfilFormController(), animated: true)
+    }
+    
+    @objc func navDelete(){
+        self.navigationController?.pushViewController(DeleteController(), animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
             
         view.backgroundColor = .white
         configUI()
-        
         
         
        SKStoreReviewController.requestReview()
@@ -133,14 +140,12 @@ extension ProfilController: UITableViewDelegate, UITableViewDataSource {
         switch section {
             
         case .Compte:
-                
-            tabBarController?.tabBar.isHidden = true
-            
+                            
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             self.navigationController?.navigationBar.shadowImage = UIImage()
             
-            let deco = HomeViewController()
-            navigationController?.pushViewController(deco, animated: true)
+//            let deco = HomeViewController()
+//            navigationController?.pushViewController(deco, animated: true)
           
         case .Points:
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {

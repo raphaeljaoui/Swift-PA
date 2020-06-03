@@ -20,6 +20,10 @@ class DeleteController: UIViewController {
         createAlert(title: "Supprimer mon compte", message: "Êtes-vous sûr de vouloir supprimer votre compte?")
     }
 
+    @objc func navDelete(){
+        self.navigationController?.pushViewController(DeleteController(), animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
