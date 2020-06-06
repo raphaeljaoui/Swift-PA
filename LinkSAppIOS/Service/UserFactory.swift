@@ -23,7 +23,9 @@ class UserFactory {
     static func dictionaryFrom(login: UserLogin) -> [String: Any] {
         return [
             "table": login.table,
-            "values": login.values?.email as Any ,
+            "values": ["email" : login.values?.email as Any ,
+                       "password" : login.values?.password as Any,
+            ],
         ]
     }
 }
