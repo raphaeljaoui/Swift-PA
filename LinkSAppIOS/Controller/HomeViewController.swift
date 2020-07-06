@@ -22,8 +22,9 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func connection(_ sender: UIButton) {
-        let signIn:SignInViewController = SignInViewController()
-                     self.present(signIn, animated: true, completion: nil)
+        //let signIn:SignInViewController = SignInViewController()
+        //self.present(signIn, animated: true, completion: nil)
+        self.navigationController?.pushViewController(SignInViewController(), animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

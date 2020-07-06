@@ -59,34 +59,42 @@ import Foundation
 
 class UserWebService {
     
-        func connexionUser(login: UserLogin, completion: @escaping ([UserLogin]) -> Void) -> Void {
-            guard let urlApi  = URL(string: "http://localhost:4000/connection") else {
+    func connexionUser(email: String, password: String, completion: @escaping ([User]) -> Void) -> Void {
+        let parameters: [String: Any] = [
+            "email": email,
+            "password": password
+        ]
+            guard let urlApi  = URL(string: "http://localhost:4000/connection/user") else {
                 return;
             }
             var request = URLRequest(url: urlApi)
             request.httpMethod = "POST"
-            request.httpBody = try? JSONSerialization.data(withJSONObject: UserFactory.dictionaryFrom(login: login), options: .fragmentsAllowed)
+            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed)
             
             request.setValue("application/json", forHTTPHeaderField: "content-type")
             
             
-            let task = URLSession.shared.dataTask(with: request) { (data: Data?, res, err) in
-                guard let bytes = data,
-                err == nil,
-                    let json = try? JSONSerialization.jsonObject(with: bytes) as? [Any] else {
-                    DispatchQueue.main.sync{
-                        completion([])
+            let task = URLSession.shared.dataTask(with: request) { (data, res, err) in
+            guard let bytes = data,
+                         err == nil,
+                let json = try? JSONSerialization.jsonObject(with: bytes, options: .allowFragments) as? [Any] else {
+                           DispatchQueue.main.sync {
+                            
+                               completion([])
+                           }
+                       return
+                   }
+                let user = json.compactMap { (obj) -> User? in
+                    guard let dict = obj as? [String: Any] else {
+                        return nil
                     }
-                    return
-                }
-                let locations = json.compactMap{(obj) -> UserLogin? in
-                    guard let dict = obj as? [String :Any] else { return nil }
                     return UserFactory.userFrom(dictionary: dict)
                 }
-                DispatchQueue.main.sync{
-                    completion(locations)
+                DispatchQueue.main.sync {
+                    completion(user)
                 }
-            }
+                
+               }
             task.resume()
         }
     

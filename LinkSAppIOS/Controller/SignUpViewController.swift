@@ -13,7 +13,14 @@ class SignUpViewController: UIViewController {
     let userWebService: UserWebService = UserWebService()
 
     @IBAction func inscription(_ sender: Any) {
-        let user = User(id_user: 1, name: "jaoui", surname: "Raphael", email: "r.jaoui@gmail.com", password: "password", birthdate: "1998/01/10", picture: "image", points: 10, gender: 1, adresse: "10 rue de test", city: "paris", postcode: 75001, category: "course", type: "admin")
+        let user = User(id_user: 1, name: "jaoui", surname: "Raphael", email: "r.jaoui@gmail.com", birthdate: "1998/01/10", points: 10, type: "admin")
+        
+        user.picture = "image"
+        user.gender = 1
+        user.adress = "10 rue de test"
+        user.city = "paris"
+        user.postcode = 75001
+        user.category = "course"
         
         let userSignUp = UserSignUp(table: "user", values: user)
         

@@ -9,108 +9,11 @@
 
 import UIKit
 
-class ServicesController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-     
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 16
-        layout.scrollDirection = .vertical
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .clear
-        return cv
-    }()
-     
-     override func viewDidLoad() {
-        super.viewDidLoad()
-        configUI()
-        setupViews()
-     }
-    
-    func nav(){
-        let detail = CategoryController()
-        self.navigationController?.pushViewController(detail, animated:true)
-    }
-    
-    func configUI() {
-        navigationItem.title = "Services"
-        navigationController?.navigationBar.backgroundColor = .white
-        navigationController?.navigationBar.barTintColor = .gray
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    let imagesCellId = "imagesCellId"
-    let albumsCellId = "albumsCellId"
-     
-    let imageArray = ["course","aide","babysitting","travaux","menage", "cuisine"]
-     
-    let backgroundImageView:UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFill
-        iv.image = UIImage(#imageLiteral(resourceName: "fondBlanc.png"))
-        return iv
-    }()
-
-     
-    func setupViews() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
-         
-        collectionView.register(ImagesCell.self, forCellWithReuseIdentifier: imagesCellId)
-        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: albumsCellId)
-         
-        view.addSubview(backgroundImageView)
-        view.addSubview(collectionView)
-        backgroundImageView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-        collectionView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-     }
-     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
-     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 1 {
-            return 18
-        }
-        return 1
-     }
-     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumsCellId, for: indexPath) as! AlbumCell
-            return cell
-        }
-         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagesCellId, for:indexPath) as! ImagesCell
-        cell.images = imageArray
-        return cell
-    }
-     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.section == 1 {
-            return CGSize(width: (view.frame.width/3) - 16, height: 100)
-        }
-        return CGSize(width: view.frame.width, height: 300)
-    }
-     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if section == 1 {
-            return UIEdgeInsets(top: 10, left: 8, bottom: 10, right: 8)
-        }
-        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         let detail = CategoryController()
-        self.navigationController?.pushViewController(detail, animated:true)
-    }
-
-  
-}
-
 class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-     
-    var images: [String]? {
+    
+    let typeServiceWebService: TypeServiceWebService = TypeServiceWebService()
+    
+    var images: [TypeService]? {
         didSet {
             collectionView.reloadData()
         }
@@ -129,7 +32,21 @@ class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
      
     override init(frame: CGRect) {
         super.init(frame:frame)
-        setup()
+        
+        self.typeServiceWebService.getTypesService{ (typesServices) in
+            
+            print(typesServices)
+            
+            if(typesServices.count > 0){
+                self.images = typesServices
+                
+                
+                self.setup()
+            } else {
+                
+            }
+        }
+        
     }
      
      
@@ -145,14 +62,22 @@ class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     }
      
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        if let img = self.images {
+            return img.count
+        }
+        return 0
     }
      
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! IconsCell
-        if let imageName = images?[indexPath.item] {
-            cell.imageView.image = UIImage(named: imageName)
+        
+        guard let namePicture = images?[indexPath.item].picture else {
+            cell.imageView.image = UIImage(named: "undefied")
+            
+            return cell
         }
+        cell.imageView.image = UIImage(named: namePicture)
+        
         return cell
     }
      
@@ -197,6 +122,8 @@ class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
+        
+    
     }
 }
 

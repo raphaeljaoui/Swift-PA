@@ -10,12 +10,17 @@ import Foundation
 
 class UserFactory {
     
-    static func userFrom(dictionary: [String: Any]) -> UserLogin? {
-        guard let table = dictionary["table"] as? String,
-            let values = dictionary["values"] as? Login else {
+    static func userFrom(dictionary: [String: Any]) -> User? {
+        guard let id = dictionary["id"] as? Int,
+            let email = dictionary["email"] as? String,
+            let name = dictionary["name"] as? String,
+            let surname = dictionary["surname"] as? String,
+            let birthdate = dictionary["birthdate"] as? String,
+            let points = dictionary["points"] as? Int,
+            let type = dictionary["type"] as? String else {
                 return nil
         }
-        let login = UserLogin(table: table, values: values)
+        let login = User(id_user: id, name: name, surname: surname, email: email, birthdate: birthdate, points: points, type: type)
 //        login.id = dictionary["id"] as? Int
         return login
     }

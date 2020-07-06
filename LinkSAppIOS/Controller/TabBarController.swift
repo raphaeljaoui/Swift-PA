@@ -10,8 +10,10 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
-    let services = ServicesController()
-    let myServices = ServicesController()
+    var userConnected: User? = nil
+    
+    //let services = ServicesController()
+    let myServices = MesServicesViewController()
     let messages = MessagesController()
     let profil = ProfilController()
 
@@ -24,7 +26,7 @@ class TabBarController: UITabBarController {
         
         navigationItem.setHidesBackButton(true, animated: true)
         
-        viewControllers = [create(title: "Services", image: "services", controller: services),
+        viewControllers = [/*create(title: "Services", image: "services", controller: services),*/
                                 
                         create(title: "Mes Services", image: "myservices", controller: myServices),
                             
