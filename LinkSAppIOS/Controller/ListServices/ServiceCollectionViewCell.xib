@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ServiceCollectionViewCell" customModule="LinkSAppIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="163"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="334" height="163"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0my-e7-CTN">
+                        <rect key="frame" x="0.0" y="0.0" width="334" height="163"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="Ll6-Qm-m3A">
+                                <rect key="frame" x="23" y="28" width="75" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom du service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dJ-zQ-IlX">
+                                <rect key="frame" x="139" y="101" width="171" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RaQ-Nx-XBG">
+                                <rect key="frame" x="115" y="28" width="171" height="61.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom du service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zup-q6-dal">
+                                        <rect key="frame" x="0.0" y="0.0" width="171" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date du service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygc-np-QOu">
+                                        <rect key="frame" x="0.0" y="20.5" width="171" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description du service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXx-uW-OgT">
+                                        <rect key="frame" x="0.0" y="41" width="171" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RaQ-Nx-XBG" firstAttribute="leading" secondItem="Ll6-Qm-m3A" secondAttribute="trailing" constant="10" id="Dmt-W3-2xZ"/>
+                            <constraint firstItem="Ll6-Qm-m3A" firstAttribute="leading" secondItem="0my-e7-CTN" secondAttribute="leading" constant="5" id="WD6-Os-iwE"/>
+                            <constraint firstItem="Ll6-Qm-m3A" firstAttribute="top" secondItem="0my-e7-CTN" secondAttribute="top" constant="10" id="crO-Jq-pW2"/>
+                            <constraint firstItem="RaQ-Nx-XBG" firstAttribute="top" secondItem="0my-e7-CTN" secondAttribute="top" constant="26" id="jGf-bU-U6X"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="0my-e7-CTN" secondAttribute="trailing" id="1CM-rX-ygL"/>
+                <constraint firstItem="0my-e7-CTN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2gd-F5-QBy"/>
+                <constraint firstAttribute="bottom" secondItem="0my-e7-CTN" secondAttribute="bottom" id="FnH-no-D6b"/>
+                <constraint firstItem="0my-e7-CTN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ZhL-5U-Oxz"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="334" height="163"/>
+            <connections>
+                <outlet property="CreatorService" destination="5dJ-zQ-IlX" id="INN-RS-yhJ"/>
+                <outlet property="dateService" destination="ygc-np-QOu" id="se5-cY-0kx"/>
+                <outlet property="descService" destination="KXx-uW-OgT" id="N9d-yx-NBO"/>
+                <outlet property="imgService" destination="Ll6-Qm-m3A" id="aNM-FQ-qh7"/>
+                <outlet property="nameService" destination="zup-q6-dal" id="gqD-dd-l6u"/>
+                <outlet property="stackService" destination="RaQ-Nx-XBG" id="6eB-Xi-UAa"/>
+            </connections>
+            <point key="canvasLocation" x="-202.89855072463769" y="57.254464285714285"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -11,7 +11,10 @@ import UIKit
 
 class ListServicesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarDelegate {
     
-    let typeServiceWebService: TypeServiceWebService = TypeServiceWebService()
+    let typeServiceWS: TypeServiceWebService = TypeServiceWebService()
+    let ServiceWS: ServiceWebService = ServiceWebService()
+
+    
     
     var userConnected: User? = nil
     
@@ -19,9 +22,9 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     let albumsCellId = "albumsCellId"
     
     var imageArray: [TypeService]!
+    var servicesArray: [Service]!
     
     @IBOutlet weak var tabBar: UITabBar!
-    @IBOutlet weak var typesServicesTableView: UITableView!
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -33,14 +36,24 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     }()
     
     override func viewDidLoad() {
+        loadTypesServices()
+        
         super.viewDidLoad()
         
         //print(userConnected)
         
-        loadTypesServices()
-        
-        configUI()
-        setupViews()
+        self.ServiceWS.getServices(){ (services) in
+            if(services.count > 0){
+                //TODO: chose a solution
+                self.servicesArray = services
+                
+                self.configUI()
+                self.setupViews()
+            } else {
+            }
+        }
+
+        print(servicesArray)
         
         self.navigationItem.hidesBackButton = true
         tabBar.selectedItem = tabBar.items?[0]
@@ -48,7 +61,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print(tabBar.selectedItem)
+        
         if (tabBar.selectedItem == tabBar.items?[1]) {
             let eventVC = MesServicesViewController()
             navigationController?.pushViewController(eventVC, animated: false)
@@ -63,13 +76,25 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     
     
     func loadTypesServices() {
-        
-        self.typeServiceWebService.getTypesService{ (typesServices) in
+        self.typeServiceWS.getTypesService{ (typesServices) in
             if(typesServices.count > 0){
                 self.imageArray = typesServices
-                print(typesServices)
+                
                 for counter in 0..<typesServices.count {
                     self.imageArray?.append(typesServices[counter])
+                }
+                
+            } else {
+            }
+        }
+    }
+    
+    func loadServices() {
+        self.ServiceWS.getServices(){ (services) in
+            if(services.count > 0){
+                for counter in 0..<services.count {
+                    print(services[counter])
+                    self.servicesArray.append(services[counter])
                 }
             } else {
             }
@@ -77,7 +102,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func nav(){
-        let detail = CategoryController()
+        let detail = ServiceInfosViewController()
         self.navigationController?.pushViewController(detail, animated:true)
     }
     
@@ -101,7 +126,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         collectionView.delegate = self
         
         collectionView.register(ImagesCell.self, forCellWithReuseIdentifier: imagesCellId)
-        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: albumsCellId)
+        collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: albumsCellId)
         
         view.addSubview(collectionView)
         collectionView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: tabBar.topAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
@@ -113,19 +138,28 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 1 {
-            return 18
+            return self.servicesArray.count
         }
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumsCellId, for: indexPath) as! AlbumCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumsCellId, for: indexPath) as! ServiceCollectionViewCell
+            let service = servicesArray[indexPath.row]
+            cell.nameService.text = service.name
+            cell.descService.text = service.desc
+            cell.dateService.text = service.date
+            
+            cell.dateService.text = String(service.date.prefix(10))
+            
+            cell.images = servicesArray
+            
             return cell
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagesCellId, for:indexPath) as! ImagesCell
-        print(self.imageArray)
+        
         cell.images = self.imageArray
         return cell
         
@@ -146,8 +180,12 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detail = CategoryController()
+        
+        let detail = ServiceInfosViewController()
+        detail.service = servicesArray[indexPath.item]
         self.navigationController?.pushViewController(detail, animated:true)
+        
+        
     }
     
     

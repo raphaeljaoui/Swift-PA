@@ -19,11 +19,12 @@ class ServiceFactory {
             let cost = dictionary["cost"] as? Int,
             let profit = dictionary["profit"] as? Int,
             let access = dictionary["access"] as? String,
-            let type = dictionary["type"] as? Int,
-            let creator = dictionary["creator"] as? Int else {
+            let type = dictionary["id_type"] as? Int,
+            let creator = dictionary["id_creator"] as? Int else {
                 return nil
         }
         let service = Service(idService: id, name: name, date: date, deadline: deadline, cost: cost, profit: profit, access: access, type: type, creator: creator)
+        service.desc = dictionary["description"] as? String
         
         return service
     }

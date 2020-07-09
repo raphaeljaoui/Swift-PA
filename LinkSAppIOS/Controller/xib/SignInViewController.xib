@@ -41,9 +41,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ake-Vw-qaR">
-                    <rect key="frame" x="381" y="845" width="73" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ake-Vw-qaR">
+                    <rect key="frame" x="380.5" y="845" width="73" height="30"/>
                     <state key="normal" title="Connexion"/>
                     <connections>
                         <action selector="loginButton:" destination="-1" eventType="touchUpInside" id="7fF-1T-Lwe"/>
@@ -53,6 +52,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="5BP-YM-c7z" firstAttribute="top" secondItem="fr4-VB-HGj" secondAttribute="bottom" constant="26" id="87M-5k-q1c"/>
+                <constraint firstItem="Ake-Vw-qaR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8B6-hu-K3Z"/>
                 <constraint firstItem="Iau-Wf-E63" firstAttribute="centerX" secondItem="fr4-VB-HGj" secondAttribute="centerX" id="Bnn-6k-Kpf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Iau-Wf-E63" secondAttribute="trailing" constant="10" id="KBt-t8-AVh"/>
                 <constraint firstItem="Iau-Wf-E63" firstAttribute="top" secondItem="uab-dQ-H7V" secondAttribute="bottom" constant="18" id="QMb-re-DOe"/>
@@ -62,6 +62,7 @@
                 <constraint firstItem="Iau-Wf-E63" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="ihe-8h-FwE"/>
                 <constraint firstItem="Iau-Wf-E63" firstAttribute="centerX" secondItem="uab-dQ-H7V" secondAttribute="centerX" id="q0N-Ci-rkC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5BP-YM-c7z" secondAttribute="trailing" constant="10" id="wFQ-n9-23s"/>
+                <constraint firstItem="Ake-Vw-qaR" firstAttribute="top" secondItem="Iau-Wf-E63" secondAttribute="bottom" constant="80" id="xsX-db-YB0"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="78" y="131"/>

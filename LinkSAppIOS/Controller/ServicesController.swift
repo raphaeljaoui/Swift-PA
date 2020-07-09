@@ -49,7 +49,6 @@ class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         
     }
      
-     
     func setup(){
         addSubview(collectionView)
         collectionView.setAnchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
@@ -128,6 +127,12 @@ class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
 }
 
 class AlbumCell: UICollectionViewCell {
+    
+    var images: [Service]? {
+        didSet {
+            //collectionView.reloadData()
+        }
+    }
      
     override init(frame: CGRect) {
         super.init(frame:frame)

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceInfosViewController" customModule="LinkSAppIOS" customModuleProvider="target">
+            <connections>
+                <outlet property="creatorService" destination="pzr-yD-Igj" id="UQ2-Nx-Hjf"/>
+                <outlet property="dateService" destination="Wsl-eh-LCZ" id="eSJ-42-DrE"/>
+                <outlet property="deadlineService" destination="ufB-AR-RT8" id="IjX-xT-esj"/>
+                <outlet property="descriptionService" destination="BVK-x6-hqz" id="qIJ-1r-o3s"/>
+                <outlet property="nameService" destination="Uu6-OS-ALC" id="XOq-aU-evy"/>
+                <outlet property="profitService" destination="NZl-h3-A6n" id="ZQ9-2H-1UR"/>
+                <outlet property="typeService" destination="NJy-bw-YPP" id="7ea-yB-cmS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="VnD-BE-cvq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z27-Qv-l04">
+                    <rect key="frame" x="25" y="30" width="485.5" height="42"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom du service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uu6-OS-ALC">
+                            <rect key="frame" x="0.0" y="0.0" width="233.5" height="42"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    ----    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52j-X9-xnJ">
+                            <rect key="frame" x="233.5" y="0.0" width="122" height="42"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Créateur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzr-yD-Igj">
+                            <rect key="frame" x="355.5" y="0.0" width="130" height="42"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZl-h3-A6n">
+                    <rect key="frame" x="25" y="309" width="73" height="38.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type du service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJy-bw-YPP">
+                    <rect key="frame" x="25" y="82" width="174.5" height="31.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsl-eh-LCZ">
+                    <rect key="frame" x="25" y="202" width="174.5" height="38.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline participation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufB-AR-RT8">
+                    <rect key="frame" x="25" y="245.5" width="300" height="38.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVK-x6-hqz">
+                    <rect key="frame" x="20" y="136" width="157.5" height="38.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="BVK-x6-hqz" firstAttribute="top" secondItem="NJy-bw-YPP" secondAttribute="bottom" constant="25" id="3NV-J2-fD0"/>
+                <constraint firstItem="NZl-h3-A6n" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Aog-AU-aE3"/>
+                <constraint firstItem="BVK-x6-hqz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="L4b-u3-E4P"/>
+                <constraint firstItem="Wsl-eh-LCZ" firstAttribute="top" secondItem="BVK-x6-hqz" secondAttribute="bottom" constant="25" id="PD6-kv-Ny4"/>
+                <constraint firstItem="NJy-bw-YPP" firstAttribute="top" secondItem="Z27-Qv-l04" secondAttribute="bottom" constant="10" id="U5g-IJ-u6S"/>
+                <constraint firstItem="Wsl-eh-LCZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Vyu-W1-zC9"/>
+                <constraint firstItem="Z27-Qv-l04" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="XT4-kE-bds"/>
+                <constraint firstItem="ufB-AR-RT8" firstAttribute="top" secondItem="Wsl-eh-LCZ" secondAttribute="bottom" constant="5" id="aPe-J3-O2K"/>
+                <constraint firstItem="ufB-AR-RT8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="oTK-F1-BO5"/>
+                <constraint firstItem="NZl-h3-A6n" firstAttribute="top" secondItem="ufB-AR-RT8" secondAttribute="bottom" constant="25" id="pDJ-k8-HUK"/>
+                <constraint firstItem="NJy-bw-YPP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="pQV-n5-5nQ"/>
+                <constraint firstItem="Z27-Qv-l04" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="qB9-6E-cdV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="126" y="142"/>
+        </view>
+    </objects>
+</document>

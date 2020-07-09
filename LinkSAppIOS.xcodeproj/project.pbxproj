@@ -29,7 +29,6 @@
 		4F4B409824655E4C00249FB8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4B409724655E4C00249FB8 /* Extensions.swift */; };
 		4F755113245D6D3600C0CD40 /* PopUpPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F755112245D6D3600C0CD40 /* PopUpPoints.swift */; };
 		4FB7E21A246AD7DC002740C6 /* ProfilFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7E219246AD7DC002740C6 /* ProfilFormController.swift */; };
-		4FCC1BB7246C2D4500742C54 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1BB6246C2D4500742C54 /* CategoryController.swift */; };
 		4FF3161B245B0BF30006FF9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF3161A245B0BF30006FF9C /* AppDelegate.swift */; };
 		4FF31624245B0BF90006FF9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FF31623245B0BF90006FF9C /* Assets.xcassets */; };
 		4FF31627245B0BF90006FF9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FF31625245B0BF90006FF9C /* LaunchScreen.storyboard */; };
@@ -48,8 +47,12 @@
 		EA30540724B1DBB500C563BF /* MesServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA30540524B1DBB500C563BF /* MesServicesViewController.swift */; };
 		EA30540824B1DBB500C563BF /* MesServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA30540624B1DBB500C563BF /* MesServicesViewController.xib */; };
 		EA30540A24B2648400C563BF /* TypeServiceWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA30540924B2648400C563BF /* TypeServiceWebService.swift */; };
+		EA8E305524B5B269009F5FAE /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305324B5B269009F5FAE /* ServiceCollectionViewCell.swift */; };
+		EA8E305624B5B269009F5FAE /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8E305424B5B269009F5FAE /* ServiceCollectionViewCell.xib */; };
 		EAFA409224B3536F00D9059F /* ListServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA409024B3536F00D9059F /* ListServicesViewController.swift */; };
 		EAFA409324B3536F00D9059F /* ListServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAFA409124B3536F00D9059F /* ListServicesViewController.xib */; };
+		EAFA40A224B473AA00D9059F /* ServiceInfosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA40A024B473AA00D9059F /* ServiceInfosViewController.swift */; };
+		EAFA40A324B473AA00D9059F /* ServiceInfosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAFA40A124B473AA00D9059F /* ServiceInfosViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +78,6 @@
 		4F4B409724655E4C00249FB8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4F755112245D6D3600C0CD40 /* PopUpPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpPoints.swift; sourceTree = "<group>"; };
 		4FB7E219246AD7DC002740C6 /* ProfilFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilFormController.swift; sourceTree = "<group>"; };
-		4FCC1BB6246C2D4500742C54 /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		4FF31617245B0BF30006FF9C /* LinkSAppIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkSAppIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FF3161A245B0BF30006FF9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FF31623245B0BF90006FF9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,8 +98,12 @@
 		EA30540524B1DBB500C563BF /* MesServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesServicesViewController.swift; sourceTree = "<group>"; };
 		EA30540624B1DBB500C563BF /* MesServicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MesServicesViewController.xib; sourceTree = "<group>"; };
 		EA30540924B2648400C563BF /* TypeServiceWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeServiceWebService.swift; sourceTree = "<group>"; };
+		EA8E305324B5B269009F5FAE /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA8E305424B5B269009F5FAE /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		EAFA409024B3536F00D9059F /* ListServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesViewController.swift; sourceTree = "<group>"; };
 		EAFA409124B3536F00D9059F /* ListServicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListServicesViewController.xib; sourceTree = "<group>"; };
+		EAFA40A024B473AA00D9059F /* ServiceInfosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInfosViewController.swift; sourceTree = "<group>"; };
+		EAFA40A124B473AA00D9059F /* ServiceInfosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceInfosViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,13 +178,13 @@
 		4FF3162E245B0C170006FF9C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EAFA409924B470DE00D9059F /* ServiceInfos */,
 				EAFA409424B3539000D9059F /* ListServices */,
 				18DECE402477BC2E00D5C27C /* SignUpViewController.swift */,
 				18C1EBE7247446AB00DC140A /* SignInViewController.swift */,
 				18C1EBE32474434700DC140A /* HomeViewController.swift */,
 				4FB7E219246AD7DC002740C6 /* ProfilFormController.swift */,
 				4FF31631245B0C6B0006FF9C /* TabBarController.swift */,
-				4FCC1BB6246C2D4500742C54 /* CategoryController.swift */,
 				4FF31637245B0CB10006FF9C /* ServicesController.swift */,
 				EA30540524B1DBB500C563BF /* MesServicesViewController.swift */,
 				4F18830F24659655006481B6 /* MessagesController.swift */,
@@ -222,8 +228,19 @@
 			children = (
 				EAFA409024B3536F00D9059F /* ListServicesViewController.swift */,
 				EAFA409124B3536F00D9059F /* ListServicesViewController.xib */,
+				EA8E305324B5B269009F5FAE /* ServiceCollectionViewCell.swift */,
+				EA8E305424B5B269009F5FAE /* ServiceCollectionViewCell.xib */,
 			);
 			path = ListServices;
+			sourceTree = "<group>";
+		};
+		EAFA409924B470DE00D9059F /* ServiceInfos */ = {
+			isa = PBXGroup;
+			children = (
+				EAFA40A024B473AA00D9059F /* ServiceInfosViewController.swift */,
+				EAFA40A124B473AA00D9059F /* ServiceInfosViewController.xib */,
+			);
+			path = ServiceInfos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +303,9 @@
 			files = (
 				18C1EBEA247446AB00DC140A /* SignInViewController.xib in Resources */,
 				4FF31627245B0BF90006FF9C /* LaunchScreen.storyboard in Resources */,
+				EAFA40A324B473AA00D9059F /* ServiceInfosViewController.xib in Resources */,
 				4FF31624245B0BF90006FF9C /* Assets.xcassets in Resources */,
+				EA8E305624B5B269009F5FAE /* ServiceCollectionViewCell.xib in Resources */,
 				4F18831224659655006481B6 /* MessagesController.xib in Resources */,
 				18DECE432477BC2E00D5C27C /* SignUpViewController.xib in Resources */,
 				18C1EBE62474434700DC140A /* HomeViewController.xib in Resources */,
@@ -304,7 +323,6 @@
 			files = (
 				4F19E143246ED03A00F21132 /* ImageSource.swift in Sources */,
 				18DECE482477C05500D5C27C /* UserSignUpFactory.swift in Sources */,
-				4FCC1BB7246C2D4500742C54 /* CategoryController.swift in Sources */,
 				18C1EBF82475729E00DC140A /* UserLogin.swift in Sources */,
 				4FF3163E245B0CD90006FF9C /* ProfilController.swift in Sources */,
 				EA3053FA24B0A26D00C563BF /* Service.swift in Sources */,
@@ -315,6 +333,7 @@
 				4FF31638245B0CB10006FF9C /* ServicesController.swift in Sources */,
 				EA3053FC24B0A65D00C563BF /* ServiceWebService.swift in Sources */,
 				4FF31632245B0C6B0006FF9C /* TabBarController.swift in Sources */,
+				EAFA40A224B473AA00D9059F /* ServiceInfosViewController.swift in Sources */,
 				4FF31640245B0D4D0006FF9C /* ProfilSections.swift in Sources */,
 				4FF31644245B0DA40006FF9C /* InfoUser.swift in Sources */,
 				EA30540724B1DBB500C563BF /* MesServicesViewController.swift in Sources */,
@@ -324,6 +343,7 @@
 				4FB7E21A246AD7DC002740C6 /* ProfilFormController.swift in Sources */,
 				4F4B409824655E4C00249FB8 /* Extensions.swift in Sources */,
 				4F19E141246ED01000F21132 /* Extension.swift in Sources */,
+				EA8E305524B5B269009F5FAE /* ServiceCollectionViewCell.swift in Sources */,
 				4F755113245D6D3600C0CD40 /* PopUpPoints.swift in Sources */,
 				18C1EBF4247568A500DC140A /* UserWebSevice.swift in Sources */,
 				18C1EBE9247446AB00DC140A /* SignInViewController.swift in Sources */,

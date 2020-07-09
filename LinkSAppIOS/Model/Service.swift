@@ -29,8 +29,8 @@ class Service: CustomStringConvertible {
     init(idService: Int, name: String, date: String, deadline: String, cost: Int, profit: Int, access: String, type: Int, creator: Int){
         self.id = idService;
         self.name = name;
-        self.date = date;
-        self.deadline = deadline;
+        self.date = String(date.prefix(10));
+        self.deadline = String(deadline.prefix(10));
         self.cost = cost;
         self.profit = profit;
         self.access = access;
@@ -38,11 +38,7 @@ class Service: CustomStringConvertible {
         self.id_creator = creator;
     }
     
-    func getExecutorUser(id: Int) -> User? {
-        return nil
-    }
-    
     var description: String {
-        return "{\"name\": \"\(self.name)\"}"
+        return "{\"id\": \"\(self.id)\", \"name\": \"\(self.name)\", \"date\": \"\(self.date)\", \"deadline\": \"\(self.deadline)\", \"cost\": \"\(self.cost)\", \"profit\": \"\(self.profit)\", \"access\": \"\(self.access)\", \"id_type\": \"\(self.id_type)\", \"id_creator\": \"\(self.id_creator)\",}"
     }
 }

@@ -10,8 +10,8 @@ import Foundation
 
 class ServiceWebService {
     
-        func getExecutorIfExist(service: Service, completion: @escaping ([User]) -> Void) -> Void {
-            guard let urlApi  = URL(string: "http://localhost:4000/service/executor") else {
+    /*func getExecutorIfExist(service: Service, completion: @escaping ([User]) -> Void) -> Void {
+            guard let urlApi  = URL(string: "http://localhost:4000/services/executor") else {
                 return;
             }
             var request = URLRequest(url: urlApi)
@@ -38,7 +38,36 @@ class ServiceWebService {
                 }
             }
             task.resume()
-        }
+        }*/
 
+    func getServices(completion: @escaping ([Service]) -> Void) -> Void {
+        guard let urlApi  = URL(string: "http://localhost:4000/services") else {
+            return;
+        }
+        var request = URLRequest(url: urlApi)
+        request.httpMethod = "POST"
+        
+        request.setValue("application/json", forHTTPHeaderField: "content-type")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, res, err) in
+            guard let bytes = data,
+            err == nil,
+                let json = try? JSONSerialization.jsonObject(with: bytes) as? [Any] else {
+                DispatchQueue.main.sync{
+                    completion([])
+                }
+                return
+            }
+            let services = json.compactMap{(obj) -> Service? in
+                guard let dict = obj as? [String :Any] else { return nil }
+                return ServiceFactory.serviceFrom(dictionary: dict)
+            }
+            DispatchQueue.main.sync{
+                completion(services)
+            }
+        }
+        task.resume()
+        
+    }
     
 }
