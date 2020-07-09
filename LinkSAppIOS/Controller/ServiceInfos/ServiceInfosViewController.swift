@@ -12,8 +12,10 @@ class ServiceInfosViewController: UIViewController {
     
     let UserWS : UserWebService = UserWebService()
     let TypeWS : TypeServiceWebService = TypeServiceWebService()
+    let ApplyWS : ApplyWebService = ApplyWebService()
     
     var service: Service? = nil
+    var userConnected: User? = nil
     
     @IBOutlet weak var creatorService: UILabel!
     @IBOutlet weak var nameService: UILabel!
@@ -22,6 +24,8 @@ class ServiceInfosViewController: UIViewController {
     @IBOutlet weak var dateService: UILabel!
     @IBOutlet weak var deadlineService: UILabel!
     @IBOutlet weak var profitService: UILabel!
+    @IBOutlet weak var btnPostulate: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +45,6 @@ class ServiceInfosViewController: UIViewController {
         
         setTypeName()
         
-        
-        
         print(service?.name)
         // Do any additional setup after loading the view.
     }
@@ -53,13 +55,24 @@ class ServiceInfosViewController: UIViewController {
             return
         }
         
-        self.UserWS.getUserById(idUser: idUser){ (user) in
-            if(user.count > 0){
-                self.creatorService.text = user[0].name
+        self.UserWS.getUserById(idUser: idUser){ (creator) in
+            if(creator.count > 0){
+                self.creatorService.text = creator[0].name
+                
+                guard let user = self.userConnected else {
+                    return
+                }
+                
+                if( user.id == creator[0].id){
+                    self.btnPostulate.isHidden = true
+                    
+                }
             } else {
                 
             }
         }
+        
+        
     }
     
     func setTypeName() -> Void {
@@ -76,6 +89,22 @@ class ServiceInfosViewController: UIViewController {
                 
             }
         }
+    }
+    
+    @IBAction func btnPostulate(_ sender: Any) {
+        
+        guard let id_service = service?.id else {
+            return
+        }
+        
+        let userAppliance = Apply(id_service: id_service)
+        userAppliance.id_user = userConnected?.id
+        userAppliance.execute = 1
+        
+        self.ApplyWS.setAppliance(apply: userAppliance){ (type) in
+            print(type)
+        }
+        
     }
 
 }

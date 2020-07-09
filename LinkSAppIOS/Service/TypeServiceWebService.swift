@@ -12,7 +12,7 @@ class TypeServiceWebService{
     
         func getTypesService(completion: @escaping ([TypeService]) -> Void) -> Void {
 
-            guard let urlApi  = URL(string: "http://localhost:4000/typeService") else {
+            guard let urlApi  = URL(string: "http://localhost:4000/typeService/active") else {
                 return;
             }
             var request = URLRequest(url: urlApi)

@@ -49,6 +49,9 @@
 		EA30540A24B2648400C563BF /* TypeServiceWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA30540924B2648400C563BF /* TypeServiceWebService.swift */; };
 		EA8E305524B5B269009F5FAE /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305324B5B269009F5FAE /* ServiceCollectionViewCell.swift */; };
 		EA8E305624B5B269009F5FAE /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8E305424B5B269009F5FAE /* ServiceCollectionViewCell.xib */; };
+		EA8E305824B7828F009F5FAE /* Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305724B7828F009F5FAE /* Apply.swift */; };
+		EA8E305A24B783B4009F5FAE /* ApplyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305924B783B4009F5FAE /* ApplyFactory.swift */; };
+		EA8E305C24B783CA009F5FAE /* ApplyWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305B24B783CA009F5FAE /* ApplyWebService.swift */; };
 		EAFA409224B3536F00D9059F /* ListServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA409024B3536F00D9059F /* ListServicesViewController.swift */; };
 		EAFA409324B3536F00D9059F /* ListServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAFA409124B3536F00D9059F /* ListServicesViewController.xib */; };
 		EAFA40A224B473AA00D9059F /* ServiceInfosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA40A024B473AA00D9059F /* ServiceInfosViewController.swift */; };
@@ -100,6 +103,9 @@
 		EA30540924B2648400C563BF /* TypeServiceWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeServiceWebService.swift; sourceTree = "<group>"; };
 		EA8E305324B5B269009F5FAE /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA8E305424B5B269009F5FAE /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		EA8E305724B7828F009F5FAE /* Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apply.swift; sourceTree = "<group>"; };
+		EA8E305924B783B4009F5FAE /* ApplyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFactory.swift; sourceTree = "<group>"; };
+		EA8E305B24B783CA009F5FAE /* ApplyWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyWebService.swift; sourceTree = "<group>"; };
 		EAFA409024B3536F00D9059F /* ListServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesViewController.swift; sourceTree = "<group>"; };
 		EAFA409124B3536F00D9059F /* ListServicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListServicesViewController.xib; sourceTree = "<group>"; };
 		EAFA40A024B473AA00D9059F /* ServiceInfosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInfosViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +134,8 @@
 				EA3053FF24B0DDD800C563BF /* UserLoginFactory.swift */,
 				EA30540324B1C3B600C563BF /* TypeServiceFactory.swift */,
 				EA30540924B2648400C563BF /* TypeServiceWebService.swift */,
+				EA8E305924B783B4009F5FAE /* ApplyFactory.swift */,
+				EA8E305B24B783CA009F5FAE /* ApplyWebService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 				18DECE452477BDC100D5C27C /* UserSignUp.swift */,
 				EA3053F924B0A26D00C563BF /* Service.swift */,
 				EA30540124B1C27600C563BF /* TypeService.swift */,
+				EA8E305724B7828F009F5FAE /* Apply.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +346,8 @@
 				4FF31640245B0D4D0006FF9C /* ProfilSections.swift in Sources */,
 				4FF31644245B0DA40006FF9C /* InfoUser.swift in Sources */,
 				EA30540724B1DBB500C563BF /* MesServicesViewController.swift in Sources */,
+				EA8E305C24B783CA009F5FAE /* ApplyWebService.swift in Sources */,
+				EA8E305824B7828F009F5FAE /* Apply.swift in Sources */,
 				EA30540224B1C27600C563BF /* TypeService.swift in Sources */,
 				18DECE462477BDC100D5C27C /* UserSignUp.swift in Sources */,
 				4F19E13D246ECFB800F21132 /* ScaledHeightImageView.swift in Sources */,
@@ -353,6 +364,7 @@
 				18C1EBEC2475636600DC140A /* User.swift in Sources */,
 				EA30540024B0DDD800C563BF /* UserLoginFactory.swift in Sources */,
 				4F32268F245F0A0400CAF083 /* DeleteController.swift in Sources */,
+				EA8E305A24B783B4009F5FAE /* ApplyFactory.swift in Sources */,
 				4FF31642245B0D7A0006FF9C /* ProfilCell.swift in Sources */,
 				4F18831124659655006481B6 /* MessagesController.swift in Sources */,
 				EA30540424B1C3B600C563BF /* TypeServiceFactory.swift in Sources */,

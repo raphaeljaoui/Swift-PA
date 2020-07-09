@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceInfosViewController" customModule="LinkSAppIOS" customModuleProvider="target">
             <connections>
+                <outlet property="btnPostulate" destination="bwk-ko-2cZ" id="GBh-xq-8tq"/>
                 <outlet property="creatorService" destination="pzr-yD-Igj" id="UQ2-Nx-Hjf"/>
                 <outlet property="dateService" destination="Wsl-eh-LCZ" id="eSJ-42-DrE"/>
                 <outlet property="deadlineService" destination="ufB-AR-RT8" id="IjX-xT-esj"/>
@@ -71,6 +72,14 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwk-ko-2cZ">
+                    <rect key="frame" x="25" y="397.5" width="258" height="51"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <state key="normal" title="Postuler au service"/>
+                    <connections>
+                        <action selector="btnPostulate:" destination="-1" eventType="touchUpInside" id="BX4-B1-pbp"/>
+                    </connections>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVK-x6-hqz">
                     <rect key="frame" x="20" y="136" width="157.5" height="38.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
@@ -83,11 +92,13 @@
                 <constraint firstItem="BVK-x6-hqz" firstAttribute="top" secondItem="NJy-bw-YPP" secondAttribute="bottom" constant="25" id="3NV-J2-fD0"/>
                 <constraint firstItem="NZl-h3-A6n" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Aog-AU-aE3"/>
                 <constraint firstItem="BVK-x6-hqz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="L4b-u3-E4P"/>
+                <constraint firstItem="bwk-ko-2cZ" firstAttribute="top" secondItem="NZl-h3-A6n" secondAttribute="bottom" constant="50" id="Lhh-5m-KN8"/>
                 <constraint firstItem="Wsl-eh-LCZ" firstAttribute="top" secondItem="BVK-x6-hqz" secondAttribute="bottom" constant="25" id="PD6-kv-Ny4"/>
                 <constraint firstItem="NJy-bw-YPP" firstAttribute="top" secondItem="Z27-Qv-l04" secondAttribute="bottom" constant="10" id="U5g-IJ-u6S"/>
                 <constraint firstItem="Wsl-eh-LCZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Vyu-W1-zC9"/>
                 <constraint firstItem="Z27-Qv-l04" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="XT4-kE-bds"/>
                 <constraint firstItem="ufB-AR-RT8" firstAttribute="top" secondItem="Wsl-eh-LCZ" secondAttribute="bottom" constant="5" id="aPe-J3-O2K"/>
+                <constraint firstItem="bwk-ko-2cZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="fqg-je-1ig"/>
                 <constraint firstItem="ufB-AR-RT8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="oTK-F1-BO5"/>
                 <constraint firstItem="NZl-h3-A6n" firstAttribute="top" secondItem="ufB-AR-RT8" secondAttribute="bottom" constant="25" id="pDJ-k8-HUK"/>
                 <constraint firstItem="NJy-bw-YPP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="pQV-n5-5nQ"/>

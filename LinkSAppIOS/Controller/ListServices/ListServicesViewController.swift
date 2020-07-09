@@ -183,6 +183,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         
         let detail = ServiceInfosViewController()
         detail.service = servicesArray[indexPath.item]
+        detail.userConnected = userConnected
         self.navigationController?.pushViewController(detail, animated:true)
         
         

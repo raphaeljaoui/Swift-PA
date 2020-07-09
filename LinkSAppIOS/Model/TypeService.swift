@@ -23,9 +23,6 @@ class TypeService: CustomStringConvertible {
         self.picture = pic
         self.active = act
     }
-    
-    
-    
     var description: String{
         return "name"
     }
