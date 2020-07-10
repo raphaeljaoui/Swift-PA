@@ -64,6 +64,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         
         if (tabBar.selectedItem == tabBar.items?[1]) {
             let eventVC = MesServicesViewController()
+            eventVC.userConnected = self.userConnected
             navigationController?.pushViewController(eventVC, animated: false)
         } else if (tabBar.selectedItem == tabBar.items?[2]) {
             let feedbackVC = MessagesController()
@@ -167,7 +168,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 1 {
-            return CGSize(width: (view.frame.width/3) - 16, height: 100)
+            return CGSize(width: (view.frame.width/2) - 16, height: 100)
         }
         return CGSize(width: view.frame.width, height: 300)
     }

@@ -147,7 +147,6 @@
 				18C1EBE8247446AB00DC140A /* SignInViewController.xib */,
 				18C1EBE42474434700DC140A /* HomeViewController.xib */,
 				4F18831024659655006481B6 /* MessagesController.xib */,
-				EA30540624B1DBB500C563BF /* MesServicesViewController.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -186,6 +185,7 @@
 		4FF3162E245B0C170006FF9C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EA8E305D24B7BC25009F5FAE /* MesServices */,
 				EAFA409924B470DE00D9059F /* ServiceInfos */,
 				EAFA409424B3539000D9059F /* ListServices */,
 				18DECE402477BC2E00D5C27C /* SignUpViewController.swift */,
@@ -194,7 +194,6 @@
 				4FB7E219246AD7DC002740C6 /* ProfilFormController.swift */,
 				4FF31631245B0C6B0006FF9C /* TabBarController.swift */,
 				4FF31637245B0CB10006FF9C /* ServicesController.swift */,
-				EA30540524B1DBB500C563BF /* MesServicesViewController.swift */,
 				4F18830F24659655006481B6 /* MessagesController.swift */,
 				4FF3163D245B0CD90006FF9C /* ProfilController.swift */,
 				4F32268E245F0A0400CAF083 /* DeleteController.swift */,
@@ -230,6 +229,15 @@
 				4F19E142246ED03A00F21132 /* ImageSource.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EA8E305D24B7BC25009F5FAE /* MesServices */ = {
+			isa = PBXGroup;
+			children = (
+				EA30540524B1DBB500C563BF /* MesServicesViewController.swift */,
+				EA30540624B1DBB500C563BF /* MesServicesViewController.xib */,
+			);
+			path = MesServices;
 			sourceTree = "<group>";
 		};
 		EAFA409424B3539000D9059F /* ListServices */ = {

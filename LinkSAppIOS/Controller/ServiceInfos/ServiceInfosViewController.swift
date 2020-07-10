@@ -64,6 +64,7 @@ class ServiceInfosViewController: UIViewController {
                 }
                 
                 if( user.id == creator[0].id){
+                    print(user.id)
                     self.btnPostulate.isHidden = true
                     
                 }
