@@ -40,8 +40,10 @@ class ServiceWebService {
             task.resume()
         }*/
 
-    func getServices(completion: @escaping ([Service]) -> Void) -> Void {
-        guard let urlApi  = URL(string: "http://localhost:4000/services") else {
+    func getServices(statutId: Int, completion: @escaping ([Service]) -> Void) -> Void {
+        let url = Config.urlAPI + "/services/statut/\(statutId)"
+        
+        guard let urlApi  = URL(string: url) else {
             return;
         }
         var request = URLRequest(url: urlApi)
@@ -71,7 +73,9 @@ class ServiceWebService {
     }
     
     func getMyServices(userId: Int, completion: @escaping ([Service]) -> Void) -> Void {
-        guard let urlApi  = URL(string: "http://localhost:4000/services/creator/\(userId)") else {
+        let url = Config.urlAPI + "/services/creator/\(userId)"
+        
+        guard let urlApi  = URL(string: url) else {
             return;
         }
         var request = URLRequest(url: urlApi)
@@ -101,7 +105,9 @@ class ServiceWebService {
     }
     
     func getMyAppliances(userId: Int, completion: @escaping ([Service]) -> Void) -> Void {
-        guard let urlApi  = URL(string: "http://localhost:4000/apply/\(userId)") else {
+        let url = Config.urlAPI + "/apply/\(userId)"
+        
+        guard let urlApi  = URL(string: url) else {
             return;
         }
         var request = URLRequest(url: urlApi)
@@ -127,7 +133,29 @@ class ServiceWebService {
             }
         }
         task.resume()
-        
     }
+    
+    func deleteService(service: Service, completion: @escaping (Bool) -> Void) -> Void {
+        let url = Config.urlAPI + "/services/\(service.id)"
+        
+        guard let urlApi  = URL(string: url) else {
+            return;
+        }
+        var request = URLRequest(url: urlApi)
+        request.httpMethod = "DELETE"
+
+        request.setValue("application/json", forHTTPHeaderField: "content-type")
+        
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, res, err) in
+            if let httpRes = res as? HTTPURLResponse {
+                completion(httpRes.statusCode == 200)
+            }
+            completion(false)
+            
+           }
+        task.resume()
+    }
+    
     
 }

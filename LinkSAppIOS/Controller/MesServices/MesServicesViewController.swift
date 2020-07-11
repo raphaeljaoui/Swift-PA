@@ -55,6 +55,7 @@ class MesServicesViewController: UIViewController, UITabBarDelegate, UICollectio
         self.navigationItem.hidesBackButton = true
         tabBar.selectedItem = tabBar.items?[1]
         self.tabBar.delegate = self
+        self.collectionView.delegate = self
     }
     
     func configUI() {
@@ -88,7 +89,6 @@ class MesServicesViewController: UIViewController, UITabBarDelegate, UICollectio
         }
         
         if(segmentControl.selectedSegmentIndex == 1){
-            
             DispatchQueue.main.async {
                 self.ServiceWS.getMyServices(userId: idUser){ (services) in
                     if(services.count > 0){
@@ -98,12 +98,10 @@ class MesServicesViewController: UIViewController, UITabBarDelegate, UICollectio
                 }
             }
         } else {
-            
             DispatchQueue.main.async {
                 self.ServiceWS.getMyAppliances(userId: idUser){ (services) in
                     if(services.count > 0){
                         self.servicesArray = services
-                        print(self.servicesArray)
                         self.collectionView.reloadData()
                     }
                 }

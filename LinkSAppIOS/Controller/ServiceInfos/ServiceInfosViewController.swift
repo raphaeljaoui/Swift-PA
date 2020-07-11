@@ -13,6 +13,7 @@ class ServiceInfosViewController: UIViewController {
     let UserWS : UserWebService = UserWebService()
     let TypeWS : TypeServiceWebService = TypeServiceWebService()
     let ApplyWS : ApplyWebService = ApplyWebService()
+    let ServiceWS: ServiceWebService = ServiceWebService()
     
     var service: Service? = nil
     var userConnected: User? = nil
@@ -24,7 +25,10 @@ class ServiceInfosViewController: UIViewController {
     @IBOutlet weak var dateService: UILabel!
     @IBOutlet weak var deadlineService: UILabel!
     @IBOutlet weak var profitService: UILabel!
+    @IBOutlet weak var executorService: UILabel!
     @IBOutlet weak var btnPostulate: UIButton!
+    @IBOutlet weak var btnVolunteers: UIButton!
+    @IBOutlet weak var btnDeleteService: UIButton!
     
     
     override func viewDidLoad() {
@@ -42,10 +46,9 @@ class ServiceInfosViewController: UIViewController {
         profitService.text = String(actualService.profit)
         
         setCreatorName()
-        
         setTypeName()
+        setExecutorName()
         
-        print(service?.name)
         // Do any additional setup after loading the view.
     }
 
@@ -64,16 +67,17 @@ class ServiceInfosViewController: UIViewController {
                 }
                 
                 if( user.id == creator[0].id){
-                    print(user.id)
                     self.btnPostulate.isHidden = true
-                    
+                    self.btnVolunteers.isHidden = false
+                    self.btnDeleteService.isHidden = false
+                } else {
+                    self.btnVolunteers.isHidden = true
+                    self.btnDeleteService.isHidden = true
                 }
             } else {
                 
             }
         }
-        
-        
     }
     
     func setTypeName() -> Void {
@@ -92,8 +96,22 @@ class ServiceInfosViewController: UIViewController {
         }
     }
     
-    @IBAction func btnPostulate(_ sender: Any) {
+    func setExecutorName() -> Void {
+        guard let idService = service?.id else {
+            return
+        }
         
+        self.ApplyWS.getExecutorOfAService(idService: idService){ (user) in
+            
+            if(user.count > 0){
+                self.executorService.text = user[0].name
+            } else {
+                
+            }
+        }
+    }
+    
+    @IBAction func btnPostulate(_ sender: Any) {
         guard let id_service = service?.id else {
             return
         }
@@ -105,7 +123,39 @@ class ServiceInfosViewController: UIViewController {
         self.ApplyWS.setAppliance(apply: userAppliance){ (type) in
             print(type)
         }
-        
     }
-
+    
+    @IBAction func btnVolunteers(_ sender: Any) {
+        displayVolunteers()
+    }
+    
+    @IBAction func btnDeleteService(_ sender: Any) {
+        guard let serviceToDelete = self.service else {
+            return
+        }
+        
+        self.ServiceWS.deleteService(service: serviceToDelete){ (res) in
+            //print(res)
+        }
+    }
+    
+    func displayVolunteers() -> Void {
+        guard let idService = service?.id else {
+            return
+        }
+        
+        self.ApplyWS.getAppliances(idService: idService){ (volunteersList) in
+            if(volunteersList.count > 0){
+                let volunteers = ListVolunteersViewController()
+                volunteers.service = self.service
+                volunteers.userConnected = self.userConnected
+                volunteers.volunteersList = volunteersList
+                self.navigationController?.pushViewController(volunteers, animated:true)
+                
+            } else {
+                
+            }
+        }
+    }
+    
 }

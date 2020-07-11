@@ -42,7 +42,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         
         //print(userConnected)
         
-        self.ServiceWS.getServices(){ (services) in
+        self.ServiceWS.getServices(statutId: 1){ (services) in
             if(services.count > 0){
                 //TODO: chose a solution
                 self.servicesArray = services
@@ -91,7 +91,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func loadServices() {
-        self.ServiceWS.getServices(){ (services) in
+        self.ServiceWS.getServices(statutId: 1){ (services) in
             if(services.count > 0){
                 for counter in 0..<services.count {
                     print(services[counter])
@@ -186,8 +186,6 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         detail.service = servicesArray[indexPath.item]
         detail.userConnected = userConnected
         self.navigationController?.pushViewController(detail, animated:true)
-        
-        
     }
     
     
