@@ -24,9 +24,10 @@ class Service: CustomStringConvertible {
     var id_type: Int
     var id_creator: Int
     var executorUser: Int?
+    var Statut: Int
     
     
-    init(idService: Int, name: String, date: String, deadline: String, cost: Int, profit: Int, access: String, type: Int, creator: Int){
+    init(idService: Int, name: String, date: String, deadline: String, cost: Int, profit: Int, access: String, type: Int, creator: Int, Statut: Int){
         self.id = idService;
         self.name = name;
         self.date = String(date.prefix(10));
@@ -36,6 +37,7 @@ class Service: CustomStringConvertible {
         self.access = access;
         self.id_type = type;
         self.id_creator = creator;
+        self.Statut = Statut;
     }
     
     var description: String {

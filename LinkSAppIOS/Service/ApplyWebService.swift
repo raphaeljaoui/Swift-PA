@@ -103,7 +103,7 @@ class ApplyWebService{
         task.resume()
     }
     
-    func setExecutor(apply: Apply, completion: @escaping (Bool) -> Void) -> Void {
+    func updateAppliance(apply: Apply, completion: @escaping (Bool) -> Void) -> Void {
         let url = Config.urlAPI + "/apply"
         guard let urlApi  = URL(string: url) else {
             return;
@@ -123,6 +123,8 @@ class ApplyWebService{
            }
         task.resume()
     }
+    
+    
     
     
 }

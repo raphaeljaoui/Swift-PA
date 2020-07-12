@@ -77,6 +77,7 @@ class ListVolunteersViewController: UIViewController, UITableViewDelegate, UITab
         volunteers.userConnected = self.userConnected
         volunteers.volunteer = volunteerToDisplay
         volunteers.idService = service?.id
+        volunteers.ListVolunteer = volunteersList
         self.navigationController?.pushViewController(volunteers, animated:true)
     }
     

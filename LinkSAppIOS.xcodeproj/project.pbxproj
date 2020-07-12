@@ -47,6 +47,8 @@
 		EA30540724B1DBB500C563BF /* MesServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA30540524B1DBB500C563BF /* MesServicesViewController.swift */; };
 		EA30540824B1DBB500C563BF /* MesServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA30540624B1DBB500C563BF /* MesServicesViewController.xib */; };
 		EA30540A24B2648400C563BF /* TypeServiceWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA30540924B2648400C563BF /* TypeServiceWebService.swift */; };
+		EA3BB3F424BB205300CD6383 /* EvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB3F224BB205300CD6383 /* EvaluationViewController.swift */; };
+		EA3BB3F524BB205300CD6383 /* EvaluationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3BB3F324BB205300CD6383 /* EvaluationViewController.xib */; };
 		EA696E1F24B909650079FC38 /* VolunteersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA696E1D24B909650079FC38 /* VolunteersTableViewCell.swift */; };
 		EA696E2024B909650079FC38 /* VolunteersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA696E1E24B909650079FC38 /* VolunteersTableViewCell.xib */; };
 		EA696E2224B9C6C50079FC38 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA696E2124B9C6C50079FC38 /* Config.swift */; };
@@ -108,6 +110,8 @@
 		EA30540524B1DBB500C563BF /* MesServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesServicesViewController.swift; sourceTree = "<group>"; };
 		EA30540624B1DBB500C563BF /* MesServicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MesServicesViewController.xib; sourceTree = "<group>"; };
 		EA30540924B2648400C563BF /* TypeServiceWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeServiceWebService.swift; sourceTree = "<group>"; };
+		EA3BB3F224BB205300CD6383 /* EvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationViewController.swift; sourceTree = "<group>"; };
+		EA3BB3F324BB205300CD6383 /* EvaluationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluationViewController.xib; sourceTree = "<group>"; };
 		EA696E1D24B909650079FC38 /* VolunteersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteersTableViewCell.swift; sourceTree = "<group>"; };
 		EA696E1E24B909650079FC38 /* VolunteersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VolunteersTableViewCell.xib; sourceTree = "<group>"; };
 		EA696E2124B9C6C50079FC38 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -250,6 +254,10 @@
 		EA696E2724BA160D0079FC38 /* Volunteers */ = {
 			isa = PBXGroup;
 			children = (
+				EA696E2324BA09800079FC38 /* ListVolunteersViewController.swift */,
+				EA696E2424BA09800079FC38 /* ListVolunteersViewController.xib */,
+				EA696E1D24B909650079FC38 /* VolunteersTableViewCell.swift */,
+				EA696E1E24B909650079FC38 /* VolunteersTableViewCell.xib */,
 				EA696E2824BA162D0079FC38 /* VolunteersDetailsViewController.swift */,
 				EA696E2924BA162D0079FC38 /* VolunteersDetailsViewController.xib */,
 			);
@@ -281,10 +289,8 @@
 			children = (
 				EAFA40A024B473AA00D9059F /* ServiceInfosViewController.swift */,
 				EAFA40A124B473AA00D9059F /* ServiceInfosViewController.xib */,
-				EA696E2324BA09800079FC38 /* ListVolunteersViewController.swift */,
-				EA696E2424BA09800079FC38 /* ListVolunteersViewController.xib */,
-				EA696E1D24B909650079FC38 /* VolunteersTableViewCell.swift */,
-				EA696E1E24B909650079FC38 /* VolunteersTableViewCell.xib */,
+				EA3BB3F224BB205300CD6383 /* EvaluationViewController.swift */,
+				EA3BB3F324BB205300CD6383 /* EvaluationViewController.xib */,
 			);
 			path = ServiceInfos;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA3BB3F524BB205300CD6383 /* EvaluationViewController.xib in Resources */,
 				18C1EBEA247446AB00DC140A /* SignInViewController.xib in Resources */,
 				4FF31627245B0BF90006FF9C /* LaunchScreen.storyboard in Resources */,
 				EAFA40A324B473AA00D9059F /* ServiceInfosViewController.xib in Resources */,
@@ -398,6 +405,7 @@
 				4F4B409824655E4C00249FB8 /* Extensions.swift in Sources */,
 				4F19E141246ED01000F21132 /* Extension.swift in Sources */,
 				EA8E305524B5B269009F5FAE /* ServiceCollectionViewCell.swift in Sources */,
+				EA3BB3F424BB205300CD6383 /* EvaluationViewController.swift in Sources */,
 				EA696E1F24B909650079FC38 /* VolunteersTableViewCell.swift in Sources */,
 				4F755113245D6D3600C0CD40 /* PopUpPoints.swift in Sources */,
 				18C1EBF4247568A500DC140A /* UserWebSevice.swift in Sources */,

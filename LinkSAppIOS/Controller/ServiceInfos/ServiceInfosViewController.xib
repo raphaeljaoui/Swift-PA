@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceInfosViewController" customModule="LinkSAppIOS" customModuleProvider="target">
             <connections>
                 <outlet property="btnDeleteService" destination="lBf-lp-p5W" id="QPs-ie-vGz"/>
+                <outlet property="btnEndService" destination="Y9S-hc-GCt" id="laj-i4-Ms3"/>
                 <outlet property="btnPostulate" destination="bwk-ko-2cZ" id="GBh-xq-8tq"/>
                 <outlet property="btnVolunteers" destination="itA-lt-NRF" id="e47-Qi-FAU"/>
                 <outlet property="creatorService" destination="pzr-yD-Igj" id="UQ2-Nx-Hjf"/>
@@ -51,8 +52,8 @@
                         </label>
                     </subviews>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZl-h3-A6n">
-                    <rect key="frame" x="25" y="309" width="73" height="38.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Profit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZl-h3-A6n">
+                    <rect key="frame" x="25" y="308" width="73" height="38.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -103,8 +104,18 @@
                         <action selector="btnVolunteers:" destination="-1" eventType="touchUpInside" id="eCq-oJ-4EE"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9S-hc-GCt">
+                    <rect key="frame" x="397" y="1272" width="230" height="51"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <state key="normal" title="Valider le service">
+                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnEndService:" destination="-1" eventType="touchUpInside" id="duc-f9-kjy"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBf-lp-p5W">
-                    <rect key="frame" x="372.5" y="1277" width="279" height="51"/>
+                    <rect key="frame" x="25" y="559.5" width="279" height="51"/>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <state key="normal" title="Supprimer le service">
                         <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -117,14 +128,17 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="BVK-x6-hqz" firstAttribute="top" secondItem="NJy-bw-YPP" secondAttribute="bottom" constant="25" id="3NV-J2-fD0"/>
+                <constraint firstItem="lBf-lp-p5W" firstAttribute="top" secondItem="itA-lt-NRF" secondAttribute="bottom" constant="35" id="9Hm-29-exo"/>
+                <constraint firstItem="lBf-lp-p5W" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="A0A-Nj-Qqp"/>
                 <constraint firstItem="NZl-h3-A6n" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Aog-AU-aE3"/>
                 <constraint firstItem="itA-lt-NRF" firstAttribute="top" secondItem="bwk-ko-2cZ" secondAttribute="bottom" constant="25" id="HI6-w0-tYO"/>
                 <constraint firstItem="NYo-7N-jbx" firstAttribute="top" secondItem="NZl-h3-A6n" secondAttribute="bottom" constant="55.5" id="KwS-tu-B7e"/>
                 <constraint firstItem="BVK-x6-hqz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="L4b-u3-E4P"/>
                 <constraint firstItem="bwk-ko-2cZ" firstAttribute="top" secondItem="NZl-h3-A6n" secondAttribute="bottom" constant="50" id="Lhh-5m-KN8"/>
-                <constraint firstItem="lBf-lp-p5W" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OsV-uN-URv"/>
+                <constraint firstItem="Y9S-hc-GCt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="O17-GY-xub"/>
                 <constraint firstItem="Wsl-eh-LCZ" firstAttribute="top" secondItem="BVK-x6-hqz" secondAttribute="bottom" constant="25" id="PD6-kv-Ny4"/>
                 <constraint firstItem="NJy-bw-YPP" firstAttribute="top" secondItem="Z27-Qv-l04" secondAttribute="bottom" constant="10" id="U5g-IJ-u6S"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Y9S-hc-GCt" secondAttribute="bottom" constant="18" id="Vty-B1-aZZ"/>
                 <constraint firstItem="Wsl-eh-LCZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Vyu-W1-zC9"/>
                 <constraint firstItem="Z27-Qv-l04" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="XT4-kE-bds"/>
                 <constraint firstItem="ufB-AR-RT8" firstAttribute="top" secondItem="Wsl-eh-LCZ" secondAttribute="bottom" constant="5" id="aPe-J3-O2K"/>
@@ -134,7 +148,6 @@
                 <constraint firstItem="NZl-h3-A6n" firstAttribute="top" secondItem="ufB-AR-RT8" secondAttribute="bottom" constant="25" id="pDJ-k8-HUK"/>
                 <constraint firstItem="NJy-bw-YPP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="pQV-n5-5nQ"/>
                 <constraint firstItem="Z27-Qv-l04" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="qB9-6E-cdV"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lBf-lp-p5W" secondAttribute="bottom" constant="18" id="vdG-pr-gZX"/>
                 <constraint firstItem="NYo-7N-jbx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="wtN-PT-Mzv"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

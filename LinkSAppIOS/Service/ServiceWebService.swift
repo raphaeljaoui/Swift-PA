@@ -135,15 +135,15 @@ class ServiceWebService {
         task.resume()
     }
     
-    func deleteService(service: Service, completion: @escaping (Bool) -> Void) -> Void {
+    func updateService(service: Service, completion: @escaping (Bool) -> Void) -> Void {
         let url = Config.urlAPI + "/services/\(service.id)"
         
         guard let urlApi  = URL(string: url) else {
             return;
         }
         var request = URLRequest(url: urlApi)
-        request.httpMethod = "DELETE"
-
+        request.httpMethod = "PATCH"
+        request.httpBody = try? JSONSerialization.data(withJSONObject: ServiceFactory.dictionaryFrom(service: service), options: .fragmentsAllowed)
         request.setValue("application/json", forHTTPHeaderField: "content-type")
         
         

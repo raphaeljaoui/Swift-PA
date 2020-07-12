@@ -42,7 +42,7 @@
                     <color key="selectedImageTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tabBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mZ7-8c-gTM">
-                    <rect key="frame" x="0.0" y="51" width="1014" height="1202"/>
+                    <rect key="frame" x="0.0" y="51" width="1024" height="1227"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qxr-Cr-CmJ">
                         <size key="itemSize" width="128" height="128"/>
@@ -55,7 +55,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="WMU-rW-vcP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7m8-U3-uEV"/>
-                <constraint firstItem="WMU-rW-vcP" firstAttribute="top" secondItem="mZ7-8c-gTM" secondAttribute="bottom" constant="25" id="8BG-6F-EHG"/>
+                <constraint firstItem="WMU-rW-vcP" firstAttribute="top" secondItem="mZ7-8c-gTM" secondAttribute="bottom" id="8BG-6F-EHG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xpd-r4-St7" secondAttribute="trailing" constant="10" id="K6Z-Tz-wQb"/>
                 <constraint firstItem="mZ7-8c-gTM" firstAttribute="top" secondItem="xpd-r4-St7" secondAttribute="bottom" constant="20" id="Mbd-lt-rZQ"/>
                 <constraint firstItem="xpd-r4-St7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="NZ1-IW-SKb"/>
@@ -63,7 +63,7 @@
                 <constraint firstItem="xpd-r4-St7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="q7K-hQ-czW"/>
                 <constraint firstItem="mZ7-8c-gTM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="swo-nZ-4LK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WMU-rW-vcP" secondAttribute="trailing" id="uXV-TR-SEo"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mZ7-8c-gTM" secondAttribute="trailing" constant="10" id="zIe-1B-Puj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mZ7-8c-gTM" secondAttribute="trailing" id="zIe-1B-Puj"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="132" y="139"/>

@@ -12,6 +12,7 @@ class VolunteersDetailsViewController: UIViewController {
     
     let ApplyWS : ApplyWebService = ApplyWebService()
 
+    var ListVolunteer: [User]? = nil
     var volunteer: User? = nil
     var userConnected: User? = nil
     var idService: Int? = nil
@@ -33,25 +34,32 @@ class VolunteersDetailsViewController: UIViewController {
 
     @IBAction func btnValiateVolunteer(_ sender: Any) {
         guard let id_service = idService,
-            let id_user = volunteer?.id
-        else {
+            let id_user = volunteer?.id,
+            let allVolunteers = ListVolunteer else {
             return
+        }
+        
+        let applyAnnulation = Apply(id_service: id_service)
+        applyAnnulation.execute = 0
+        
+        for counter in 0..<allVolunteers.count{
+            if(allVolunteers[counter].id != id_user){
+                applyAnnulation.id_user = allVolunteers[counter].id
+                ApplyWS.updateAppliance(apply: applyAnnulation){ (apply) in
+                    print(apply)
+                }
+            }
         }
         
         let applyExecutor = Apply(id_service: id_service)
         applyExecutor.id_user = id_user
         applyExecutor.execute = 2
         
-        ApplyWS.setExecutor(apply: applyExecutor){ (apply) in
+        ApplyWS.updateAppliance(apply: applyExecutor){ (apply) in
             print(apply)
         }
         
-        let applyAnnulation = Apply(id_service: id_service)
-        applyExecutor.execute = 0
-        
-        ApplyWS.setExecutor(apply: applyAnnulation){ (apply) in
-            print(apply)
-        }
+
         
     }
     

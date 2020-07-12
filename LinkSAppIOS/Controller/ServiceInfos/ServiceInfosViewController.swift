@@ -17,6 +17,7 @@ class ServiceInfosViewController: UIViewController {
     
     var service: Service? = nil
     var userConnected: User? = nil
+    var userExecutor: User? = nil
     
     @IBOutlet weak var creatorService: UILabel!
     @IBOutlet weak var nameService: UILabel!
@@ -26,9 +27,11 @@ class ServiceInfosViewController: UIViewController {
     @IBOutlet weak var deadlineService: UILabel!
     @IBOutlet weak var profitService: UILabel!
     @IBOutlet weak var executorService: UILabel!
+    
     @IBOutlet weak var btnPostulate: UIButton!
     @IBOutlet weak var btnVolunteers: UIButton!
     @IBOutlet weak var btnDeleteService: UIButton!
+    @IBOutlet weak var btnEndService: UIButton!
     
     
     override func viewDidLoad() {
@@ -73,6 +76,8 @@ class ServiceInfosViewController: UIViewController {
                 } else {
                     self.btnVolunteers.isHidden = true
                     self.btnDeleteService.isHidden = true
+                    self.executorService.isHidden = true
+                    self.btnEndService.isHidden = true
                 }
             } else {
                 
@@ -104,9 +109,12 @@ class ServiceInfosViewController: UIViewController {
         self.ApplyWS.getExecutorOfAService(idService: idService){ (user) in
             
             if(user.count > 0){
+                self.userExecutor = user[0]
                 self.executorService.text = user[0].name
+                self.btnVolunteers.isHidden = true
+                self.btnDeleteService.isHidden = true
             } else {
-                
+                self.btnEndService.isHidden = true
             }
         }
     }
@@ -130,13 +138,26 @@ class ServiceInfosViewController: UIViewController {
     }
     
     @IBAction func btnDeleteService(_ sender: Any) {
+        print("Eh cocotte jle supprime ton truc ?")
         guard let serviceToDelete = self.service else {
             return
         }
         
-        self.ServiceWS.deleteService(service: serviceToDelete){ (res) in
-            //print(res)
+        let userAppliance = Apply(id_service: serviceToDelete.id)
+        userAppliance.execute = 0
+        self.ApplyWS.updateAppliance(apply: userAppliance) { (res) in }
+        
+        serviceToDelete.Statut = 0
+        self.ServiceWS.updateService(service: serviceToDelete){ (res) in
+            
         }
+    }
+    @IBAction func btnEndService(_ sender: Any) {
+        let volunteers = EvaluationViewController()
+        volunteers.service = self.service
+        volunteers.userConnected = self.userConnected
+        volunteers.idExecutor = self.userExecutor?.id
+        self.navigationController?.pushViewController(volunteers, animated:true)
     }
     
     func displayVolunteers() -> Void {
