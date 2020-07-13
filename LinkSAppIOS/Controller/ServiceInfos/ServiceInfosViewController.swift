@@ -52,6 +52,8 @@ class ServiceInfosViewController: UIViewController {
         setTypeName()
         setExecutorName()
         
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -73,6 +75,12 @@ class ServiceInfosViewController: UIViewController {
                     self.btnPostulate.isHidden = true
                     self.btnVolunteers.isHidden = false
                     self.btnDeleteService.isHidden = false
+                    
+                    //hide button endService cause service is already ended
+                    if(self.service?.Statut == 2){
+                        self.btnEndService.isHidden = true
+                    }
+                    
                 } else {
                     self.btnVolunteers.isHidden = true
                     self.btnDeleteService.isHidden = true

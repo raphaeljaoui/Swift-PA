@@ -13,8 +13,6 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     
     let typeServiceWS: TypeServiceWebService = TypeServiceWebService()
     let ServiceWS: ServiceWebService = ServiceWebService()
-
-    
     
     var userConnected: User? = nil
     
@@ -39,8 +37,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         loadTypesServices()
         
         super.viewDidLoad()
-        
-        //print(userConnected)
+
         
         self.ServiceWS.getServices(statutId: 1){ (services) in
             if(services.count > 0){
@@ -80,11 +77,6 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         self.typeServiceWS.getTypesService{ (typesServices) in
             if(typesServices.count > 0){
                 self.imageArray = typesServices
-                
-                for counter in 0..<typesServices.count {
-                    self.imageArray?.append(typesServices[counter])
-                }
-                
             } else {
             }
         }
@@ -102,15 +94,27 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         }
     }
     
+    @objc
+    func newServiceView(){
+        let newService = NewServiceViewController()
+        newService.typeServiceList = imageArray
+        newService.userConnected = userConnected
+        self.navigationController?.pushViewController(newService, animated:true)
+    }
+    
+    
     func nav(){
         let detail = ServiceInfosViewController()
         self.navigationController?.pushViewController(detail, animated:true)
     }
     
     func configUI() {
+        navigationItem.hidesBackButton = true
+        let newService = UIBarButtonItem(title: "Nouveau Service", style: .plain, target: self, action: #selector(newServiceView))
+        
+        navigationItem.rightBarButtonItem = newService
         navigationItem.title = "Services"
         navigationController?.navigationBar.backgroundColor = .white
-        navigationController?.navigationBar.barTintColor = .gray
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -188,5 +192,5 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         self.navigationController?.pushViewController(detail, animated:true)
     }
     
-    
+
 }

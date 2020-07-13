@@ -8,6 +8,7 @@
 
 import UIKit
 import CryptoKit
+import CommonCrypto
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
 
@@ -73,20 +74,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
     func hashPassword(data : String) -> String {
         let inputData = Data(data.utf8)
-        let hashed = SHA256.hash(data: inputData)
+        let hashed = sha256(data: inputData)
         let hashString = hashed.compactMap { String(format: "%02x", $0) }.joined()
         return hashString
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func sha256(data : Data) -> Data {
+        var hash = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
+        data.withUnsafeBytes {
+            _ = CC_SHA256($0.baseAddress, CC_LONG(data.count), &hash)
+        }
+        return Data(hash)
     }
-    */
 
 }
