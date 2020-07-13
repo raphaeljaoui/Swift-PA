@@ -124,6 +124,40 @@ class ApplyWebService{
         task.resume()
     }
     
+    func getTotalNoteForTypeService(userId: Int, typeId: Int, completion: @escaping ([Int]) -> Void) -> Void {
+        let url = Config.urlAPI + "/apply/note/\(userId)&\(typeId)"
+        print(url)
+        //let params = "{'id_user': \(userId), 'id_type':\(typeId)}"
+        
+        guard let urlApi  = URL(string: url) else {
+            return;
+        }
+        var request = URLRequest(url: urlApi)
+        request.httpMethod = "GET"
+        //request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: .fragmentsAllowed)
+        request.setValue("application/json", forHTTPHeaderField: "content-type")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, res, err) in
+            guard let bytes = data,
+            err == nil,
+                let json = try? JSONSerialization.jsonObject(with: bytes) as? [Any] else {
+                DispatchQueue.main.sync{
+                    completion([])
+                }
+                return
+            }
+            let note = json.compactMap{(obj) -> Int? in
+                guard let dict = obj as? [String :Any] else { return nil }
+                guard let finalNote = dict["note"] as? Int else { return nil }
+                return finalNote
+            }
+            DispatchQueue.main.sync{
+                completion(note)
+            }
+        }
+        task.resume()
+    }
+    
     
     
     

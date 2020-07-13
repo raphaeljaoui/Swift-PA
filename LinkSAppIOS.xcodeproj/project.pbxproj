@@ -49,6 +49,12 @@
 		EA30540A24B2648400C563BF /* TypeServiceWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA30540924B2648400C563BF /* TypeServiceWebService.swift */; };
 		EA3BB3F424BB205300CD6383 /* EvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB3F224BB205300CD6383 /* EvaluationViewController.swift */; };
 		EA3BB3F524BB205300CD6383 /* EvaluationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3BB3F324BB205300CD6383 /* EvaluationViewController.xib */; };
+		EA3BB3F724BBAE7400CD6383 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB3F624BBAE7400CD6383 /* Badge.swift */; };
+		EA3BB3F924BBAF2400CD6383 /* BadgeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB3F824BBAF2400CD6383 /* BadgeFactory.swift */; };
+		EA3BB3FB24BBB02F00CD6383 /* BadgeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB3FA24BBB02F00CD6383 /* BadgeWebService.swift */; };
+		EA3BB3FD24BC576800CD6383 /* WinFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB3FC24BC576800CD6383 /* WinFactory.swift */; };
+		EA3BB3FF24BC578E00CD6383 /* Win.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB3FE24BC578E00CD6383 /* Win.swift */; };
+		EA3BB40124BC587C00CD6383 /* WinWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB40024BC587C00CD6383 /* WinWebService.swift */; };
 		EA696E1F24B909650079FC38 /* VolunteersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA696E1D24B909650079FC38 /* VolunteersTableViewCell.swift */; };
 		EA696E2024B909650079FC38 /* VolunteersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA696E1E24B909650079FC38 /* VolunteersTableViewCell.xib */; };
 		EA696E2224B9C6C50079FC38 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA696E2124B9C6C50079FC38 /* Config.swift */; };
@@ -112,6 +118,12 @@
 		EA30540924B2648400C563BF /* TypeServiceWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeServiceWebService.swift; sourceTree = "<group>"; };
 		EA3BB3F224BB205300CD6383 /* EvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationViewController.swift; sourceTree = "<group>"; };
 		EA3BB3F324BB205300CD6383 /* EvaluationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluationViewController.xib; sourceTree = "<group>"; };
+		EA3BB3F624BBAE7400CD6383 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		EA3BB3F824BBAF2400CD6383 /* BadgeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeFactory.swift; sourceTree = "<group>"; };
+		EA3BB3FA24BBB02F00CD6383 /* BadgeWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeWebService.swift; sourceTree = "<group>"; };
+		EA3BB3FC24BC576800CD6383 /* WinFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinFactory.swift; sourceTree = "<group>"; };
+		EA3BB3FE24BC578E00CD6383 /* Win.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Win.swift; sourceTree = "<group>"; };
+		EA3BB40024BC587C00CD6383 /* WinWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinWebService.swift; sourceTree = "<group>"; };
 		EA696E1D24B909650079FC38 /* VolunteersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteersTableViewCell.swift; sourceTree = "<group>"; };
 		EA696E1E24B909650079FC38 /* VolunteersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VolunteersTableViewCell.xib; sourceTree = "<group>"; };
 		EA696E2124B9C6C50079FC38 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -154,6 +166,10 @@
 				EA30540924B2648400C563BF /* TypeServiceWebService.swift */,
 				EA8E305924B783B4009F5FAE /* ApplyFactory.swift */,
 				EA8E305B24B783CA009F5FAE /* ApplyWebService.swift */,
+				EA3BB3F824BBAF2400CD6383 /* BadgeFactory.swift */,
+				EA3BB3FA24BBB02F00CD6383 /* BadgeWebService.swift */,
+				EA3BB3FC24BC576800CD6383 /* WinFactory.swift */,
+				EA3BB40024BC587C00CD6383 /* WinWebService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -233,6 +249,8 @@
 				EA3053F924B0A26D00C563BF /* Service.swift */,
 				EA30540124B1C27600C563BF /* TypeService.swift */,
 				EA8E305724B7828F009F5FAE /* Apply.swift */,
+				EA3BB3F624BBAE7400CD6383 /* Badge.swift */,
+				EA3BB3FE24BC578E00CD6383 /* Win.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,10 +407,12 @@
 				EAFA409224B3536F00D9059F /* ListServicesViewController.swift in Sources */,
 				18C1EBEE2475658600DC140A /* Login.swift in Sources */,
 				4FF31638245B0CB10006FF9C /* ServicesController.swift in Sources */,
+				EA3BB3F924BBAF2400CD6383 /* BadgeFactory.swift in Sources */,
 				EA3053FC24B0A65D00C563BF /* ServiceWebService.swift in Sources */,
 				4FF31632245B0C6B0006FF9C /* TabBarController.swift in Sources */,
 				EAFA40A224B473AA00D9059F /* ServiceInfosViewController.swift in Sources */,
 				4FF31640245B0D4D0006FF9C /* ProfilSections.swift in Sources */,
+				EA3BB3F724BBAE7400CD6383 /* Badge.swift in Sources */,
 				4FF31644245B0DA40006FF9C /* InfoUser.swift in Sources */,
 				EA30540724B1DBB500C563BF /* MesServicesViewController.swift in Sources */,
 				EA8E305C24B783CA009F5FAE /* ApplyWebService.swift in Sources */,
@@ -403,10 +423,13 @@
 				4F19E13D246ECFB800F21132 /* ScaledHeightImageView.swift in Sources */,
 				4FB7E21A246AD7DC002740C6 /* ProfilFormController.swift in Sources */,
 				4F4B409824655E4C00249FB8 /* Extensions.swift in Sources */,
+				EA3BB3FB24BBB02F00CD6383 /* BadgeWebService.swift in Sources */,
 				4F19E141246ED01000F21132 /* Extension.swift in Sources */,
 				EA8E305524B5B269009F5FAE /* ServiceCollectionViewCell.swift in Sources */,
+				EA3BB40124BC587C00CD6383 /* WinWebService.swift in Sources */,
 				EA3BB3F424BB205300CD6383 /* EvaluationViewController.swift in Sources */,
 				EA696E1F24B909650079FC38 /* VolunteersTableViewCell.swift in Sources */,
+				EA3BB3FD24BC576800CD6383 /* WinFactory.swift in Sources */,
 				4F755113245D6D3600C0CD40 /* PopUpPoints.swift in Sources */,
 				18C1EBF4247568A500DC140A /* UserWebSevice.swift in Sources */,
 				18C1EBE9247446AB00DC140A /* SignInViewController.swift in Sources */,
@@ -420,6 +443,7 @@
 				4FF31642245B0D7A0006FF9C /* ProfilCell.swift in Sources */,
 				4F18831124659655006481B6 /* MessagesController.swift in Sources */,
 				EA30540424B1C3B600C563BF /* TypeServiceFactory.swift in Sources */,
+				EA3BB3FF24BC578E00CD6383 /* Win.swift in Sources */,
 				18C1EBF62475692100DC140A /* UserFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

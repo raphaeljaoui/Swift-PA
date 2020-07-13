@@ -12,10 +12,13 @@ class EvaluationViewController: UIViewController {
 
     let ApplyWS : ApplyWebService = ApplyWebService()
     let ServiceWS: ServiceWebService = ServiceWebService()
+    let BadgeWS : BadgeWebService = BadgeWebService()
+    let WinWS : WinWebService = WinWebService()
     
     var service: Service? = nil
     var userConnected: User? = nil
     var idExecutor: Int? = nil
+    var badgesList: [Badge] = []
 
     @IBOutlet weak var commentaireTF: UITextField!
     @IBOutlet weak var noteSlider: UISlider!
@@ -37,41 +40,78 @@ class EvaluationViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
         
-        guard let idUser = idExecutor,
+        guard let idExecutor = idExecutor,
             let idService = service?.id else {
                 return
         }
-        //print(service)
         
         let applyToClose = Apply(id_service: idService)
-        applyToClose.id_user = idUser
+        applyToClose.id_user = idExecutor
         applyToClose.execute = 2
         applyToClose.commentaire = commentary
         applyToClose.note = Int(note)
         
         ApplyWS.updateAppliance(apply: applyToClose){ (res) in
             if(res == true){
-                guard let serviceToUpdate = self.service else {
+                guard let service = self.service else {
                     return
                 }
-                serviceToUpdate.Statut = 2
+                service.Statut = 2
                 
-                self.ServiceWS.updateService(service: serviceToUpdate){ (res) in
-                    
+                self.ServiceWS.updateService(service: service){ (res) in
+                    if(res == true){
+                        self.calculateBadges(idUser: idExecutor, idType: service.id_type)
+                    }
                 }
             }
         }
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func calculateBadges(idUser: Int, idType: Int) -> Void {
+        ApplyWS.getTotalNoteForTypeService(userId: idUser, typeId: idType){ (note) in
+            if(note.count > 0 && note[0] > 0){
+                self.BadgeWS.getBadges(){ (badges) in
+                    if(badges.count > 0){
+                        self.badgesList = badges
+                        self.WinWS.getUserBadges(idUser: idUser){ (badgesWin) in
+                            self.setNewBadges(UserBadges: badgesWin, noteTotalUser: note[0])
+                        }
+                    }
+                }
+            }
+        }
     }
-    */
 
+    func setNewBadges(UserBadges: [Win], noteTotalUser: Int) -> Void{
+        
+        for counterBadgeUser in 0..<UserBadges.count{
+            var removeId : Int? = nil
+            for counterBadge in 0..<badgesList.count{
+                if(UserBadges[counterBadgeUser].id_badge == badgesList[counterBadge].id){
+                    removeId = counterBadge
+                }
+            }
+            if(removeId != nil){
+                guard let indicebadgeToRemove = removeId else { return }
+                badgesList.remove(at: indicebadgeToRemove)
+            }
+        }
+        print(badgesList)
+        
+        for counterBadge in 0..<badgesList.count{
+            print(badgesList[counterBadge])
+            print(noteTotalUser)
+            if(noteTotalUser >= badgesList[counterBadge].pointsLimit){
+                guard let idUser = idExecutor else { return }
+                
+                let newUserBadge = Win(id_user: idUser, id_badge: badgesList[counterBadge].id)
+                print(newUserBadge)
+                self.WinWS.setBadgeToUser(win: newUserBadge){ (res) in
+                }
+                
+            }
+        }
+        
+    }
 }

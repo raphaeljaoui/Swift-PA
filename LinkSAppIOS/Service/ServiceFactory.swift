@@ -33,6 +33,7 @@ class ServiceFactory {
     static func dictionaryFrom(service: Service) -> [String: Any] {
         return [
             "name": service.name,
+            "description": service.desc,
             "date": service.date,
             "deadline": service.deadline,
             "cost": service.cost,
