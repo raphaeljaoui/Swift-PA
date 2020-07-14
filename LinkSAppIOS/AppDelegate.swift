@@ -15,10 +15,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
-        // Override point for customization after application launch.
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let slideUnViewController = HomeViewController()
-        window.rootViewController =  UINavigationController(rootViewController: slideUnViewController)
+        if(UserDefaults.standard.string(forKey: "userEmail") != nil){
+            let UserWS: UserWebService = UserWebService()
+            UserWS.connexionUser(email: UserDefaults.standard.string(forKey: "userEmail")!, password: UserDefaults.standard.string(forKey: "userPwd")!){ (user) in
+                if(user.count > 0){
+                    let userConnected = user[0]
+                    
+                    let ListService = ListServicesViewController()
+                    ListService.userConnected = userConnected
+                    window.rootViewController = UINavigationController(rootViewController: ListService)
+                } else {
+                    let slideUnViewController = HomeViewController()
+                    window.rootViewController =  UINavigationController(rootViewController: slideUnViewController)
+                }
+                window.makeKeyAndVisible()
+                self.window = window
+            }
+            return true
+        } else {
+            let slideUnViewController = HomeViewController()
+            window.rootViewController =  UINavigationController(rootViewController: slideUnViewController)
+        }
         
         window.makeKeyAndVisible()
         self.window = window

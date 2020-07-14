@@ -20,17 +20,32 @@ class UserFactory {
             let type = dictionary["type"] as? String else {
                 return nil
         }
-        let login = User(id_user: id, name: name, surname: surname, email: email, birthdate: birthdate, points: points, type: type)
-//        login.id = dictionary["id"] as? Int
-        return login
+        let user = User(id_user: id, name: name, surname: surname, email: email, birthdate: birthdate, points: points, type: type)
+        
+        user.adress = dictionary["adress"] as? String
+        user.city = dictionary["city"] as? String
+        user.postcode = dictionary["postcode"] as? Int
+        user.active = dictionary["active"] as? Int
+        
+        
+        
+        return user
     }
     
-    static func dictionaryFrom(login: UserLogin) -> [String: Any] {
+    static func dictionaryFrom(user: User) -> [String: Any] {
         return [
-            "table": login.table,
-            "values": ["email" : login.values?.email as Any ,
-                       "password" : login.values?.password as Any,
-            ],
+            "email" : user.email,
+            "name" : user.name,
+            "surname" : user.surname,
+            "birthdate" : user.birthdate,
+            "points" : user.points,
+            "type" : user.type,
+            "password" : user.password!,
+            "adress" : user.adress!,
+            "city" : user.city!,
+            "postcode" : user.postcode!,
+            "active" : user.active!,
+            
         ]
     }
 }

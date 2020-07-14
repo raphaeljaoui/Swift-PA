@@ -24,6 +24,7 @@ class User: CustomStringConvertible {
     var postcode: Int?
     var category: String?
     var type: String
+    var active: Int?
     
     
     init(id_user: Int, name: String, surname: String, email: String, birthdate: String, points: Int, type: String) {
@@ -31,7 +32,7 @@ class User: CustomStringConvertible {
         self.name = name
         self.surname = surname
         self.email = email
-        self.birthdate = birthdate
+        self.birthdate = String(birthdate.prefix(10))
         self.points = points
         self.type = type
     }

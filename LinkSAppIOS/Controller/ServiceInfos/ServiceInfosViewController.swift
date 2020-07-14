@@ -146,7 +146,6 @@ class ServiceInfosViewController: UIViewController {
     }
     
     @IBAction func btnDeleteService(_ sender: Any) {
-        print("Eh cocotte jle supprime ton truc ?")
         guard let serviceToDelete = self.service else {
             return
         }
@@ -164,7 +163,7 @@ class ServiceInfosViewController: UIViewController {
         let volunteers = EvaluationViewController()
         volunteers.service = self.service
         volunteers.userConnected = self.userConnected
-        volunteers.idExecutor = self.userExecutor?.id
+        volunteers.executor = self.userExecutor
         self.navigationController?.pushViewController(volunteers, animated:true)
     }
     

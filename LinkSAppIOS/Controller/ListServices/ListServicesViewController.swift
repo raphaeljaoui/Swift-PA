@@ -24,6 +24,12 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     
     @IBOutlet weak var tabBar: UITabBar!
     
+    class func newInstance(userConnected: User) -> ListServicesViewController {
+        let listService = ListServicesViewController()
+        listService.userConnected = userConnected
+        return listService
+    }
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 16
@@ -60,15 +66,15 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
         if (tabBar.selectedItem == tabBar.items?[1]) {
-            let eventVC = MesServicesViewController()
-            eventVC.userConnected = self.userConnected
-            navigationController?.pushViewController(eventVC, animated: false)
+            let mesServices = MesServicesViewController()
+            mesServices.userConnected = self.userConnected
+            navigationController?.pushViewController(mesServices, animated: false)
         } else if (tabBar.selectedItem == tabBar.items?[2]) {
-            let feedbackVC = MessagesController()
-            navigationController?.pushViewController(feedbackVC, animated: true)
+            let messages = MessagesController()
+            navigationController?.pushViewController(messages, animated: true)
         } else if (tabBar.selectedItem == tabBar.items?[3]) {
-            let feedbackVC = ProfilController()
-            navigationController?.pushViewController(feedbackVC, animated: true)
+            let profil = ProfilController()
+            navigationController?.pushViewController(profil, animated: true)
         }
     }
     

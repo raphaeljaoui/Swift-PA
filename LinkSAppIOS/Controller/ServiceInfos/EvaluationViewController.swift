@@ -14,10 +14,11 @@ class EvaluationViewController: UIViewController {
     let ServiceWS: ServiceWebService = ServiceWebService()
     let BadgeWS : BadgeWebService = BadgeWebService()
     let WinWS : WinWebService = WinWebService()
+    let UserWS : UserWebService = UserWebService()
     
     var service: Service? = nil
     var userConnected: User? = nil
-    var idExecutor: Int? = nil
+    var executor: User? = nil
     var badgesList: [Badge] = []
 
     @IBOutlet weak var commentaireTF: UITextField!
@@ -40,7 +41,7 @@ class EvaluationViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
         
-        guard let idExecutor = idExecutor,
+        guard let idExecutor = executor?.id,
             let idService = service?.id else {
                 return
         }
@@ -53,19 +54,21 @@ class EvaluationViewController: UIViewController {
         
         ApplyWS.updateAppliance(apply: applyToClose){ (res) in
             if(res == true){
-                guard let service = self.service else {
+                guard let service = self.service,
+                    let userExecutor = self.executor else {
                     return
                 }
                 service.Statut = 2
                 
                 self.ServiceWS.updateService(service: service){ (res) in
                     if(res == true){
+                        self.executor?.points += service.profit
+                        self.UserWS.updateUser(user: userExecutor){ (res) in }
                         self.calculateBadges(idUser: idExecutor, idType: service.id_type)
                     }
                 }
             }
         }
-        
     }
     
     func calculateBadges(idUser: Int, idType: Int) -> Void {
@@ -103,11 +106,16 @@ class EvaluationViewController: UIViewController {
             print(badgesList[counterBadge])
             print(noteTotalUser)
             if(noteTotalUser >= badgesList[counterBadge].pointsLimit){
-                guard let idUser = idExecutor else { return }
+                guard let idUser = executor?.id else { return }
                 
                 let newUserBadge = Win(id_user: idUser, id_badge: badgesList[counterBadge].id)
                 print(newUserBadge)
                 self.WinWS.setBadgeToUser(win: newUserBadge){ (res) in
+                    DispatchQueue.main.sync {
+                        let mesServices = MesServicesViewController()
+                        mesServices.userConnected = self.userConnected
+                        self.navigationController?.pushViewController(mesServices, animated:true)
+                    }
                 }
                 
             }

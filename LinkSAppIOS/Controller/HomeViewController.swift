@@ -15,8 +15,8 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func inscription(_ sender: UIButton) {
-        let signUp:SignUpViewController = SignUpViewController()
-         self.present(signUp, animated: true, completion: nil)
+
+        self.navigationController?.pushViewController(SignUpViewController(), animated: true)
 
     }
     

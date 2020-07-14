@@ -28,11 +28,6 @@ class ListVolunteersViewController: UIViewController, UITableViewDelegate, UITab
         self.volunteersTableView.register(UINib(nibName: "VolunteersTableViewCell", bundle: nil), forCellReuseIdentifier: albumsCellId)
         
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.volunteersTableView.delegate = self
         self.volunteersTableView.dataSource = self
     }

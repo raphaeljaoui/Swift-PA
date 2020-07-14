@@ -12,6 +12,7 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     let typeServiceWS: TypeServiceWebService = TypeServiceWebService()
     let ServiceWS: ServiceWebService = ServiceWebService()
+    let UserWS: UserWebService = UserWebService()
 
     var userConnected: User? = nil
     
@@ -23,7 +24,7 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @IBOutlet weak var btnCreate: UIButton!
     var typeServicePicker: UIPickerView!
-    var datePicker: UIDatePicker?
+    var dateServicePicker: UIDatePicker?
     var deadlinePicker: UIDatePicker?
     
     var typeServiceList: [TypeService]? = nil
@@ -62,32 +63,32 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
-        self.datePicker = UIDatePicker()
+        self.dateServicePicker = UIDatePicker()
         self.deadlinePicker = UIDatePicker()
-        datePicker?.locale = Locale(identifier: "fr")
+        dateServicePicker?.locale = Locale(identifier: "fr")
         deadlinePicker?.locale = Locale(identifier: "fr")
-        datePicker?.addTarget(self, action: #selector(dateServiceChange(datePicker:)), for: .valueChanged)
+        dateServicePicker?.addTarget(self, action: #selector(dateServiceChange(datePicker:)), for: .valueChanged)
         deadlinePicker?.addTarget(self, action: #selector(deadlineServiceChange(datePicker:)), for: .valueChanged)
         
         let minDate = Date()
-        datePicker?.minimumDate = minDate
+        dateServicePicker?.minimumDate = minDate
         deadlinePicker?.minimumDate = minDate
         
-        self.dateField.inputView = datePicker
+        self.dateField.inputView = dateServicePicker
         self.deadlineField.inputView = deadlinePicker
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if (tabBar.selectedItem == tabBar.items?[1]) {
-            let eventVC = MesServicesViewController()
-            eventVC.userConnected = self.userConnected
-            navigationController?.pushViewController(eventVC, animated: false)
+            let mesServices = MesServicesViewController()
+            mesServices.userConnected = self.userConnected
+            navigationController?.pushViewController(mesServices, animated: false)
         } else if (tabBar.selectedItem == tabBar.items?[2]) {
-            let feedbackVC = MessagesController()
-            navigationController?.pushViewController(feedbackVC, animated: true)
+            let messages = MessagesController()
+            navigationController?.pushViewController(messages, animated: true)
         } else if (tabBar.selectedItem == tabBar.items?[3]) {
-            let feedbackVC = ProfilController()
-            navigationController?.pushViewController(feedbackVC, animated: true)
+            let profil = ProfilController()
+            navigationController?.pushViewController(profil, animated: true)
         }
     }
     
@@ -104,30 +105,60 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
             self.present(alertController, animated: true, completion: nil)
         } else {
             
-            guard let idUser = userConnected?.id else { return }
-            let serviceToCreate = Service(idService: 0, name: nameService!, date: dateService!, deadline: deadlineService!, cost: 1, profit: 1, access: "normal", type: idTypeService, creator: idUser, Statut: 1)
-            serviceToCreate.desc = descriptionService
-            ServiceWS.setService(service: serviceToCreate){ (res) in
-                
+            if(userConnected!.points > 1){
+                guard let idUser = userConnected?.id else { return }
+                let serviceToCreate = Service(idService: 0, name: nameService!, date: dateService!, deadline: deadlineService!, cost: 1, profit: 1, access: "normal", type: idTypeService, creator: idUser, Statut: 1)
+                serviceToCreate.desc = descriptionService
+                ServiceWS.setService(service: serviceToCreate){ (res) in
+                    if(res == true){
+                        self.userConnected?.points -= 1
+                        self.UserWS.updateUser(user: self.userConnected!){ (res) in
+                            if(res == true){
+                                let listServices = ListServicesViewController.newInstance(userConnected: self.userConnected!)
+                                listServices.userConnected = self.userConnected
+                                self.navigationController?.pushViewController(listServices, animated:true)
+                            }
+                        }
+                    }
+                }
+            } else {
+                let alertController = UIAlertController(title: "Erreur de création", message: "Vous ne pouvez pas créer de service si vous n'avez pas de points !", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Valider", style: .default))
+                self.present(alertController, animated: true, completion: nil)
             }
         }
-        
+    }
+    
+    func updateUserPoints(){
+        self.userConnected?.points -= 1
+        self.UserWS.updateUser(user: self.userConnected!){ (res) in
+            if(res == true){
+                self.redirection()
+            }
+        }
+    }
+    
+    func redirection() {
+        DispatchQueue.main.sync {
+            let listServices = ListServicesViewController.newInstance(userConnected: userConnected!)
+            listServices.userConnected = userConnected
+            self.navigationController?.pushViewController(listServices, animated:true)
+        }
     }
     
     @objc func dateServiceChange(datePicker : UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy HH:mm"
         self.dateField.text = formatter.string(from: datePicker.date)
-        formatter.dateFormat = "yyyy-mm-dd"
+        formatter.dateFormat = "yyyy-MM-dd"
         self.selectedDate = formatter.string(from: datePicker.date)
     }
-    
     
     @objc func deadlineServiceChange(datePicker : UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy HH:mm"
         self.deadlineField.text = formatter.string(from: datePicker.date)
-        formatter.dateFormat = "yyyy-mm-dd"
+        formatter.dateFormat = "yyyy-MM-dd"
         self.selectedDeadline = formatter.string(from: datePicker.date)
     }
     

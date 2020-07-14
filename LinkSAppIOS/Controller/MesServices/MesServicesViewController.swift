@@ -68,15 +68,15 @@ class MesServicesViewController: UIViewController, UITabBarDelegate, UICollectio
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
         if (tabBar.selectedItem == tabBar.items?[0]) {
-            let eventVC = ListServicesViewController()
-            eventVC.userConnected = self.userConnected
-            navigationController?.pushViewController(eventVC, animated: false)
+            let ListService = ListServicesViewController()
+            ListService.userConnected = self.userConnected
+            navigationController?.pushViewController(ListService, animated: false)
         } else if (tabBar.selectedItem == tabBar.items?[2]) {
-            let feedbackVC = MessagesController()
-            navigationController?.pushViewController(feedbackVC, animated: true)
+            let messages = MessagesController()
+            navigationController?.pushViewController(messages, animated: true)
         } else if (tabBar.selectedItem == tabBar.items?[3]) {
-            let feedbackVC = ProfilController()
-            navigationController?.pushViewController(feedbackVC, animated: true)
+            let profil = ProfilController()
+            navigationController?.pushViewController(profil, animated: true)
         }
     }
     

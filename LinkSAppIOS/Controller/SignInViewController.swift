@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CryptoKit
 import CommonCrypto
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
@@ -54,12 +53,16 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         DispatchQueue.main.async {
             self.userWebService.connexionUser(email: email, password: pwd){ (user) in
                 if(user.count > 0){
-                    print(user[0])
+
                     userConnected = user[0]
                     
-                    let eventVC = ListServicesViewController()
-                    eventVC.userConnected = userConnected
-                    self.navigationController?.pushViewController(eventVC, animated: true)
+                    UserDefaults.standard.set(userConnected.email,forKey: "userEmail")
+                    UserDefaults.standard.set(pwd,forKey: "userPwd")
+                    UserDefaults.standard.synchronize()
+                    
+                    let ListService = ListServicesViewController()
+                    ListService.userConnected = userConnected
+                    self.navigationController?.pushViewController(ListService, animated: true)
                 } else {
                     let alert = UIAlertController(title: "Erreur", message: "Mot de passe ou email invalide", preferredStyle: .alert)
                     let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
