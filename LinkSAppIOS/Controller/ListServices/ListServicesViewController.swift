@@ -73,7 +73,8 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
             let messages = MessagesController()
             navigationController?.pushViewController(messages, animated: true)
         } else if (tabBar.selectedItem == tabBar.items?[3]) {
-            let profil = ProfilController()
+            let profil = ProfilViewController()
+            profil.userConnected = userConnected
             navigationController?.pushViewController(profil, animated: true)
         }
     }

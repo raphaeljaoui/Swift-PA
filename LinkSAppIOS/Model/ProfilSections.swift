@@ -41,19 +41,19 @@ enum CompteOptions: Int, CaseIterable, Section {
 enum OpOptions: Int, CaseIterable, Section {
     // trois cases pr mes trois options
     case notifications
-    case newsletter
+    case modifyUser
     // Activer le switch pour les trois options
     var switchBool: Bool {
         switch self {
-        case .notifications: return true
-        case .newsletter: return true
+            case .notifications: return true
+            case .modifyUser: return false
         }
     }
     
     var description: String {
         switch self {
         case .notifications: return "Notifications"
-        case .newsletter: return "Newsletter"
+        case .modifyUser: return "Modifier mes informations"
         }
     }
 }
@@ -64,7 +64,7 @@ enum Points: Int, CaseIterable, Section {
     
     var description: String {
         switch self {
-        case .afficherPoints: return "Afficher mon nombre de points"
+        case .afficherPoints: return "Compteur de points : "
 
         }
     }

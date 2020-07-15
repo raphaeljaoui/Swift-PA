@@ -31,7 +31,7 @@ class InfoUser: UIView {
         modif.translatesAutoresizingMaskIntoConstraints = false
         modif.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         modif.setTitleColor(.black, for: .normal)
-        modif.addTarget(ProfilController(), action: #selector(ProfilController.nav), for: .touchUpInside)
+        //modif.addTarget(ProfilViewController(), action: #selector(ProfilViewController.modifyUserPage), for: .touchUpInside)
         return modif
        }()
     
@@ -41,7 +41,7 @@ class InfoUser: UIView {
         supp.translatesAutoresizingMaskIntoConstraints = false
         supp.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         supp.setTitleColor(.black, for: .normal)
-        supp.addTarget(ProfilController(), action: #selector(ProfilController.navDelete), for: .touchUpInside)
+        //supp.addTarget(ProfilViewController(), action: #selector(ProfilViewController.navDelete), for: .touchUpInside)
         return supp
      }()
     

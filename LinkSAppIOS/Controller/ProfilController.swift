@@ -16,6 +16,7 @@ class ProfilController: UIViewController {
 
     var tableView: UITableView!
     var infoUser: InfoUser!
+    var userConnected: User? = nil
 
     @objc func nav(){
         self.navigationController?.pushViewController(ProfilFormController(), animated: true)
@@ -64,6 +65,21 @@ class ProfilController: UIViewController {
         navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.barTintColor = .gray
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        if (tabBar.selectedItem == tabBar.items?[1]) {
+            let mesServices = MesServicesViewController()
+            mesServices.userConnected = self.userConnected
+            navigationController?.pushViewController(mesServices, animated: false)
+        } else if (tabBar.selectedItem == tabBar.items?[2]) {
+            let messages = MessagesController()
+            navigationController?.pushViewController(messages, animated: true)
+        } else if (tabBar.selectedItem == tabBar.items?[3]) {
+            let profil = ProfilController()
+            navigationController?.pushViewController(profil, animated: true)
+        }
     }
 
 }

@@ -58,6 +58,10 @@
 		EA3BB40624BCB08100CD6383 /* NewServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB40424BCB08100CD6383 /* NewServiceViewController.swift */; };
 		EA3BB40724BCB08100CD6383 /* NewServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3BB40524BCB08100CD6383 /* NewServiceViewController.xib */; };
 		EA3BB40924BE11B000CD6383 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB40824BE11B000CD6383 /* extensions.swift */; };
+		EA3BB41024BE548000CD6383 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB40E24BE548000CD6383 /* ProfilViewController.swift */; };
+		EA3BB41124BE548000CD6383 /* ProfilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3BB40F24BE548000CD6383 /* ProfilViewController.xib */; };
+		EA3BB41424BE639800CD6383 /* PointsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB41224BE639800CD6383 /* PointsTableViewCell.swift */; };
+		EA3BB41524BE639800CD6383 /* PointsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3BB41324BE639800CD6383 /* PointsTableViewCell.xib */; };
 		EA696E1F24B909650079FC38 /* VolunteersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA696E1D24B909650079FC38 /* VolunteersTableViewCell.swift */; };
 		EA696E2024B909650079FC38 /* VolunteersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA696E1E24B909650079FC38 /* VolunteersTableViewCell.xib */; };
 		EA696E2224B9C6C50079FC38 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA696E2124B9C6C50079FC38 /* Config.swift */; };
@@ -70,6 +74,8 @@
 		EA8E305824B7828F009F5FAE /* Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305724B7828F009F5FAE /* Apply.swift */; };
 		EA8E305A24B783B4009F5FAE /* ApplyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305924B783B4009F5FAE /* ApplyFactory.swift */; };
 		EA8E305C24B783CA009F5FAE /* ApplyWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305B24B783CA009F5FAE /* ApplyWebService.swift */; };
+		EAB00C8724BF26E700556269 /* ProfileFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB00C8524BF26E700556269 /* ProfileFormViewController.swift */; };
+		EAB00C8824BF26E700556269 /* ProfileFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAB00C8624BF26E700556269 /* ProfileFormViewController.xib */; };
 		EAFA409224B3536F00D9059F /* ListServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA409024B3536F00D9059F /* ListServicesViewController.swift */; };
 		EAFA409324B3536F00D9059F /* ListServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAFA409124B3536F00D9059F /* ListServicesViewController.xib */; };
 		EAFA40A224B473AA00D9059F /* ServiceInfosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA40A024B473AA00D9059F /* ServiceInfosViewController.swift */; };
@@ -130,6 +136,10 @@
 		EA3BB40424BCB08100CD6383 /* NewServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServiceViewController.swift; sourceTree = "<group>"; };
 		EA3BB40524BCB08100CD6383 /* NewServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewServiceViewController.xib; sourceTree = "<group>"; };
 		EA3BB40824BE11B000CD6383 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		EA3BB40E24BE548000CD6383 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
+		EA3BB40F24BE548000CD6383 /* ProfilViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfilViewController.xib; sourceTree = "<group>"; };
+		EA3BB41224BE639800CD6383 /* PointsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsTableViewCell.swift; sourceTree = "<group>"; };
+		EA3BB41324BE639800CD6383 /* PointsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsTableViewCell.xib; sourceTree = "<group>"; };
 		EA696E1D24B909650079FC38 /* VolunteersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteersTableViewCell.swift; sourceTree = "<group>"; };
 		EA696E1E24B909650079FC38 /* VolunteersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VolunteersTableViewCell.xib; sourceTree = "<group>"; };
 		EA696E2124B9C6C50079FC38 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -142,6 +152,8 @@
 		EA8E305724B7828F009F5FAE /* Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apply.swift; sourceTree = "<group>"; };
 		EA8E305924B783B4009F5FAE /* ApplyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFactory.swift; sourceTree = "<group>"; };
 		EA8E305B24B783CA009F5FAE /* ApplyWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyWebService.swift; sourceTree = "<group>"; };
+		EAB00C8524BF26E700556269 /* ProfileFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFormViewController.swift; sourceTree = "<group>"; };
+		EAB00C8624BF26E700556269 /* ProfileFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFormViewController.xib; sourceTree = "<group>"; };
 		EAFA409024B3536F00D9059F /* ListServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesViewController.swift; sourceTree = "<group>"; };
 		EAFA409124B3536F00D9059F /* ListServicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListServicesViewController.xib; sourceTree = "<group>"; };
 		EAFA40A024B473AA00D9059F /* ServiceInfosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInfosViewController.swift; sourceTree = "<group>"; };
@@ -234,7 +246,6 @@
 				18DECE402477BC2E00D5C27C /* SignUpViewController.swift */,
 				18C1EBE7247446AB00DC140A /* SignInViewController.swift */,
 				18C1EBE32474434700DC140A /* HomeViewController.swift */,
-				4FB7E219246AD7DC002740C6 /* ProfilFormController.swift */,
 				4FF31631245B0C6B0006FF9C /* TabBarController.swift */,
 				4FF31637245B0CB10006FF9C /* ServicesController.swift */,
 				4F18830F24659655006481B6 /* MessagesController.swift */,
@@ -286,6 +297,20 @@
 			path = NewService;
 			sourceTree = "<group>";
 		};
+		EA3BB41624BE63A100CD6383 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EA3BB40E24BE548000CD6383 /* ProfilViewController.swift */,
+				EA3BB40F24BE548000CD6383 /* ProfilViewController.xib */,
+				4FB7E219246AD7DC002740C6 /* ProfilFormController.swift */,
+				EA3BB41224BE639800CD6383 /* PointsTableViewCell.swift */,
+				EA3BB41324BE639800CD6383 /* PointsTableViewCell.xib */,
+				EAB00C8524BF26E700556269 /* ProfileFormViewController.swift */,
+				EAB00C8624BF26E700556269 /* ProfileFormViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		EA696E2724BA160D0079FC38 /* Volunteers */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +340,7 @@
 				EAFA409124B3536F00D9059F /* ListServicesViewController.xib */,
 				EA8E305324B5B269009F5FAE /* ServiceCollectionViewCell.swift */,
 				EA8E305424B5B269009F5FAE /* ServiceCollectionViewCell.xib */,
+				EA3BB41624BE63A100CD6383 /* Profile */,
 			);
 			path = ListServices;
 			sourceTree = "<group>";
@@ -392,6 +418,9 @@
 				18C1EBEA247446AB00DC140A /* SignInViewController.xib in Resources */,
 				4FF31627245B0BF90006FF9C /* LaunchScreen.storyboard in Resources */,
 				EAFA40A324B473AA00D9059F /* ServiceInfosViewController.xib in Resources */,
+				EA3BB41524BE639800CD6383 /* PointsTableViewCell.xib in Resources */,
+				EA3BB41124BE548000CD6383 /* ProfilViewController.xib in Resources */,
+				EAB00C8824BF26E700556269 /* ProfileFormViewController.xib in Resources */,
 				EA3BB40724BCB08100CD6383 /* NewServiceViewController.xib in Resources */,
 				4FF31624245B0BF90006FF9C /* Assets.xcassets in Resources */,
 				EA8E305624B5B269009F5FAE /* ServiceCollectionViewCell.xib in Resources */,
@@ -414,9 +443,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA696E2524BA09800079FC38 /* ListVolunteersViewController.swift in Sources */,
+				EAB00C8724BF26E700556269 /* ProfileFormViewController.swift in Sources */,
 				4F19E143246ED03A00F21132 /* ImageSource.swift in Sources */,
 				18DECE482477C05500D5C27C /* UserSignUpFactory.swift in Sources */,
 				EA696E2A24BA162D0079FC38 /* VolunteersDetailsViewController.swift in Sources */,
+				EA3BB41424BE639800CD6383 /* PointsTableViewCell.swift in Sources */,
 				18C1EBF82475729E00DC140A /* UserLogin.swift in Sources */,
 				4FF3163E245B0CD90006FF9C /* ProfilController.swift in Sources */,
 				EA3053FA24B0A26D00C563BF /* Service.swift in Sources */,
@@ -439,6 +470,7 @@
 				EA8E305824B7828F009F5FAE /* Apply.swift in Sources */,
 				EA30540224B1C27600C563BF /* TypeService.swift in Sources */,
 				18DECE462477BDC100D5C27C /* UserSignUp.swift in Sources */,
+				EA3BB41024BE548000CD6383 /* ProfilViewController.swift in Sources */,
 				4F19E13D246ECFB800F21132 /* ScaledHeightImageView.swift in Sources */,
 				4FB7E21A246AD7DC002740C6 /* ProfilFormController.swift in Sources */,
 				4F4B409824655E4C00249FB8 /* Extensions.swift in Sources */,

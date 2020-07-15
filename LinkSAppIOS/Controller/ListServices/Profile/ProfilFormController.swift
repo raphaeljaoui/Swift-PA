@@ -14,6 +14,7 @@ class ProfilFormController: UIViewController {
     var imagePicker: UIImagePickerController?
     var flashMode = AVCaptureDevice.FlashMode.off
     
+    var userConnected: User? = nil
     
     func configUI() {
         navigationItem.title = "Modifier mes informations"
@@ -47,17 +48,16 @@ class ProfilFormController: UIViewController {
     
     let userName: UITextField = UITextField(frame: CGRect(x: 230, y:320, width: 400.00, height: 50.00))
     
-    let Prenom: UITextField = UITextField(frame: CGRect(x:230
-        , y:400, width: 400.00, height: 50.00))
-    
-    let mail: UITextField = UITextField(frame: CGRect(x:230, y:480, width: 400.00, height: 50.00))
+    let Prenom: UITextField = UITextField(frame: CGRect(x: 230, y:400, width: 400.00, height: 50.00))
     
     let adresse: UITextField = UITextField(frame: CGRect(x:230, y:560, width: 400.00, height: 50.00))
+    let city: UITextField = UITextField(frame: CGRect(x:230, y:600, width: 400.00, height: 50.00))
+    let postcode: UITextField = UITextField(frame: CGRect(x:230, y:760, width: 400.00, height: 50.00))
     
      
     func sendButton() {
         let button = UIButton();
-        button.setTitle("Envoyer", for: .normal)
+        button.setTitle("Valider mes modifications", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
         button.frame = CGRect(x: 380, y: 600, width: 100, height: 88)
         self.view.addSubview(button)
@@ -76,31 +76,38 @@ class ProfilFormController: UIViewController {
     }
 
      func displayForm(){
-            userName.placeholder = "Votre nom"
-            userName.borderStyle = UITextField.BorderStyle.line
-            userName.backgroundColor = UIColor.white
-            userName.textAlignment = .center
-    //        userName.center = CGPoint(x: 200, y: 500)
-            self.view.addSubview(userName)
+        guard let userInfos = userConnected else { return }
+        
+        userName.placeholder = userInfos.name
+        userName.borderStyle = UITextField.BorderStyle.line
+        userName.backgroundColor = UIColor.white
+        userName.textAlignment = .center
+        userName.center = CGPoint(x: 200, y: 500)
+        self.view.addSubview(userName)
             
-            Prenom.placeholder = "Votre prenom"
-            Prenom.borderStyle = UITextField.BorderStyle.line
-            Prenom.backgroundColor = UIColor.white
-            Prenom.textAlignment = .center
-            self.view.addSubview(Prenom)
+        Prenom.placeholder = userInfos.surname
+        Prenom.borderStyle = UITextField.BorderStyle.line
+        Prenom.backgroundColor = UIColor.white
+        Prenom.textAlignment = .center
+        self.view.addSubview(Prenom)
             
-            mail.placeholder = "Votre email"
-            mail.borderStyle = UITextField.BorderStyle.line
-            mail.backgroundColor = UIColor.white
-            mail.textAlignment = .center
-            self.view.addSubview(mail)
-            
-            adresse.placeholder = "Votre adresse"
-            adresse.borderStyle = UITextField.BorderStyle.line
-            adresse.backgroundColor = UIColor.white
-            adresse.textAlignment = .center
-            self.view.addSubview(adresse)
-            
+        adresse.placeholder = userInfos.adress
+        adresse.borderStyle = UITextField.BorderStyle.line
+        adresse.backgroundColor = UIColor.white
+        adresse.textAlignment = .center
+        self.view.addSubview(adresse)
+        
+        city.placeholder = userInfos.city
+        city.borderStyle = UITextField.BorderStyle.line
+        city.backgroundColor = UIColor.white
+        city.textAlignment = .center
+        self.view.addSubview(city)
+        
+        postcode.placeholder = "\(userInfos.postcode)"
+        postcode.borderStyle = UITextField.BorderStyle.line
+        postcode.backgroundColor = UIColor.white
+        postcode.textAlignment = .center
+        self.view.addSubview(postcode)
 
         }
         

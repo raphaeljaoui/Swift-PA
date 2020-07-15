@@ -10,6 +10,8 @@ import UIKit
 
 class PopUpPoints: UIView {
     
+    let pointsAmount: Int? = nil
+    
     fileprivate let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +26,7 @@ class PopUpPoints: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        label.text = "Vous avez 50 points"
+        label.text = "Vous avez x points"
         label.textAlignment = .center
         label.numberOfLines = 3
         return label

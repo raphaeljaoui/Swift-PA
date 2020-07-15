@@ -40,11 +40,11 @@ class UserFactory {
             "birthdate" : user.birthdate,
             "points" : user.points,
             "type" : user.type,
-            "password" : user.password!,
-            "adress" : user.adress!,
-            "city" : user.city!,
-            "postcode" : user.postcode!,
-            "active" : user.active!,
+            "password" : user.password ?? "",
+            "adress" : user.adress ?? "",
+            "city" : user.city ?? "",
+            "postcode" : user.postcode ?? "",
+            "active" : user.active ?? "",
             
         ]
     }

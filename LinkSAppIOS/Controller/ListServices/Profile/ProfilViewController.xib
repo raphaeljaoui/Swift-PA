@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfilViewController" customModule="LinkSAppIOS" customModuleProvider="target">
+            <connections>
+                <outlet property="PointsUser" destination="wUf-ks-ZQU" id="3wD-gA-8gP"/>
+                <outlet property="nameUser" destination="9QY-8F-usU" id="rRI-5V-e4Z"/>
+                <outlet property="tabBar" destination="uEE-aM-COE" id="VMc-0f-8Im"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezf-tR-6SC">
+                    <rect key="frame" x="50" y="401" width="225" height="46"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <state key="normal" title="Modifier mon profil"/>
+                    <connections>
+                        <action selector="btnModifyInfos:" destination="-1" eventType="touchUpInside" id="qv1-E6-fb3"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jC-uQ-7iw">
+                    <rect key="frame" x="50" y="457" width="159" height="46"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <state key="normal" title="Déconnexion"/>
+                    <connections>
+                        <action selector="btnDisconnection:" destination="-1" eventType="touchUpInside" id="88w-e1-Nua"/>
+                    </connections>
+                </button>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEE-aM-COE">
+                    <rect key="frame" x="0.0" y="1296" width="1024" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <items>
+                        <tabBarItem title="Services" image="doc.text.magnifyingglass" catalog="system" id="bXK-Pc-b9S"/>
+                        <tabBarItem title="Mes Services" image="cart" catalog="system" id="ybO-4I-oD4"/>
+                        <tabBarItem title="Messages" image="text.bubble" catalog="system" id="eTo-gD-ZX7"/>
+                        <tabBarItem title="Profil" image="person.circle" catalog="system" id="T6p-Jy-TfU"/>
+                    </items>
+                    <color key="selectedImageTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </tabBar>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoprofil" translatesAutoresizingMaskIntoConstraints="NO" id="C9x-VX-Hd8">
+                    <rect key="frame" x="50" y="40" width="222" height="227"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QY-8F-usU">
+                    <rect key="frame" x="312" y="100" width="58" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Badges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ss1-ij-CCT">
+                    <rect key="frame" x="50" y="317" width="91.5" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUf-ks-ZQU">
+                    <rect key="frame" x="312" y="154" width="64.5" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5P7-jg-WcO">
+                    <rect key="frame" x="50" y="513" width="251" height="46"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <state key="normal" title="Supprimer mon profil"/>
+                    <connections>
+                        <action selector="btnDeleteUser:" destination="-1" eventType="touchUpInside" id="hEt-na-yj0"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="wUf-ks-ZQU" firstAttribute="leading" secondItem="C9x-VX-Hd8" secondAttribute="trailing" constant="40" id="0cQ-Dj-tog"/>
+                <constraint firstItem="C9x-VX-Hd8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="2Mx-vY-D5S"/>
+                <constraint firstItem="uEE-aM-COE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="74b-XJ-bka"/>
+                <constraint firstItem="5P7-jg-WcO" firstAttribute="top" secondItem="1jC-uQ-7iw" secondAttribute="bottom" constant="10" id="8cT-md-V8P"/>
+                <constraint firstItem="1jC-uQ-7iw" firstAttribute="top" secondItem="Ezf-tR-6SC" secondAttribute="bottom" constant="10" id="8t5-3T-Rqi"/>
+                <constraint firstItem="9QY-8F-usU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="J8i-9y-Abb"/>
+                <constraint firstItem="wUf-ks-ZQU" firstAttribute="top" secondItem="9QY-8F-usU" secondAttribute="bottom" constant="20" id="Jhn-Br-OWW"/>
+                <constraint firstItem="9QY-8F-usU" firstAttribute="leading" secondItem="C9x-VX-Hd8" secondAttribute="trailing" constant="40" id="MLY-3C-FLc"/>
+                <constraint firstItem="ss1-ij-CCT" firstAttribute="top" secondItem="C9x-VX-Hd8" secondAttribute="bottom" constant="50" id="OYL-pa-lAL"/>
+                <constraint firstItem="Ezf-tR-6SC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="Rg7-fC-BrG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uEE-aM-COE" secondAttribute="trailing" id="USC-BW-XsP"/>
+                <constraint firstItem="C9x-VX-Hd8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="avm-iG-gLK"/>
+                <constraint firstItem="1jC-uQ-7iw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="cM9-HS-qut"/>
+                <constraint firstItem="5P7-jg-WcO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="cRp-Mx-1Nm"/>
+                <constraint firstItem="Ezf-tR-6SC" firstAttribute="top" secondItem="ss1-ij-CCT" secondAttribute="bottom" constant="50" id="jpA-kO-YY5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uEE-aM-COE" secondAttribute="bottom" id="lqL-1h-c2Z"/>
+                <constraint firstItem="ss1-ij-CCT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="qf9-BT-oAe"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="132" y="149"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="doc.text.magnifyingglass" catalog="system" width="116" height="128"/>
+        <image name="logoprofil" width="222" height="227"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="text.bubble" catalog="system" width="128" height="110"/>
+    </resources>
+</document>
