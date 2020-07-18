@@ -10,8 +10,8 @@ import Foundation
 
 class BadgeWebService {
     
-    func getBadges(completion: @escaping ([Badge]) -> Void) -> Void {
-        let url = Config.urlAPI + "/badges"
+    func getBadges(id_type_service: Int, completion: @escaping ([Badge]) -> Void) -> Void {
+        let url = Config.urlAPI + "/badge/\(id_type_service)"
         guard let urlApi  = URL(string: url) else {
             return;
         }

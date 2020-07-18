@@ -27,8 +27,7 @@ class EvaluationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround()
     }
 
     @IBAction func btnEndService(_ sender: Any) {
@@ -74,7 +73,7 @@ class EvaluationViewController: UIViewController {
     func calculateBadges(idUser: Int, idType: Int) -> Void {
         ApplyWS.getTotalNoteForTypeService(userId: idUser, typeId: idType){ (note) in
             if(note.count > 0 && note[0] > 0){
-                self.BadgeWS.getBadges(){ (badges) in
+                self.BadgeWS.getBadges(id_type_service: idType){ (badges) in
                     if(badges.count > 0){
                         self.badgesList = badges
                         self.WinWS.getUserBadges(idUser: idUser){ (badgesWin) in
@@ -100,26 +99,25 @@ class EvaluationViewController: UIViewController {
                 badgesList.remove(at: indicebadgeToRemove)
             }
         }
-        print(badgesList)
         
         for counterBadge in 0..<badgesList.count{
-            print(badgesList[counterBadge])
-            print(noteTotalUser)
             if(noteTotalUser >= badgesList[counterBadge].pointsLimit){
                 guard let idUser = executor?.id else { return }
                 
                 let newUserBadge = Win(id_user: idUser, id_badge: badgesList[counterBadge].id)
-                print(newUserBadge)
                 self.WinWS.setBadgeToUser(win: newUserBadge){ (res) in
-                    DispatchQueue.main.sync {
-                        let mesServices = MesServicesViewController()
-                        mesServices.userConnected = self.userConnected
-                        self.navigationController?.pushViewController(mesServices, animated:true)
-                    }
+                    self.redirectionMesServices()
                 }
-                
             }
         }
-        
+        redirectionMesServices()
+    }
+    
+    func redirectionMesServices(){
+        DispatchQueue.main.sync {
+            let mesServices = MesServicesViewController()
+            mesServices.userConnected = self.userConnected
+            self.navigationController?.pushViewController(mesServices, animated: false)
+        }
     }
 }

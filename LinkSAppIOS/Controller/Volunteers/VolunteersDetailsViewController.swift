@@ -56,7 +56,13 @@ class VolunteersDetailsViewController: UIViewController {
         applyExecutor.execute = 2
         
         ApplyWS.updateAppliance(apply: applyExecutor){ (apply) in
-            print(apply)
+            if(apply == true){
+                DispatchQueue.main.sync {
+                    let mesServices = MesServicesViewController()
+                    mesServices.userConnected = self.userConnected
+                    self.navigationController?.pushViewController(mesServices, animated: false)
+                }
+            }
         }
         
 
