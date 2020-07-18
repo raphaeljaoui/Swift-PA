@@ -37,6 +37,7 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPicker()
+        configUI()
         
         self.hideKeyboardWhenTappedAround()
         tabBar.selectedItem = tabBar.items?[0]
@@ -44,6 +45,8 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
 
     func configUI() {
+        btnCreate.layer.cornerRadius = btnCreate.bounds.size.height/2
+        
         navigationItem.title = "Créer un nouveau service"
         navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true

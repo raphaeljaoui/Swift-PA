@@ -21,11 +21,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Ei-E9-hpT">
-                    <rect key="frame" x="10" y="0.0" width="1004" height="1278"/>
+                    <rect key="frame" x="10" y="0.0" width="1004" height="1238"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6l-oE-U4J">
-                    <rect key="frame" x="912" y="1290" width="97" height="46"/>
+                    <rect key="frame" x="912" y="1250" width="97" height="46"/>
                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                     <state key="normal" title="Envoyer"/>
                     <connections>
@@ -33,19 +33,19 @@
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ecrire ici" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MEL-uN-Pnj">
-                    <rect key="frame" x="15" y="1293" width="887" height="43"/>
+                    <rect key="frame" x="15" y="1253" width="887" height="43"/>
                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Q6l-oE-U4J" secondAttribute="bottom" constant="10" id="3rU-5f-2A7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Q6l-oE-U4J" secondAttribute="bottom" constant="50" id="3rU-5f-2A7"/>
                 <constraint firstItem="Q6l-oE-U4J" firstAttribute="leading" secondItem="MEL-uN-Pnj" secondAttribute="trailing" constant="10" id="NJb-jj-JgS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3Ei-E9-hpT" secondAttribute="trailing" constant="10" id="OKg-AK-VfM"/>
                 <constraint firstItem="MEL-uN-Pnj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="Ogm-E0-0Em"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Q6l-oE-U4J" secondAttribute="trailing" constant="15" id="UsY-Le-Pen"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MEL-uN-Pnj" secondAttribute="bottom" constant="10" id="c55-81-AcF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MEL-uN-Pnj" secondAttribute="bottom" constant="50" id="c55-81-AcF"/>
                 <constraint firstItem="3Ei-E9-hpT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hAN-mh-F0x"/>
                 <constraint firstItem="MEL-uN-Pnj" firstAttribute="top" secondItem="3Ei-E9-hpT" secondAttribute="bottom" constant="15" id="hNM-M5-kqQ"/>
                 <constraint firstItem="3Ei-E9-hpT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="i85-uQ-N9b"/>

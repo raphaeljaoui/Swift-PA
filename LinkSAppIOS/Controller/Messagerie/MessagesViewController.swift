@@ -30,11 +30,10 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         self.MessagesTableView.register(UINib(nibName: "InMessageTableViewCell", bundle: nil), forCellReuseIdentifier: inCellId)
         self.MessagesTableView.register(UINib(nibName: "OutMessageTableViewCell", bundle: nil), forCellReuseIdentifier: OutCellId)
         
-        
+        self.hideKeyboardWhenTappedAround()
         self.MessagesTableView.delegate = self
         self.MessagesTableView.dataSource = self
         MessagesTableView.separatorStyle = .none
-        
     }
 
     @IBAction func btnSendMessage(_ sender: Any) {
@@ -55,11 +54,11 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
                     checkCallback = false
                     self.messagesList?.append(newMessage)
                     DispatchQueue.main.sync {
+                        self.messageText.text = ""
                         self.MessagesTableView.insertRows(at: [IndexPath(row: self.messagesList!.count-1, section: 0)], with: .left)
                         self.MessagesTableView.reloadData()
                     }
                 }
-                self.messageText.text = ""
             }            
         }
     }

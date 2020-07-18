@@ -45,12 +45,19 @@ class ListConversationsViewController: UIViewController, UITableViewDelegate, UI
                     }
                 }
                 self.setupView()
+                self.configUI()
             }
         }
         
         self.navigationItem.hidesBackButton = true
         tabBar.selectedItem = tabBar.items?[2]
         self.tabBar.delegate = self
+    }
+    
+    func configUI() {
+        navigationItem.title = "Mes conversations"
+        navigationController?.navigationBar.backgroundColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -65,7 +72,7 @@ class ListConversationsViewController: UIViewController, UITableViewDelegate, UI
         } else if (tabBar.selectedItem == tabBar.items?[3]) {
             let profil = ProfilViewController()
             profil.userConnected = userConnected
-            navigationController?.pushViewController(profil, animated: true)
+            navigationController?.pushViewController(profil, animated: false)
         }
     }
     

@@ -43,7 +43,8 @@ class ProfilViewController: UIViewController, UITabBarDelegate {
             mesServices.userConnected = self.userConnected
             navigationController?.pushViewController(mesServices, animated: false)
         } else if (tabBar.selectedItem == tabBar.items?[2]) {
-            let messages = MessagesController()
+            let messages = ListConversationsViewController()
+            messages.userConnected = self.userConnected
             navigationController?.pushViewController(messages, animated: true)
         }
     }
