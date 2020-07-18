@@ -38,8 +38,6 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
         super.viewDidLoad()
         setupPicker()
         
-        self.navigationItem.hidesBackButton = true
-        
         self.hideKeyboardWhenTappedAround()
         tabBar.selectedItem = tabBar.items?[0]
         self.tabBar.delegate = self

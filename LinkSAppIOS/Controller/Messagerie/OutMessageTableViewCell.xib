@@ -17,25 +17,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="433" height="62"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdJ-Ut-qDG">
-                        <rect key="frame" x="6" y="0.0" width="421" height="31.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7G-S1-CLF">
-                        <rect key="frame" x="6" y="39.5" width="36" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="an7-uO-gim">
+                        <rect key="frame" x="0.0" y="0.0" width="433" height="62"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdJ-Ut-qDG">
+                                <rect key="frame" x="8" y="16" width="417" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7G-S1-CLF">
+                                <rect key="frame" x="389" y="0.0" width="36" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="b7G-S1-CLF" firstAttribute="top" secondItem="an7-uO-gim" secondAttribute="top" id="ESy-sq-1NU"/>
+                            <constraint firstItem="XdJ-Ut-qDG" firstAttribute="top" secondItem="an7-uO-gim" secondAttribute="top" constant="16" id="ErS-OU-5nc"/>
+                            <constraint firstAttribute="trailing" secondItem="b7G-S1-CLF" secondAttribute="trailing" constant="8" id="h0O-kE-Lz2"/>
+                            <constraint firstAttribute="trailing" secondItem="XdJ-Ut-qDG" secondAttribute="trailing" constant="8" id="opL-YZ-RHH"/>
+                            <constraint firstItem="XdJ-Ut-qDG" firstAttribute="leading" secondItem="an7-uO-gim" secondAttribute="leading" constant="8" id="q0J-7I-Fdm"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="b7G-S1-CLF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="2o2-PV-TXP"/>
-                    <constraint firstItem="b7G-S1-CLF" firstAttribute="top" secondItem="XdJ-Ut-qDG" secondAttribute="bottom" constant="8" id="Kcn-HS-co9"/>
-                    <constraint firstItem="XdJ-Ut-qDG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="bbR-TQ-D8K"/>
-                    <constraint firstAttribute="trailing" secondItem="XdJ-Ut-qDG" secondAttribute="trailing" constant="6" id="hAP-0s-PeJ"/>
-                    <constraint firstItem="XdJ-Ut-qDG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hku-Hp-gtA"/>
+                    <constraint firstAttribute="trailing" secondItem="an7-uO-gim" secondAttribute="trailing" id="DBo-VV-Qe1"/>
+                    <constraint firstItem="an7-uO-gim" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="FmF-81-7h4"/>
+                    <constraint firstItem="an7-uO-gim" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cRy-KN-c4M"/>
+                    <constraint firstAttribute="bottom" secondItem="an7-uO-gim" secondAttribute="bottom" id="ckj-FB-ocD"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -43,7 +55,7 @@
                 <outlet property="date" destination="b7G-S1-CLF" id="Osq-hL-HwB"/>
                 <outlet property="message" destination="XdJ-Ut-qDG" id="xMk-hP-dqb"/>
             </connections>
-            <point key="canvasLocation" x="213.768115942029" y="154.6875"/>
+            <point key="canvasLocation" x="228" y="154"/>
         </tableViewCell>
     </objects>
 </document>

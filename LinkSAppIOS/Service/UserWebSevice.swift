@@ -51,8 +51,8 @@ class UserWebService {
     
     
     func getUserById(idUser: Int, completion: @escaping ([User]) -> Void) -> Void {
-        
-        guard let urlApi  = URL(string: "http://localhost:4000/user/\(idUser)") else {
+        let url = Config.urlAPI + "/user/\(idUser)"
+        guard let urlApi  = URL(string: url) else {
             return;
         }
         var request = URLRequest(url: urlApi)
@@ -87,7 +87,6 @@ class UserWebService {
     
     func getUserByEmail(emailUser: String, completion: @escaping ([User]) -> Void) -> Void {
         let url = Config.urlAPI + "/user/email/\(emailUser)"
-        print(url)
         guard let urlApi  = URL(string: url) else {
             return;
         }

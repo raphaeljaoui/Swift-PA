@@ -12,7 +12,6 @@ class ServiceWebService {
     
     func setService(service: Service, completion: @escaping (Bool) -> Void) -> Void {
         let url = Config.urlAPI + "/services"
-        print(url)
         guard let urlApi  = URL(string: url) else {
             return;
         }

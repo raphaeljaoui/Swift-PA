@@ -33,6 +33,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.MessagesTableView.delegate = self
         self.MessagesTableView.dataSource = self
+        MessagesTableView.separatorStyle = .none
         
     }
 
@@ -48,7 +49,17 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
             let dateFormated = format.string(from: now)
             let newMessage = Message(id: 0, content: messageText.text!, date: dateFormated, id_sender: idSender, id_dest: idDest)
             
+            var checkCallback = false
             MessageWS.sendMessage(message: newMessage){ (res) in
+                if(res || checkCallback) {
+                    checkCallback = false
+                    self.messagesList?.append(newMessage)
+                    DispatchQueue.main.sync {
+                        self.MessagesTableView.insertRows(at: [IndexPath(row: self.messagesList!.count-1, section: 0)], with: .left)
+                        self.MessagesTableView.reloadData()
+                    }
+                }
+                self.messageText.text = ""
             }            
         }
     }
@@ -58,29 +69,28 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         return messages.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let message = messagesList?[indexPath.item] else {
             let cell = tableView.dequeueReusableCell(withIdentifier: inCellId, for: indexPath) as! InMessageTableViewCell
-
             cell.message.text = "Pas de message"
             return cell
-            
         }
-        
-        print(message.id_dest)
-        print(userConnected?.id)
         
         if(message.id_dest == userConnected?.id){
             let cell = tableView.dequeueReusableCell(withIdentifier: inCellId, for: indexPath) as! InMessageTableViewCell
-
             cell.message.text = "\(message.content)"
+            cell.date.text = "\(message.date.prefix(10))"
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: OutCellId, for: indexPath) as! OutMessageTableViewCell
 
         cell.message.text = "\(message.content)"
-
+        cell.date.text = "\(message.date.prefix(10))"
         return cell
     }
 

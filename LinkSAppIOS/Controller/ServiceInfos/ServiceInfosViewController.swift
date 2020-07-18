@@ -27,6 +27,8 @@ class ServiceInfosViewController: UIViewController {
     @IBOutlet weak var deadlineService: UILabel!
     @IBOutlet weak var profitService: UILabel!
     @IBOutlet weak var executorService: UILabel!
+    @IBOutlet weak var labelApplied: UILabel!
+    
     
     @IBOutlet weak var btnPostulate: UIButton!
     @IBOutlet weak var btnVolunteers: UIButton!
@@ -51,37 +53,54 @@ class ServiceInfosViewController: UIViewController {
         setCreatorName()
         setTypeName()
         setExecutorName()
-        
-        
+        configUI()
         
         // Do any additional setup after loading the view.
     }
+    
+    func configUI() -> Void{
+        btnEndService.layer.cornerRadius = btnEndService.bounds.size.height/2
+    }
 
     func setCreatorName() -> Void {
-        guard let idUser = service?.id_creator else {
+        guard let idCreator = service?.id_creator else {
             creatorService.text = "Inconnu"
             return
         }
         
-        self.UserWS.getUserById(idUser: idUser){ (creator) in
+        self.UserWS.getUserById(idUser: idCreator){ (creator) in
             if(creator.count > 0){
                 self.creatorService.text = creator[0].name
                 
-                guard let user = self.userConnected else {
+                guard let userConnectedId = self.userConnected?.id else {
                     return
                 }
                 
-                if( user.id == creator[0].id){
+                if( userConnectedId == creator[0].id){
                     self.btnPostulate.isHidden = true
                     self.btnVolunteers.isHidden = false
                     self.btnDeleteService.isHidden = false
+                    self.labelApplied.isHidden = true
                     
-                    //hide button endService cause service is already ended
+                    //hide button endService because service is already ended
                     if(self.service?.Statut == 2){
                         self.btnEndService.isHidden = true
                     }
                     
                 } else {
+                    self.ApplyWS.getUserApplianceAtService(idService: self.service!.id, idUser: userConnectedId){ (res) in
+                        if(res.count > 0){
+                            self.btnPostulate.isHidden = true
+                            self.labelApplied.isHidden = false
+                            if(res[0].execute == 2){
+                                self.labelApplied.text = "Vous réalisez ce service"
+                                self.labelApplied.isHidden = true
+                            }
+                        } else {
+                            self.labelApplied.isHidden = true
+                        }
+                    }
+                    
                     self.btnVolunteers.isHidden = true
                     self.btnDeleteService.isHidden = true
                     self.executorService.isHidden = true
@@ -137,7 +156,11 @@ class ServiceInfosViewController: UIViewController {
         userAppliance.execute = 1
         
         self.ApplyWS.setAppliance(apply: userAppliance){ (type) in
-            print(type)
+            DispatchQueue.main.sync {
+                let listServices = ListServicesViewController()
+                listServices.userConnected = self.userConnected
+                self.navigationController?.pushViewController(listServices, animated:true)
+            }
         }
     }
     
