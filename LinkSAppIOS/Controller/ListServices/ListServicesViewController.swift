@@ -25,9 +25,11 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var tabBar: UITabBar!
     
     class func newInstance(userConnected: User) -> ListServicesViewController {
-        let listService = ListServicesViewController()
-        listService.userConnected = userConnected
-        return listService
+        DispatchQueue.main.sync {
+            let listService = ListServicesViewController()
+            listService.userConnected = userConnected
+            return listService
+        }
     }
     
     let collectionView: UICollectionView = {
@@ -70,12 +72,13 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
             mesServices.userConnected = self.userConnected
             navigationController?.pushViewController(mesServices, animated: false)
         } else if (tabBar.selectedItem == tabBar.items?[2]) {
-            let messages = MessagesController()
-            navigationController?.pushViewController(messages, animated: true)
+            let messages = ListConversationsViewController()
+            messages.userConnected = self.userConnected
+            navigationController?.pushViewController(messages, animated: false)
         } else if (tabBar.selectedItem == tabBar.items?[3]) {
             let profil = ProfilViewController()
             profil.userConnected = userConnected
-            navigationController?.pushViewController(profil, animated: true)
+            navigationController?.pushViewController(profil, animated: false)
         }
     }
     

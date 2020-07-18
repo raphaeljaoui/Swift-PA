@@ -47,6 +47,10 @@
 		EA30540724B1DBB500C563BF /* MesServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA30540524B1DBB500C563BF /* MesServicesViewController.swift */; };
 		EA30540824B1DBB500C563BF /* MesServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA30540624B1DBB500C563BF /* MesServicesViewController.xib */; };
 		EA30540A24B2648400C563BF /* TypeServiceWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA30540924B2648400C563BF /* TypeServiceWebService.swift */; };
+		EA36811924C33B5700F633EA /* InMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA36811724C33B5700F633EA /* InMessageTableViewCell.swift */; };
+		EA36811A24C33B5700F633EA /* InMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA36811824C33B5700F633EA /* InMessageTableViewCell.xib */; };
+		EA36811D24C33B6600F633EA /* OutMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA36811B24C33B6600F633EA /* OutMessageTableViewCell.swift */; };
+		EA36811E24C33B6600F633EA /* OutMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA36811C24C33B6600F633EA /* OutMessageTableViewCell.xib */; };
 		EA3BB3F424BB205300CD6383 /* EvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB3F224BB205300CD6383 /* EvaluationViewController.swift */; };
 		EA3BB3F524BB205300CD6383 /* EvaluationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3BB3F324BB205300CD6383 /* EvaluationViewController.xib */; };
 		EA3BB3F724BBAE7400CD6383 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BB3F624BBAE7400CD6383 /* Badge.swift */; };
@@ -69,11 +73,20 @@
 		EA696E2624BA09800079FC38 /* ListVolunteersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA696E2424BA09800079FC38 /* ListVolunteersViewController.xib */; };
 		EA696E2A24BA162D0079FC38 /* VolunteersDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA696E2824BA162D0079FC38 /* VolunteersDetailsViewController.swift */; };
 		EA696E2B24BA162D0079FC38 /* VolunteersDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA696E2924BA162D0079FC38 /* VolunteersDetailsViewController.xib */; };
+		EA7BE3E124C2596600683643 /* ConversationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7BE3DF24C2596600683643 /* ConversationsTableViewCell.swift */; };
+		EA7BE3E224C2596600683643 /* ConversationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7BE3E024C2596600683643 /* ConversationsTableViewCell.xib */; };
+		EA7BE3E424C25A9C00683643 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7BE3E324C25A9C00683643 /* Message.swift */; };
+		EA7BE3E724C25D6600683643 /* ListConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7BE3E524C25D6600683643 /* ListConversationsViewController.swift */; };
+		EA7BE3E824C25D6600683643 /* ListConversationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7BE3E624C25D6600683643 /* ListConversationsViewController.xib */; };
+		EA7BE3EA24C2F0D900683643 /* MessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7BE3E924C2F0D900683643 /* MessageFactory.swift */; };
+		EA7BE3EC24C2F28500683643 /* MessagesWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7BE3EB24C2F28500683643 /* MessagesWebService.swift */; };
 		EA8E305524B5B269009F5FAE /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305324B5B269009F5FAE /* ServiceCollectionViewCell.swift */; };
 		EA8E305624B5B269009F5FAE /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8E305424B5B269009F5FAE /* ServiceCollectionViewCell.xib */; };
 		EA8E305824B7828F009F5FAE /* Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305724B7828F009F5FAE /* Apply.swift */; };
 		EA8E305A24B783B4009F5FAE /* ApplyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305924B783B4009F5FAE /* ApplyFactory.swift */; };
 		EA8E305C24B783CA009F5FAE /* ApplyWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E305B24B783CA009F5FAE /* ApplyWebService.swift */; };
+		EA95319B24C30A03003A321F /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA95319924C30A03003A321F /* MessagesViewController.swift */; };
+		EA95319C24C30A03003A321F /* MessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA95319A24C30A03003A321F /* MessagesViewController.xib */; };
 		EAB00C8724BF26E700556269 /* ProfileFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB00C8524BF26E700556269 /* ProfileFormViewController.swift */; };
 		EAB00C8824BF26E700556269 /* ProfileFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAB00C8624BF26E700556269 /* ProfileFormViewController.xib */; };
 		EAFA409224B3536F00D9059F /* ListServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA409024B3536F00D9059F /* ListServicesViewController.swift */; };
@@ -125,6 +138,10 @@
 		EA30540524B1DBB500C563BF /* MesServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesServicesViewController.swift; sourceTree = "<group>"; };
 		EA30540624B1DBB500C563BF /* MesServicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MesServicesViewController.xib; sourceTree = "<group>"; };
 		EA30540924B2648400C563BF /* TypeServiceWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeServiceWebService.swift; sourceTree = "<group>"; };
+		EA36811724C33B5700F633EA /* InMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMessageTableViewCell.swift; sourceTree = "<group>"; };
+		EA36811824C33B5700F633EA /* InMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InMessageTableViewCell.xib; sourceTree = "<group>"; };
+		EA36811B24C33B6600F633EA /* OutMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutMessageTableViewCell.swift; sourceTree = "<group>"; };
+		EA36811C24C33B6600F633EA /* OutMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutMessageTableViewCell.xib; sourceTree = "<group>"; };
 		EA3BB3F224BB205300CD6383 /* EvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationViewController.swift; sourceTree = "<group>"; };
 		EA3BB3F324BB205300CD6383 /* EvaluationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluationViewController.xib; sourceTree = "<group>"; };
 		EA3BB3F624BBAE7400CD6383 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
@@ -147,11 +164,20 @@
 		EA696E2424BA09800079FC38 /* ListVolunteersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListVolunteersViewController.xib; sourceTree = "<group>"; };
 		EA696E2824BA162D0079FC38 /* VolunteersDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteersDetailsViewController.swift; sourceTree = "<group>"; };
 		EA696E2924BA162D0079FC38 /* VolunteersDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VolunteersDetailsViewController.xib; sourceTree = "<group>"; };
+		EA7BE3DF24C2596600683643 /* ConversationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewCell.swift; sourceTree = "<group>"; };
+		EA7BE3E024C2596600683643 /* ConversationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationsTableViewCell.xib; sourceTree = "<group>"; };
+		EA7BE3E324C25A9C00683643 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		EA7BE3E524C25D6600683643 /* ListConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListConversationsViewController.swift; sourceTree = "<group>"; };
+		EA7BE3E624C25D6600683643 /* ListConversationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListConversationsViewController.xib; sourceTree = "<group>"; };
+		EA7BE3E924C2F0D900683643 /* MessageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFactory.swift; sourceTree = "<group>"; };
+		EA7BE3EB24C2F28500683643 /* MessagesWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesWebService.swift; sourceTree = "<group>"; };
 		EA8E305324B5B269009F5FAE /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA8E305424B5B269009F5FAE /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		EA8E305724B7828F009F5FAE /* Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apply.swift; sourceTree = "<group>"; };
 		EA8E305924B783B4009F5FAE /* ApplyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFactory.swift; sourceTree = "<group>"; };
 		EA8E305B24B783CA009F5FAE /* ApplyWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyWebService.swift; sourceTree = "<group>"; };
+		EA95319924C30A03003A321F /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		EA95319A24C30A03003A321F /* MessagesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessagesViewController.xib; sourceTree = "<group>"; };
 		EAB00C8524BF26E700556269 /* ProfileFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFormViewController.swift; sourceTree = "<group>"; };
 		EAB00C8624BF26E700556269 /* ProfileFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFormViewController.xib; sourceTree = "<group>"; };
 		EAFA409024B3536F00D9059F /* ListServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +214,8 @@
 				EA3BB3FA24BBB02F00CD6383 /* BadgeWebService.swift */,
 				EA3BB3FC24BC576800CD6383 /* WinFactory.swift */,
 				EA3BB40024BC587C00CD6383 /* WinWebService.swift */,
+				EA7BE3E924C2F0D900683643 /* MessageFactory.swift */,
+				EA7BE3EB24C2F28500683643 /* MessagesWebService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -238,10 +266,12 @@
 		4FF3162E245B0C170006FF9C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EA7BE3DA24C2592900683643 /* Messagerie */,
 				EA3BB40324BCB06300CD6383 /* NewService */,
 				EA696E2724BA160D0079FC38 /* Volunteers */,
 				EA8E305D24B7BC25009F5FAE /* MesServices */,
 				EAFA409924B470DE00D9059F /* ServiceInfos */,
+				EA3BB41624BE63A100CD6383 /* Profile */,
 				EAFA409424B3539000D9059F /* ListServices */,
 				18DECE402477BC2E00D5C27C /* SignUpViewController.swift */,
 				18C1EBE7247446AB00DC140A /* SignInViewController.swift */,
@@ -269,6 +299,7 @@
 				EA8E305724B7828F009F5FAE /* Apply.swift */,
 				EA3BB3F624BBAE7400CD6383 /* Badge.swift */,
 				EA3BB3FE24BC578E00CD6383 /* Win.swift */,
+				EA7BE3E324C25A9C00683643 /* Message.swift */,
 				EA3BB40824BE11B000CD6383 /* extensions.swift */,
 			);
 			path = Model;
@@ -324,6 +355,23 @@
 			path = Volunteers;
 			sourceTree = "<group>";
 		};
+		EA7BE3DA24C2592900683643 /* Messagerie */ = {
+			isa = PBXGroup;
+			children = (
+				EA7BE3E524C25D6600683643 /* ListConversationsViewController.swift */,
+				EA7BE3E624C25D6600683643 /* ListConversationsViewController.xib */,
+				EA7BE3DF24C2596600683643 /* ConversationsTableViewCell.swift */,
+				EA7BE3E024C2596600683643 /* ConversationsTableViewCell.xib */,
+				EA95319924C30A03003A321F /* MessagesViewController.swift */,
+				EA95319A24C30A03003A321F /* MessagesViewController.xib */,
+				EA36811724C33B5700F633EA /* InMessageTableViewCell.swift */,
+				EA36811824C33B5700F633EA /* InMessageTableViewCell.xib */,
+				EA36811B24C33B6600F633EA /* OutMessageTableViewCell.swift */,
+				EA36811C24C33B6600F633EA /* OutMessageTableViewCell.xib */,
+			);
+			path = Messagerie;
+			sourceTree = "<group>";
+		};
 		EA8E305D24B7BC25009F5FAE /* MesServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,7 +388,6 @@
 				EAFA409124B3536F00D9059F /* ListServicesViewController.xib */,
 				EA8E305324B5B269009F5FAE /* ServiceCollectionViewCell.swift */,
 				EA8E305424B5B269009F5FAE /* ServiceCollectionViewCell.xib */,
-				EA3BB41624BE63A100CD6383 /* Profile */,
 			);
 			path = ListServices;
 			sourceTree = "<group>";
@@ -414,21 +461,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA36811A24C33B5700F633EA /* InMessageTableViewCell.xib in Resources */,
 				EA3BB3F524BB205300CD6383 /* EvaluationViewController.xib in Resources */,
 				18C1EBEA247446AB00DC140A /* SignInViewController.xib in Resources */,
 				4FF31627245B0BF90006FF9C /* LaunchScreen.storyboard in Resources */,
+				EA95319C24C30A03003A321F /* MessagesViewController.xib in Resources */,
 				EAFA40A324B473AA00D9059F /* ServiceInfosViewController.xib in Resources */,
 				EA3BB41524BE639800CD6383 /* PointsTableViewCell.xib in Resources */,
+				EA7BE3E824C25D6600683643 /* ListConversationsViewController.xib in Resources */,
 				EA3BB41124BE548000CD6383 /* ProfilViewController.xib in Resources */,
 				EAB00C8824BF26E700556269 /* ProfileFormViewController.xib in Resources */,
 				EA3BB40724BCB08100CD6383 /* NewServiceViewController.xib in Resources */,
 				4FF31624245B0BF90006FF9C /* Assets.xcassets in Resources */,
+				EA36811E24C33B6600F633EA /* OutMessageTableViewCell.xib in Resources */,
 				EA8E305624B5B269009F5FAE /* ServiceCollectionViewCell.xib in Resources */,
 				EA696E2024B909650079FC38 /* VolunteersTableViewCell.xib in Resources */,
 				4F18831224659655006481B6 /* MessagesController.xib in Resources */,
 				EA696E2624BA09800079FC38 /* ListVolunteersViewController.xib in Resources */,
 				EA696E2B24BA162D0079FC38 /* VolunteersDetailsViewController.xib in Resources */,
 				18DECE432477BC2E00D5C27C /* SignUpViewController.xib in Resources */,
+				EA7BE3E224C2596600683643 /* ConversationsTableViewCell.xib in Resources */,
 				18C1EBE62474434700DC140A /* HomeViewController.xib in Resources */,
 				EAFA409324B3536F00D9059F /* ListServicesViewController.xib in Resources */,
 				EA30540824B1DBB500C563BF /* MesServicesViewController.xib in Resources */,
@@ -460,13 +512,18 @@
 				EA3BB3F924BBAF2400CD6383 /* BadgeFactory.swift in Sources */,
 				EA3053FC24B0A65D00C563BF /* ServiceWebService.swift in Sources */,
 				4FF31632245B0C6B0006FF9C /* TabBarController.swift in Sources */,
+				EA36811D24C33B6600F633EA /* OutMessageTableViewCell.swift in Sources */,
 				EAFA40A224B473AA00D9059F /* ServiceInfosViewController.swift in Sources */,
 				4FF31640245B0D4D0006FF9C /* ProfilSections.swift in Sources */,
 				EA3BB3F724BBAE7400CD6383 /* Badge.swift in Sources */,
+				EA7BE3EA24C2F0D900683643 /* MessageFactory.swift in Sources */,
+				EA7BE3E124C2596600683643 /* ConversationsTableViewCell.swift in Sources */,
 				4FF31644245B0DA40006FF9C /* InfoUser.swift in Sources */,
 				EA30540724B1DBB500C563BF /* MesServicesViewController.swift in Sources */,
 				EA8E305C24B783CA009F5FAE /* ApplyWebService.swift in Sources */,
+				EA7BE3EC24C2F28500683643 /* MessagesWebService.swift in Sources */,
 				EA696E2224B9C6C50079FC38 /* Config.swift in Sources */,
+				EA36811924C33B5700F633EA /* InMessageTableViewCell.swift in Sources */,
 				EA8E305824B7828F009F5FAE /* Apply.swift in Sources */,
 				EA30540224B1C27600C563BF /* TypeService.swift in Sources */,
 				18DECE462477BDC100D5C27C /* UserSignUp.swift in Sources */,
@@ -474,7 +531,9 @@
 				4F19E13D246ECFB800F21132 /* ScaledHeightImageView.swift in Sources */,
 				4FB7E21A246AD7DC002740C6 /* ProfilFormController.swift in Sources */,
 				4F4B409824655E4C00249FB8 /* Extensions.swift in Sources */,
+				EA7BE3E424C25A9C00683643 /* Message.swift in Sources */,
 				EA3BB3FB24BBB02F00CD6383 /* BadgeWebService.swift in Sources */,
+				EA7BE3E724C25D6600683643 /* ListConversationsViewController.swift in Sources */,
 				4F19E141246ED01000F21132 /* Extension.swift in Sources */,
 				EA8E305524B5B269009F5FAE /* ServiceCollectionViewCell.swift in Sources */,
 				EA3BB40124BC587C00CD6383 /* WinWebService.swift in Sources */,
@@ -493,6 +552,7 @@
 				4F32268F245F0A0400CAF083 /* DeleteController.swift in Sources */,
 				EA8E305A24B783B4009F5FAE /* ApplyFactory.swift in Sources */,
 				4FF31642245B0D7A0006FF9C /* ProfilCell.swift in Sources */,
+				EA95319B24C30A03003A321F /* MessagesViewController.swift in Sources */,
 				4F18831124659655006481B6 /* MessagesController.swift in Sources */,
 				EA30540424B1C3B600C563BF /* TypeServiceFactory.swift in Sources */,
 				EA3BB3FF24BC578E00CD6383 /* Win.swift in Sources */,

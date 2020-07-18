@@ -39,7 +39,8 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
         setupPicker()
         
         self.navigationItem.hidesBackButton = true
-
+        
+        self.hideKeyboardWhenTappedAround()
         tabBar.selectedItem = tabBar.items?[0]
         self.tabBar.delegate = self
     }
@@ -103,6 +104,10 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
             let alertController = UIAlertController(title: "Erreur de création", message: "Merci de renseigner tous les champs manquants.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Valider", style: .default))
             self.present(alertController, animated: true, completion: nil)
+        } else if(checkDates()){
+            let alertController = UIAlertController(title: "Erreur de création", message: "La deadline ne peut pas être après la date", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Compris !", style: .default))
+            self.present(alertController, animated: true, completion: nil)
         } else {
             
             if(userConnected!.points > 1){
@@ -114,9 +119,7 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
                         self.userConnected?.points -= 1
                         self.UserWS.updateUser(user: self.userConnected!){ (res) in
                             if(res == true){
-                                let listServices = ListServicesViewController.newInstance(userConnected: self.userConnected!)
-                                listServices.userConnected = self.userConnected
-                                self.navigationController?.pushViewController(listServices, animated:true)
+                                self.redirectionListService()
                             }
                         }
                     }
@@ -133,17 +136,29 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
         self.userConnected?.points -= 1
         self.UserWS.updateUser(user: self.userConnected!){ (res) in
             if(res == true){
-                self.redirection()
+                self.redirectionListService()
             }
         }
     }
     
-    func redirection() {
+    func redirectionListService() {
         DispatchQueue.main.sync {
-            let listServices = ListServicesViewController.newInstance(userConnected: userConnected!)
-            listServices.userConnected = userConnected
+            let listServices = ListServicesViewController()
+            listServices.userConnected = self.userConnected
             self.navigationController?.pushViewController(listServices, animated:true)
         }
+    }
+    
+    func checkDates()-> Bool{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let date = formatter.date(from: selectedDate)
+        let deadline = formatter.date(from: selectedDeadline)
+        
+        if(deadline! > date!){
+            return true
+        }
+        return false
     }
     
     @objc func dateServiceChange(datePicker : UIDatePicker) {

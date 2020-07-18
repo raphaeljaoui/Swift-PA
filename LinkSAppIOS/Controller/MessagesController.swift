@@ -18,10 +18,10 @@ class MessagesController: UIViewController {
     }
 
     func configUI() {
-           navigationItem.title = "Messages"
-           navigationController?.navigationBar.backgroundColor = .white
-           navigationController?.navigationBar.barTintColor = .gray
-           navigationController?.navigationBar.prefersLargeTitles = true
-       }
+       navigationItem.title = "Messages"
+       navigationController?.navigationBar.backgroundColor = .white
+       navigationController?.navigationBar.barTintColor = .gray
+       navigationController?.navigationBar.prefersLargeTitles = true
+    }
     
 }

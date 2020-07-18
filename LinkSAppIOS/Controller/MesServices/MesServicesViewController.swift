@@ -72,7 +72,7 @@ class MesServicesViewController: UIViewController, UITabBarDelegate, UICollectio
             ListService.userConnected = self.userConnected
             navigationController?.pushViewController(ListService, animated: false)
         } else if (tabBar.selectedItem == tabBar.items?[2]) {
-            let messages = MessagesController()
+            let messages = ListConversationsViewController()
             navigationController?.pushViewController(messages, animated: true)
         } else if (tabBar.selectedItem == tabBar.items?[3]) {
             let profil = ProfilViewController()

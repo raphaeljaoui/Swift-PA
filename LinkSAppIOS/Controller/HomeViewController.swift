@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     @IBAction func inscription(_ sender: UIButton) {
 
         self.navigationController?.pushViewController(SignUpViewController(), animated: true)
-
+        
     }
     
     
@@ -32,18 +32,7 @@ class HomeViewController: UIViewController {
              self.signUp.layer.borderWidth = 2
              self.signUp.layer.cornerRadius = 10
 
-        // Do any additional setup after loading the view.
+        self.navigationItem.hidesBackButton = true
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
