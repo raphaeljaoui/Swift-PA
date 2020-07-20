@@ -9,12 +9,13 @@
 import UIKit
 
 
-class ListServicesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarDelegate {
+class ListServicesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarDelegate, ListServicesViewControllerDelegate {
     
     let typeServiceWS: TypeServiceWebService = TypeServiceWebService()
     let ServiceWS: ServiceWebService = ServiceWebService()
     
     var userConnected: User? = nil
+    var typeToDisplay: Int? = nil
     
     let imagesCellId = "imagesCellId"
     let serviceCellId = "serviceCellId"
@@ -43,12 +44,12 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.typeServiceWS.getTypesService{ (typesServices) in
-            if(typesServices.count > 0){
-                self.typesArray = typesServices
-            }
         
+        self.navigationItem.hidesBackButton = true
+        tabBar.selectedItem = tabBar.items?[0]
+        self.tabBar.delegate = self
+        
+        guard let type = typeToDisplay else {
             self.ServiceWS.getServices(statutId: 1){ (services) in
                 if(services.count > 0){
                     self.servicesArray = services
@@ -56,11 +57,16 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
                 self.configUI()
                 self.setupViews()
             }
+            return
+        }
+        self.ServiceWS.getServicesByTypeService(id_type: type, id_statut: 1){ (services) in
+            if(services.count > 0){
+                self.servicesArray = services
+            }
+            self.configUI()
+            self.setupViews()
         }
         
-        self.navigationItem.hidesBackButton = true
-        tabBar.selectedItem = tabBar.items?[0]
-        self.tabBar.delegate = self
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -81,10 +87,14 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     
     @objc
     func newServiceView(){
-        let newService = NewServiceViewController()
-        newService.typeServiceList = typesArray
-        newService.userConnected = userConnected
-        self.navigationController?.pushViewController(newService, animated:true)
+        self.typeServiceWS.getTypesService{ (typesServices) in
+            if(typesServices.count > 0){
+                let newService = NewServiceViewController()
+                newService.typeServiceList = typesServices
+                newService.userConnected = self.userConnected
+                self.navigationController?.pushViewController(newService, animated:true)
+            }
+        }
     }
     
     
@@ -142,17 +152,12 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
             cell.dateService.text = service.date
             
             cell.dateService.text = String(service.date.prefix(10))
-            
             cell.images = servicesArray
-            
             return cell
         }
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagesCellId, for:indexPath) as! ImagesCell
-        
-        cell.images = self.typesArray
+        cell.Typesdelegate = self
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -170,12 +175,18 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let detail = ServiceInfosViewController()
-        detail.service = servicesArray[indexPath.item]
-        detail.userConnected = userConnected
-        self.navigationController?.pushViewController(detail, animated:true)
+        if indexPath.section == 1{
+            let detail = ServiceInfosViewController()
+            detail.service = servicesArray[indexPath.item]
+            detail.userConnected = userConnected
+            self.navigationController?.pushViewController(detail, animated:true)
+        }
     }
     
-
+    @objc internal func typeTap(id_type: Int){
+        let detail = ListServicesViewController()
+        detail.userConnected = userConnected
+        detail.typeToDisplay = id_type
+        self.navigationController?.pushViewController(detail, animated:true)
+    }
 }

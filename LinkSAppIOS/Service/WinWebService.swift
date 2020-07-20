@@ -44,7 +44,6 @@ class WinWebService {
     
     func setBadgeToUser(win: Win, completion: @escaping (Bool) -> Void) -> Void {
         let url = Config.urlAPI + "/win"
-        print(url)
         guard let urlApi  = URL(string: url) else {
             return;
         }

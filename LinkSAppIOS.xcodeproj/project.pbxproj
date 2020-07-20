@@ -277,7 +277,6 @@
 				18C1EBE7247446AB00DC140A /* SignInViewController.swift */,
 				18C1EBE32474434700DC140A /* HomeViewController.swift */,
 				4FF31631245B0C6B0006FF9C /* TabBarController.swift */,
-				4FF31637245B0CB10006FF9C /* ServicesController.swift */,
 				4F18830F24659655006481B6 /* MessagesController.swift */,
 				4FF3163D245B0CD90006FF9C /* ProfilController.swift */,
 				4F32268E245F0A0400CAF083 /* DeleteController.swift */,
@@ -386,6 +385,7 @@
 			children = (
 				EAFA409024B3536F00D9059F /* ListServicesViewController.swift */,
 				EAFA409124B3536F00D9059F /* ListServicesViewController.xib */,
+				4FF31637245B0CB10006FF9C /* ServicesController.swift */,
 				EA8E305324B5B269009F5FAE /* ServiceCollectionViewCell.swift */,
 				EA8E305424B5B269009F5FAE /* ServiceCollectionViewCell.xib */,
 			);

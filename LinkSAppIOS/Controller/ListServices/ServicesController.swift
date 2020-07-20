@@ -9,11 +9,18 @@
 
 import UIKit
 
+
+protocol ListServicesViewControllerDelegate: class {
+    func typeTap(id_type: Int)
+}
+
 class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    let typeServiceWebService: TypeServiceWebService = TypeServiceWebService()
+    let typeServiceWS: TypeServiceWebService = TypeServiceWebService()
     
-    var images: [TypeService]? {
+    weak var Typesdelegate: ListServicesViewControllerDelegate?
+    
+    var listTypeService: [TypeService]? {
         didSet {
             collectionView.reloadData()
         }
@@ -33,17 +40,11 @@ class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     override init(frame: CGRect) {
         super.init(frame:frame)
         
-        self.typeServiceWebService.getTypesService{ (typesServices) in
-            
+        self.typeServiceWS.getTypesService{ (typesServices) in
             print(typesServices)
-            
             if(typesServices.count > 0){
-                self.images = typesServices
-                
-                
+                self.listTypeService = typesServices
                 self.setup()
-            } else {
-                
             }
         }
         
@@ -61,7 +62,7 @@ class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     }
      
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let img = self.images {
+        if let img = self.listTypeService {
             return img.count
         }
         return 0
@@ -70,12 +71,14 @@ class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! IconsCell
         
-        guard let namePicture = images?[indexPath.item].picture else {
+        
+        guard let namePicture = listTypeService?[indexPath.item].picture else {
             cell.imageView.image = UIImage(named: "undefied")
             
             return cell
         }
         cell.imageView.image = UIImage(named: namePicture)
+        
         
         return cell
     }
@@ -89,11 +92,13 @@ class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        /*
-        let detail = CategoryController()
-        self.navigationController.pushViewController(detail, animated: true)
-        */
+        guard let typeService = listTypeService?[indexPath.item] else { return }
+        
+        guard let td = Typesdelegate else { return }
+        td.typeTap(id_type: typeService.id)
+        
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -125,6 +130,7 @@ class ImagesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     }
 }
+
 
 class AlbumCell: UICollectionViewCell {
     

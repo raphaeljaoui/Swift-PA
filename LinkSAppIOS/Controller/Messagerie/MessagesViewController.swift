@@ -25,8 +25,6 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(messagesList)
-        
         self.MessagesTableView.register(UINib(nibName: "InMessageTableViewCell", bundle: nil), forCellReuseIdentifier: inCellId)
         self.MessagesTableView.register(UINib(nibName: "OutMessageTableViewCell", bundle: nil), forCellReuseIdentifier: OutCellId)
         

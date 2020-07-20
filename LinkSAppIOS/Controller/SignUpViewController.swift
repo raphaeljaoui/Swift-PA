@@ -56,7 +56,6 @@ class SignUpViewController: UIViewController {
                 sendError(message: "Les mots de passe ne correspondent pas")
             } else if (email.contains("@") && email.contains(".")) { // Vérification de l'adresse mail
                 UserWS.getUserByEmail(emailUser: email){ (user) in
-                    print(user)
                     if(user.count == 0){
                         let userToRegister = User(id_user: 0, name: name, surname: surname, email: email, birthdate: birthdate, points: 10, type: "member")
                         userToRegister.adress = adress
