@@ -136,9 +136,7 @@ class ServiceInfosViewController: UIViewController {
         }
         
         self.ApplyWS.getExecutorOfAService(idService: idService){ (user) in
-            print("executor", user[0])
             if(user.count > 0){
-                print("executor=",user[0])
                 self.userExecutor = user[0]
                 self.executorService.text = "\(user[0].name) \(user[0].surname)"
                 self.btnVolunteers.isHidden = true

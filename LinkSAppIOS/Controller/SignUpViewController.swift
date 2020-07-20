@@ -22,12 +22,18 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var CPTF: UITextField!
     @IBOutlet weak var pwd1TF: UITextField!
     @IBOutlet weak var pwd2TF: UITextField!
+    @IBOutlet weak var connexion: UIButton!
+    @IBOutlet weak var inscription: UIButton!
     
     var birthdatePicker: UIDatePicker?
     var selectedBirthDate: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        inscription.layer.cornerRadius = inscription.bounds.size.height/2
+        connexion.layer.cornerRadius = connexion.bounds.size.height/2
+        
         self.hideKeyboardWhenTappedAround()
         setupPicker()
     }

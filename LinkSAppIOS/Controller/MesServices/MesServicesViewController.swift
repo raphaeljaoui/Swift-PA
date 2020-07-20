@@ -45,11 +45,10 @@ class MesServicesViewController: UIViewController, UITabBarDelegate, UICollectio
         self.ServiceWS.getMyAppliances(userId: idUser){ (services) in
             if(services.count > 0){
                 self.servicesArray = services
-                
-                self.configUI()
-                self.setupViews()
             } else {
             }
+            self.configUI()
+            self.setupViews()
         }
         
         self.navigationItem.hidesBackButton = true
@@ -119,7 +118,8 @@ class MesServicesViewController: UIViewController, UITabBarDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.servicesArray.count
+        guard let services = self.servicesArray else { return 0}
+        return services.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

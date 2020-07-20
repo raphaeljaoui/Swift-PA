@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -9,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="LinkSAppIOS" customModuleProvider="target">
             <connections>
+                <outlet property="loginButton" destination="Ake-Vw-qaR" id="CYr-M8-zuW"/>
                 <outlet property="mailFiels" destination="5BP-YM-c7z" id="Cou-pg-9G4"/>
                 <outlet property="passwordFields" destination="Iau-Wf-E63" id="dfZ-Ld-pdm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -26,12 +28,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5BP-YM-c7z">
-                    <rect key="frame" x="10" y="588" width="814" height="34"/>
+                    <rect key="frame" x="200" y="588" width="434" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" textContentType="email"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iau-Wf-E63">
-                    <rect key="frame" x="10" y="731" width="814" height="34"/>
+                    <rect key="frame" x="200" y="731" width="434" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
@@ -42,8 +44,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ake-Vw-qaR">
-                    <rect key="frame" x="380.5" y="845" width="73" height="30"/>
-                    <state key="normal" title="Connexion"/>
+                    <rect key="frame" x="300" y="845" width="234" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Connexion">
+                        <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </state>
                     <connections>
                         <action selector="loginButton:" destination="-1" eventType="touchUpInside" id="7fF-1T-Lwe"/>
                     </connections>
@@ -54,15 +59,17 @@
                 <constraint firstItem="5BP-YM-c7z" firstAttribute="top" secondItem="fr4-VB-HGj" secondAttribute="bottom" constant="26" id="87M-5k-q1c"/>
                 <constraint firstItem="Ake-Vw-qaR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8B6-hu-K3Z"/>
                 <constraint firstItem="Iau-Wf-E63" firstAttribute="centerX" secondItem="fr4-VB-HGj" secondAttribute="centerX" id="Bnn-6k-Kpf"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Iau-Wf-E63" secondAttribute="trailing" constant="10" id="KBt-t8-AVh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Iau-Wf-E63" secondAttribute="trailing" constant="200" id="KBt-t8-AVh"/>
                 <constraint firstItem="Iau-Wf-E63" firstAttribute="top" secondItem="uab-dQ-H7V" secondAttribute="bottom" constant="18" id="QMb-re-DOe"/>
-                <constraint firstItem="5BP-YM-c7z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="ZVt-ku-f5l"/>
+                <constraint firstItem="Ake-Vw-qaR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="300" id="TAR-G9-vW9"/>
+                <constraint firstItem="5BP-YM-c7z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="200" id="ZVt-ku-f5l"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Iau-Wf-E63" secondAttribute="bottom" constant="409" id="dDF-Au-ekg"/>
                 <constraint firstItem="uab-dQ-H7V" firstAttribute="top" secondItem="5BP-YM-c7z" secondAttribute="bottom" constant="70" id="f3A-Fg-pbz"/>
-                <constraint firstItem="Iau-Wf-E63" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="ihe-8h-FwE"/>
+                <constraint firstItem="Iau-Wf-E63" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="200" id="ihe-8h-FwE"/>
                 <constraint firstItem="Iau-Wf-E63" firstAttribute="centerX" secondItem="uab-dQ-H7V" secondAttribute="centerX" id="q0N-Ci-rkC"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5BP-YM-c7z" secondAttribute="trailing" constant="10" id="wFQ-n9-23s"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5BP-YM-c7z" secondAttribute="trailing" constant="200" id="wFQ-n9-23s"/>
                 <constraint firstItem="Ake-Vw-qaR" firstAttribute="top" secondItem="Iau-Wf-E63" secondAttribute="bottom" constant="80" id="xsX-db-YB0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ake-Vw-qaR" secondAttribute="trailing" constant="300" id="zrS-p7-v7a"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="78" y="131"/>

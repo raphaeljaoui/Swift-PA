@@ -36,6 +36,9 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let typeChoose = TypeService(idType: 0, name: "Choisir votre type de service", desc: "", pic: "", act: 1)
+        typeServiceList?.insert(typeChoose, at: 0)
+        
         setupPicker()
         configUI()
         
@@ -58,11 +61,9 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
         typeServicePicker.delegate = self
         typeServicePicker.dataSource = self
         typeField.inputView = typeServicePicker
-        typeField.text = self.typeServiceList?[1].name
-        selectedTypeService = typeServiceList?[1]
+        selectedTypeService = typeServiceList?[0]
         
         //Date & deadLine pickers
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         self.dateServicePicker = UIDatePicker()
@@ -101,7 +102,7 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let deadlineService = selectedDeadline
         let idTypeService = selectedTypeService.id
         
-        if (nameService == "" ||  descriptionService == "" ||  dateService == "" ||  deadlineService == "" ) {
+        if (nameService == "" ||  descriptionService == "" ||  dateService == "" ||  deadlineService == "" || idTypeService == 0) {
             let alertController = UIAlertController(title: "Erreur de création", message: "Merci de renseigner tous les champs manquants.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Valider", style: .default))
             self.present(alertController, animated: true, completion: nil)
@@ -111,7 +112,7 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
             self.present(alertController, animated: true, completion: nil)
         } else {
             
-            if(userConnected!.points > 1){
+            if(userConnected!.points >= 1){
                 guard let idUser = userConnected?.id else { return }
                 let serviceToCreate = Service(idService: 0, name: nameService!, date: dateService!, deadline: deadlineService!, cost: 1, profit: 1, access: "normal", type: idTypeService, creator: idUser, Statut: 1)
                 serviceToCreate.desc = descriptionService

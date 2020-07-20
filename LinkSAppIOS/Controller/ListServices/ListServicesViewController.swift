@@ -17,7 +17,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     var userConnected: User? = nil
     
     let imagesCellId = "imagesCellId"
-    let albumsCellId = "albumsCellId"
+    let serviceCellId = "serviceCellId"
     
     var typesArray: [TypeService]!
     var servicesArray: [Service]!
@@ -42,8 +42,6 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     }()
     
     override func viewDidLoad() {
-        //loadTypesServices()
-        
         super.viewDidLoad()
 
         self.typeServiceWS.getTypesService{ (typesServices) in
@@ -66,7 +64,6 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
         if (tabBar.selectedItem == tabBar.items?[1]) {
             let mesServices = MesServicesViewController()
             mesServices.userConnected = self.userConnected
@@ -79,28 +76,6 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
             let profil = ProfilViewController()
             profil.userConnected = userConnected
             navigationController?.pushViewController(profil, animated: false)
-        }
-    }
-    
-    
-    func loadTypesServices() {
-        self.typeServiceWS.getTypesService{ (typesServices) in
-            if(typesServices.count > 0){
-                print(typesServices)
-                self.typesArray = typesServices
-            } else {
-            }
-        }
-    }
-    
-    func loadServices() {
-        self.ServiceWS.getServices(statutId: 1){ (services) in
-            if(services.count > 0){
-                for counter in 0..<services.count {
-                    self.servicesArray.append(services[counter])
-                }
-            } else {
-            }
         }
     }
     
@@ -135,13 +110,12 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         return iv
     }()
     
-    
     func setupViews() {
         collectionView.dataSource = self
         collectionView.delegate = self
         
         collectionView.register(ImagesCell.self, forCellWithReuseIdentifier: imagesCellId)
-        collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: albumsCellId)
+        collectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: serviceCellId)
         
         view.addSubview(collectionView)
         collectionView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: tabBar.topAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
@@ -161,7 +135,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumsCellId, for: indexPath) as! ServiceCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: serviceCellId, for: indexPath) as! ServiceCollectionViewCell
             let service = servicesArray[indexPath.row]
             cell.nameService.text = service.name
             cell.descService.text = service.desc

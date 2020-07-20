@@ -12,7 +12,6 @@ class TypeServiceWebService{
     
         func getTypesService(completion: @escaping ([TypeService]) -> Void) -> Void {
             let url = Config.urlAPI + "/typeService/active"
-            print(url)
             guard let urlApi  = URL(string: url) else {
                 return;
             }

@@ -13,9 +13,6 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameService: UILabel!
     @IBOutlet weak var dateService: UILabel!
     @IBOutlet weak var descService: UILabel!
-    @IBOutlet weak var imgService: UIImageView!
-    @IBOutlet weak var stackService: UIStackView!
-    @IBOutlet weak var CreatorService: UILabel!
     
     var images: [Service]? {
         didSet {

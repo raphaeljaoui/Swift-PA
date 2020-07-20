@@ -28,9 +28,9 @@ class HomeViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.signIn.layer.cornerRadius = 10
-             self.signUp.layer.borderWidth = 2
-             self.signUp.layer.cornerRadius = 10
+        
+        signUp.layer.cornerRadius = signUp.bounds.size.height/2
+        signIn.layer.cornerRadius = signIn.bounds.size.height/2
 
         self.navigationItem.hidesBackButton = true
     }

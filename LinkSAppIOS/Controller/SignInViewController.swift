@@ -16,7 +16,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mailFiels: UITextField!
     @IBOutlet weak var passwordFields: UITextField!
-   
+    @IBOutlet weak var loginButton: UIButton!
+    
     @IBAction func loginButton(_ sender: Any) {
         connexionRequest()
         
@@ -25,7 +26,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.mailFiels.delegate = self
         self.passwordFields.delegate = self
-        // Do any additional setup after loading the view.
+        loginButton.layer.cornerRadius = loginButton.bounds.size.height/2
+        
     }
     
     func connexionRequest(){
