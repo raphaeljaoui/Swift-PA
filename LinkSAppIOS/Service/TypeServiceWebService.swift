@@ -11,8 +11,9 @@ import Foundation
 class TypeServiceWebService{
     
         func getTypesService(completion: @escaping ([TypeService]) -> Void) -> Void {
-
-            guard let urlApi  = URL(string: "http://localhost:4000/typeService/active") else {
+            let url = Config.urlAPI + "/typeService/active"
+            print(url)
+            guard let urlApi  = URL(string: url) else {
                 return;
             }
             var request = URLRequest(url: urlApi)
@@ -47,8 +48,8 @@ class TypeServiceWebService{
         }
     
     func getTypesServiceById(idType: Int, completion: @escaping ([TypeService]) -> Void) -> Void {
-
-        guard let urlApi  = URL(string: "http://localhost:4000/typeService/\(idType)") else {
+        let url = Config.urlAPI + "/typeService/\(idType)"
+        guard let urlApi  = URL(string: url) else {
             return;
         }
         var request = URLRequest(url: urlApi)

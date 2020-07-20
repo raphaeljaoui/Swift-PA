@@ -19,7 +19,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     let imagesCellId = "imagesCellId"
     let albumsCellId = "albumsCellId"
     
-    var imageArray: [TypeService]!
+    var typesArray: [TypeService]!
     var servicesArray: [Service]!
     
     @IBOutlet weak var tabBar: UITabBar!
@@ -42,23 +42,23 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     }()
     
     override func viewDidLoad() {
-        loadTypesServices()
+        //loadTypesServices()
         
         super.viewDidLoad()
 
+        self.typeServiceWS.getTypesService{ (typesServices) in
+            if(typesServices.count > 0){
+                self.typesArray = typesServices
+            }
         
-        self.ServiceWS.getServices(statutId: 1){ (services) in
-            if(services.count > 0){
-                //TODO: chose a solution
-                self.servicesArray = services
-                
+            self.ServiceWS.getServices(statutId: 1){ (services) in
+                if(services.count > 0){
+                    self.servicesArray = services
+                }
                 self.configUI()
                 self.setupViews()
-            } else {
             }
         }
-
-        print(servicesArray)
         
         self.navigationItem.hidesBackButton = true
         tabBar.selectedItem = tabBar.items?[0]
@@ -86,7 +86,8 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     func loadTypesServices() {
         self.typeServiceWS.getTypesService{ (typesServices) in
             if(typesServices.count > 0){
-                self.imageArray = typesServices
+                print(typesServices)
+                self.typesArray = typesServices
             } else {
             }
         }
@@ -96,7 +97,6 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         self.ServiceWS.getServices(statutId: 1){ (services) in
             if(services.count > 0){
                 for counter in 0..<services.count {
-                    print(services[counter])
                     self.servicesArray.append(services[counter])
                 }
             } else {
@@ -107,7 +107,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     @objc
     func newServiceView(){
         let newService = NewServiceViewController()
-        newService.typeServiceList = imageArray
+        newService.typeServiceList = typesArray
         newService.userConnected = userConnected
         self.navigationController?.pushViewController(newService, animated:true)
     }
@@ -153,7 +153,8 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 1 {
-            return self.servicesArray.count
+            guard let services = self.servicesArray else { return 0 }
+            return services.count
         }
         return 1
     }
@@ -175,7 +176,7 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagesCellId, for:indexPath) as! ImagesCell
         
-        cell.images = self.imageArray
+        cell.images = self.typesArray
         return cell
         
     }

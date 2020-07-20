@@ -14,10 +14,12 @@ class ServiceInfosViewController: UIViewController {
     let TypeWS : TypeServiceWebService = TypeServiceWebService()
     let ApplyWS : ApplyWebService = ApplyWebService()
     let ServiceWS: ServiceWebService = ServiceWebService()
+    let MessageWS: MessagesWebService = MessagesWebService()
     
     var service: Service? = nil
     var userConnected: User? = nil
     var userExecutor: User? = nil
+    var userCreator: User? = nil
     
     @IBOutlet weak var creatorService: UILabel!
     @IBOutlet weak var nameService: UILabel!
@@ -34,6 +36,7 @@ class ServiceInfosViewController: UIViewController {
     @IBOutlet weak var btnVolunteers: UIButton!
     @IBOutlet weak var btnDeleteService: UIButton!
     @IBOutlet weak var btnEndService: UIButton!
+    @IBOutlet weak var btnSendMessage: UIButton!
     
     
     override func viewDidLoad() {
@@ -60,6 +63,8 @@ class ServiceInfosViewController: UIViewController {
     
     func configUI() -> Void{
         btnEndService.layer.cornerRadius = btnEndService.bounds.size.height/2
+        btnDeleteService.layer.cornerRadius = btnDeleteService.bounds.size.height/2
+        btnSendMessage.layer.cornerRadius = btnSendMessage.bounds.size.height/2
     }
 
     func setCreatorName() -> Void {
@@ -70,6 +75,7 @@ class ServiceInfosViewController: UIViewController {
         
         self.UserWS.getUserById(idUser: idCreator){ (creator) in
             if(creator.count > 0){
+                self.userCreator = creator[0]
                 self.creatorService.text = creator[0].name
                 
                 guard let userConnectedId = self.userConnected?.id else {
@@ -78,36 +84,33 @@ class ServiceInfosViewController: UIViewController {
                 
                 if( userConnectedId == creator[0].id){
                     self.btnPostulate.isHidden = true
+                    self.labelApplied.isHidden = true
                     self.btnVolunteers.isHidden = false
                     self.btnDeleteService.isHidden = false
-                    self.labelApplied.isHidden = true
                     
                     //hide button endService because service is already ended
                     if(self.service?.Statut == 2){
                         self.btnEndService.isHidden = true
                     }
-                    
+                      
                 } else {
+                    self.btnVolunteers.isHidden = true
+                    self.btnDeleteService.isHidden = true
+                    self.executorService.isHidden = true
+                    self.btnEndService.isHidden = true
+                    
+                    //Check if user has already postulate
                     self.ApplyWS.getUserApplianceAtService(idService: self.service!.id, idUser: userConnectedId){ (res) in
                         if(res.count > 0){
                             self.btnPostulate.isHidden = true
-                            self.labelApplied.isHidden = false
                             if(res[0].execute == 2){
                                 self.labelApplied.text = "Vous réalisez ce service"
-                                self.labelApplied.isHidden = true
                             }
                         } else {
                             self.labelApplied.isHidden = true
                         }
                     }
-                    
-                    self.btnVolunteers.isHidden = true
-                    self.btnDeleteService.isHidden = true
-                    self.executorService.isHidden = true
-                    self.btnEndService.isHidden = true
                 }
-            } else {
-                
             }
         }
     }
@@ -119,7 +122,6 @@ class ServiceInfosViewController: UIViewController {
         }
         
         self.TypeWS.getTypesServiceById(idType: idType){ (type) in
-            print(type)
             if(type.count > 0){
                 self.typeService.text = type[0].name
             } else {
@@ -134,13 +136,16 @@ class ServiceInfosViewController: UIViewController {
         }
         
         self.ApplyWS.getExecutorOfAService(idService: idService){ (user) in
-            
+            print("executor", user[0])
             if(user.count > 0){
+                print("executor=",user[0])
                 self.userExecutor = user[0]
-                self.executorService.text = user[0].name
+                self.executorService.text = "\(user[0].name) \(user[0].surname)"
                 self.btnVolunteers.isHidden = true
                 self.btnDeleteService.isHidden = true
             } else {
+                self.btnSendMessage.isHidden = true
+                self.executorService.isHidden = true
                 self.btnEndService.isHidden = true
             }
         }
@@ -168,6 +173,21 @@ class ServiceInfosViewController: UIViewController {
         displayVolunteers()
     }
     
+    @IBAction func btnSendMessage(_ sender: Any) {
+        guard let userConnectedId = self.userConnected?.id else {
+            return
+        }
+        let idSender = userConnectedId
+        if(userConnectedId == service?.id_creator){
+            let idDest = userExecutor?.id
+            sendMessage(idSender: idSender, idDest: idDest!)
+        } else if (userConnectedId == service?.executorUser){
+            let idDest = service?.id_creator
+            sendMessage(idSender: idSender, idDest: idDest!)
+        }
+    }
+
+    
     @IBAction func btnDeleteService(_ sender: Any) {
         guard let serviceToDelete = self.service else {
             return
@@ -182,6 +202,7 @@ class ServiceInfosViewController: UIViewController {
             
         }
     }
+    
     @IBAction func btnEndService(_ sender: Any) {
         let volunteers = EvaluationViewController()
         volunteers.service = self.service
@@ -207,6 +228,24 @@ class ServiceInfosViewController: UIViewController {
                 
             }
         }
+    }
+    
+    func sendMessage(idSender: Int, idDest: Int){
+        MessageWS.getMessagesFor2Users(idSender: idSender, idDest: idDest){ (messages) in
+            if(messages.count > 0){
+                let messageController = MessagesViewController()
+                messageController.userConnected = self.userConnected
+                
+                if(idDest == self.userCreator?.id){
+                    messageController.dest = self.userCreator
+                } else {
+                    messageController.dest = self.userExecutor
+                }
+                messageController.messagesList = messages
+                self.navigationController?.pushViewController(messageController, animated:true)
+            }
+            
+        } 
     }
     
 }

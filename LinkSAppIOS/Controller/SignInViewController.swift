@@ -53,7 +53,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         DispatchQueue.main.async {
             self.userWebService.connexionUser(email: email, password: pwd){ (user) in
                 if(user.count > 0){
-
+                    print(user[0])
                     userConnected = user[0]
                     
                     UserDefaults.standard.set(userConnected.email,forKey: "userEmail")

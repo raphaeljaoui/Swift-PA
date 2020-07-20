@@ -113,7 +113,6 @@ class MessagesWebService {
     
     func sendMessage(message: Message, completion: @escaping (Bool) -> Void) -> Void {
         let url = Config.urlAPI + "/messages"
-
         guard let urlApi  = URL(string: url) else {
             return;
         }

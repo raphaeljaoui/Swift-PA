@@ -15,37 +15,38 @@ class UserWebService {
             "email": email,
             "password": password
         ]
-            guard let urlApi  = URL(string: "http://localhost:4000/connection/user") else {
-                return;
-            }
-            var request = URLRequest(url: urlApi)
-            request.httpMethod = "POST"
-            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed)
-            
-            request.setValue("application/json", forHTTPHeaderField: "content-type")
-            
-            
-            let task = URLSession.shared.dataTask(with: request) { (data, res, err) in
-            guard let bytes = data,
-                         err == nil,
-                let json = try? JSONSerialization.jsonObject(with: bytes, options: .allowFragments) as? [Any] else {
-                           DispatchQueue.main.sync {
-                            
-                               completion([])
-                           }
-                       return
-                   }
-                let user = json.compactMap { (obj) -> User? in
-                    guard let dict = obj as? [String: Any] else {
-                        return nil
-                    }
-                    return UserFactory.userFrom(dictionary: dict)
-                }
-                DispatchQueue.main.sync {
-                    completion(user)
-                }
-                
+        let url = Config.urlAPI + "/connection/user"
+        guard let urlApi  = URL(string: url) else {
+            return;
+        }
+        var request = URLRequest(url: urlApi)
+        request.httpMethod = "POST"
+        request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed)
+        
+        request.setValue("application/json", forHTTPHeaderField: "content-type")
+        
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, res, err) in
+        guard let bytes = data,
+                     err == nil,
+            let json = try? JSONSerialization.jsonObject(with: bytes, options: .allowFragments) as? [Any] else {
+                       DispatchQueue.main.sync {
+                        
+                           completion([])
+                       }
+                   return
                }
+            let user = json.compactMap { (obj) -> User? in
+                guard let dict = obj as? [String: Any] else {
+                    return nil
+                }
+                return UserFactory.userFrom(dictionary: dict)
+            }
+            DispatchQueue.main.sync {
+                completion(user)
+            }
+            
+           }
             task.resume()
         }
     

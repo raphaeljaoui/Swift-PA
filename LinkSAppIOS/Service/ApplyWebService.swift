@@ -12,7 +12,6 @@ class ApplyWebService{
     
     func getExecutorOfAService(idService: Int, completion: @escaping ([User]) -> Void) -> Void {
         let url = Config.urlAPI + "/service/executor/\(idService)"
-        print(url)
         guard let urlApi  = URL(string: url) else {
             return;
         }
@@ -126,15 +125,11 @@ class ApplyWebService{
     
     func getTotalNoteForTypeService(userId: Int, typeId: Int, completion: @escaping ([Int]) -> Void) -> Void {
         let url = Config.urlAPI + "/apply/note/\(userId)&\(typeId)"
-        print(url)
-        //let params = "{'id_user': \(userId), 'id_type':\(typeId)}"
-        
         guard let urlApi  = URL(string: url) else {
             return;
         }
         var request = URLRequest(url: urlApi)
         request.httpMethod = "GET"
-        //request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: .fragmentsAllowed)
         request.setValue("application/json", forHTTPHeaderField: "content-type")
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, res, err) in

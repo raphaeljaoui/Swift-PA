@@ -9,5 +9,6 @@
 import Foundation
 
 struct Config {
-    static var urlAPI: String = "http://localhost:4000"
+    //static var urlAPI: String = "http://localhost:4000"
+    static var urlAPI: String = "https://linkserviceapi.herokuapp.com"
 }
