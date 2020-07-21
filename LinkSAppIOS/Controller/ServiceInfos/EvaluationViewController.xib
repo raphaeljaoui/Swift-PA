@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -9,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvaluationViewController" customModule="LinkSAppIOS" customModuleProvider="target">
             <connections>
+                <outlet property="btnEndService" destination="smB-kW-mcB" id="dLx-Tp-bBx"/>
                 <outlet property="commentaireTF" destination="jGR-zY-gec" id="WFn-4u-rvJ"/>
                 <outlet property="noteSlider" destination="Wli-Pc-mcW" id="ySa-oT-96o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,7 +35,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Votre commentaire !" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jGR-zY-gec">
-                    <rect key="frame" x="25" y="181" width="302" height="53"/>
+                    <rect key="frame" x="25" y="181" width="974" height="53"/>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -48,10 +50,11 @@
                     <rect key="frame" x="23" y="327.5" width="978" height="31"/>
                 </slider>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smB-kW-mcB">
-                    <rect key="frame" x="400" y="1282" width="224" height="46"/>
+                    <rect key="frame" x="350" y="1250" width="324" height="46"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                     <state key="normal" title="Terminer le service">
-                        <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </state>
                     <connections>
                         <action selector="btnEndService:" destination="-1" eventType="touchUpInside" id="JPS-eE-BeC"/>
@@ -65,12 +68,14 @@
                 <constraint firstItem="jGR-zY-gec" firstAttribute="top" secondItem="pw0-7z-pD9" secondAttribute="bottom" constant="20" id="Sog-zH-ISU"/>
                 <constraint firstItem="ne2-oC-sk8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Trg-m9-3GZ"/>
                 <constraint firstItem="887-cS-0ct" firstAttribute="top" secondItem="jGR-zY-gec" secondAttribute="bottom" constant="40" id="WQR-yP-qjJ"/>
-                <constraint firstItem="smB-kW-mcB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cR7-Lj-JyR"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="smB-kW-mcB" secondAttribute="bottom" constant="18" id="iOd-ya-oRA"/>
+                <constraint firstItem="smB-kW-mcB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="350" id="Wg7-YQ-bxv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="smB-kW-mcB" secondAttribute="bottom" constant="50" id="iOd-ya-oRA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="smB-kW-mcB" secondAttribute="trailing" constant="350" id="nfa-xe-egF"/>
                 <constraint firstItem="Wli-Pc-mcW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="tBr-JO-Xdb"/>
                 <constraint firstItem="ne2-oC-sk8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="w2J-ZP-rQ7"/>
                 <constraint firstItem="jGR-zY-gec" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="wQ3-R5-Yc9"/>
                 <constraint firstItem="Wli-Pc-mcW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yOU-Ch-rXX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jGR-zY-gec" secondAttribute="trailing" constant="25" id="yqf-y5-thM"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="131.8359375" y="136.60322108345534"/>

@@ -81,17 +81,19 @@ class NewServiceViewController: UIViewController, UIPickerViewDelegate, UIPicker
         self.deadlineField.inputView = deadlinePicker
     }
     
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if (tabBar.selectedItem == tabBar.items?[1]) {
             let mesServices = MesServicesViewController()
             mesServices.userConnected = self.userConnected
             navigationController?.pushViewController(mesServices, animated: false)
         } else if (tabBar.selectedItem == tabBar.items?[2]) {
-            let messages = MessagesController()
-            navigationController?.pushViewController(messages, animated: true)
+            let messages = ListConversationsViewController()
+            messages.userConnected = self.userConnected
+            navigationController?.pushViewController(messages, animated: false)
         } else if (tabBar.selectedItem == tabBar.items?[3]) {
-            let profil = ProfilController()
-            navigationController?.pushViewController(profil, animated: true)
+            let profil = ProfilViewController()
+            profil.userConnected = userConnected
+            navigationController?.pushViewController(profil, animated: false)
         }
     }
     

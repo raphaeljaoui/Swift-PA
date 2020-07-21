@@ -65,6 +65,10 @@ class ServiceInfosViewController: UIViewController {
         btnEndService.layer.cornerRadius = btnEndService.bounds.size.height/2
         btnDeleteService.layer.cornerRadius = btnDeleteService.bounds.size.height/2
         btnSendMessage.layer.cornerRadius = btnSendMessage.bounds.size.height/2
+        
+        navigationItem.title = service?.name
+        navigationController?.navigationBar.backgroundColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     func setCreatorName() -> Void {
@@ -162,7 +166,7 @@ class ServiceInfosViewController: UIViewController {
             DispatchQueue.main.sync {
                 let listServices = ListServicesViewController()
                 listServices.userConnected = self.userConnected
-                self.navigationController?.pushViewController(listServices, animated:true)
+                self.navigationController?.pushViewController(listServices, animated:false)
             }
         }
     }
@@ -230,18 +234,24 @@ class ServiceInfosViewController: UIViewController {
     
     func sendMessage(idSender: Int, idDest: Int){
         MessageWS.getMessagesFor2Users(idSender: idSender, idDest: idDest){ (messages) in
-            if(messages.count > 0){
-                let messageController = MessagesViewController()
-                messageController.userConnected = self.userConnected
-                
-                if(idDest == self.userCreator?.id){
-                    messageController.dest = self.userCreator
-                } else {
-                    messageController.dest = self.userExecutor
-                }
-                messageController.messagesList = messages
-                self.navigationController?.pushViewController(messageController, animated:true)
+            let messageController = MessagesViewController()
+            messageController.userConnected = self.userConnected
+            
+            if(idDest == self.userCreator?.id){
+                messageController.dest = self.userCreator
+            } else {
+                messageController.dest = self.userExecutor
             }
+            
+            if(messages.count > 0){
+                
+                messageController.messagesList = messages
+                
+            } else {
+                messageController.messagesList = []
+            }
+            self.navigationController?.pushViewController(messageController, animated:true)
+            
             
         } 
     }

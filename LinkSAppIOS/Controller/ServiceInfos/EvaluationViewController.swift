@@ -23,11 +23,17 @@ class EvaluationViewController: UIViewController {
 
     @IBOutlet weak var commentaireTF: UITextField!
     @IBOutlet weak var noteSlider: UISlider!
+    @IBOutlet weak var btnEndService: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        btnEndService.layer.cornerRadius = btnEndService.bounds.size.height/2
+        navigationItem.title = "Evaluez le service rendu"
+        navigationController?.navigationBar.backgroundColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     @IBAction func btnEndService(_ sender: Any) {
@@ -83,6 +89,9 @@ class EvaluationViewController: UIViewController {
                 }
             }
         }
+        let mesServices = MesServicesViewController()
+        mesServices.userConnected = self.userConnected
+        self.navigationController?.pushViewController(mesServices, animated: false)
     }
 
     func setNewBadges(UserBadges: [Win], noteTotalUser: Int) -> Void{
@@ -110,7 +119,7 @@ class EvaluationViewController: UIViewController {
                 }
             }
         }
-        redirectionMesServices()
+        
     }
     
     func redirectionMesServices(){

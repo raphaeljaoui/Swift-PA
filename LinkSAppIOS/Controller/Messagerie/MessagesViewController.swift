@@ -25,6 +25,10 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "\(dest!.name) \(dest!.surname)"
+        navigationController?.navigationBar.backgroundColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         self.MessagesTableView.register(UINib(nibName: "InMessageTableViewCell", bundle: nil), forCellReuseIdentifier: inCellId)
         self.MessagesTableView.register(UINib(nibName: "OutMessageTableViewCell", bundle: nil), forCellReuseIdentifier: OutCellId)
         

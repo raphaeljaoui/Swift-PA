@@ -29,8 +29,8 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJI-nU-dP7">
-                    <rect key="frame" x="442" y="861" width="143" height="48"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJI-nU-dP7">
+                    <rect key="frame" x="440" y="860" width="144" height="42"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <state key="normal" title="Inscription">
@@ -134,7 +134,7 @@
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ab5-Ha-BTE">
-                    <rect key="frame" x="350" y="1000" width="324" height="36"/>
+                    <rect key="frame" x="350" y="1002" width="324" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Déjà un compte ? Connectez vous !">
                         <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -164,7 +164,6 @@
                 <constraint firstItem="QJI-nU-dP7" firstAttribute="top" secondItem="J3G-hD-kS0" secondAttribute="bottom" constant="150" id="D3Z-bL-dIM"/>
                 <constraint firstItem="pVZ-2L-Snb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="125" id="DDD-b4-mjz"/>
                 <constraint firstItem="I29-Ov-VPx" firstAttribute="top" secondItem="RSx-Mh-7Is" secondAttribute="bottom" constant="15" id="F29-5Q-yH0"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ab5-Ha-BTE" secondAttribute="bottom" constant="310" id="Fez-hy-Qxt"/>
                 <constraint firstItem="2GB-Qo-Zva" firstAttribute="leading" secondItem="K7U-aS-qTR" secondAttribute="trailing" constant="220" id="GTT-3F-wPa"/>
                 <constraint firstItem="tXm-0D-PB0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="125" id="Iit-QJ-est"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3Am-j8-aVr" secondAttribute="trailing" constant="150" id="Jki-sZ-2sp"/>
@@ -185,6 +184,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XTk-ib-BQf" secondAttribute="trailing" constant="150" id="cCX-ae-NtM"/>
                 <constraint firstItem="8BX-tu-dKa" firstAttribute="leading" secondItem="pVZ-2L-Snb" secondAttribute="trailing" constant="170" id="dGH-3j-xmH"/>
                 <constraint firstItem="fTq-A0-eKn" firstAttribute="top" secondItem="2GB-Qo-Zva" secondAttribute="bottom" constant="10" id="eS8-ya-dRy"/>
+                <constraint firstItem="Ab5-Ha-BTE" firstAttribute="top" secondItem="QJI-nU-dP7" secondAttribute="bottom" constant="100" id="fSm-VD-G7v"/>
                 <constraint firstItem="XTk-ib-BQf" firstAttribute="leading" secondItem="Eoa-Ae-m1t" secondAttribute="trailing" constant="240" id="gxM-uj-gao"/>
                 <constraint firstItem="XTk-ib-BQf" firstAttribute="top" secondItem="I29-Ov-VPx" secondAttribute="bottom" constant="15" id="huy-TO-ONV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RSx-Mh-7Is" secondAttribute="trailing" constant="150" id="iY5-8J-xI7"/>

@@ -187,6 +187,6 @@ class ListServicesViewController: UIViewController, UICollectionViewDelegate, UI
         let detail = ListServicesViewController()
         detail.userConnected = userConnected
         detail.typeToDisplay = id_type
-        self.navigationController?.pushViewController(detail, animated:true)
+        self.navigationController?.pushViewController(detail, animated:false)
     }
 }

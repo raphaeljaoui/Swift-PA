@@ -22,8 +22,6 @@ class ListVolunteersViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(volunteersList)
         
         self.volunteersTableView.register(UINib(nibName: "VolunteersTableViewCell", bundle: nil), forCellReuseIdentifier: albumsCellId)
         

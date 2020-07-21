@@ -46,6 +46,10 @@ class ProfileFormViewController: UIViewController {
             userConnected?.surname = surname
         }
         
+        if(BirthdateTF.text != ""){
+            userConnected?.birthdate = selectedBirthDate
+        }
+        
         if(AdressTF.text != ""){
             guard let adress = AdressTF.text else {return}
             userConnected?.adress = adress
@@ -75,10 +79,15 @@ class ProfileFormViewController: UIViewController {
     }
     
     func setupPlaceholders(){
- 
         nameTF.placeholder = userConnected?.name
         surnameTF.placeholder = userConnected?.surname
-        BirthdateTF.placeholder = userConnected?.birthdate
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let birthdate = formatter.date(from: userConnected!.birthdate)
+        formatter.dateFormat = "dd/MM/yyyy"
+        BirthdateTF.placeholder = formatter.string(from: birthdate!)
+
         
         guard let adress = userConnected?.adress else {return}
         AdressTF.placeholder = adress
