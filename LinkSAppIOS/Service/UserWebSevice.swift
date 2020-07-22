@@ -181,5 +181,27 @@ class UserWebService {
            }
         task.resume()
     }
+
+    func deleteUser(user: User, completion: @escaping (Bool) -> Void) -> Void {
+        let url = Config.urlAPI + "/user/delete/\(user.id!)"
+        
+        guard let urlApi  = URL(string: url) else {
+            return;
+        }
+        var request = URLRequest(url: urlApi)
+        request.httpMethod = "PATCH"
+        request.httpBody = try? JSONSerialization.data(withJSONObject: UserFactory.dictionaryFrom(user: user), options: .fragmentsAllowed)
+        request.setValue("application/json", forHTTPHeaderField: "content-type")
+        
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, res, err) in
+            if let httpRes = res as? HTTPURLResponse {
+                completion(httpRes.statusCode == 200)
+            }
+            completion(false)
+            
+           }
+        task.resume()
+    }
         
 }

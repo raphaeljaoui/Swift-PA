@@ -78,7 +78,7 @@ class ProfilViewController: UIViewController, UITabBarDelegate {
         disconnectUser()
     }
     @IBAction func btnDeleteUser(_ sender: Any) {
-        navDelete()
+        deleteUser()
         
     }
     
@@ -97,8 +97,10 @@ class ProfilViewController: UIViewController, UITabBarDelegate {
         self.navigationController?.pushViewController(modify, animated: true)
     }
     
-    func navDelete(){
-        self.navigationController?.pushViewController(DeleteController(), animated: true)
+    func deleteUser(){
+        let delete = DeleteController()
+        delete.userConnected = self.userConnected
+        self.navigationController?.pushViewController(delete, animated: true)
     }
     
 }

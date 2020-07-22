@@ -10,7 +10,10 @@ import UIKit
 
 class DeleteController: UIViewController {
 
- 
+    let UserWS : UserWebService = UserWebService()
+    
+    var userConnected: User? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,11 +41,25 @@ class DeleteController: UIViewController {
         alert.addAction(UIAlertAction(title: "Oui", style: UIAlertAction.Style.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
             print ("OUI")
+            self.UserWS.deleteUser(user: self.userConnected!){ (res) in
+                if (res == true) {
+                    UserDefaults.standard.removeObject(forKey: "userEmail")
+                    UserDefaults.standard.removeObject(forKey: "userPwd")
+                    UserDefaults.standard.synchronize()
+                    
+                    let disconnection = HomeViewController()
+                    self.navigationController?.pushViewController(disconnection, animated: true)
+                    
+                }
+            }
         }))
         
         alert.addAction(UIAlertAction(title: "Non", style: UIAlertAction.Style.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
             print("NON")
+            let profil = ProfilViewController()
+            profil.userConnected = self.userConnected
+            self.navigationController?.pushViewController(profil, animated: false)
         }))
         
         self.present(alert, animated: true, completion: nil)

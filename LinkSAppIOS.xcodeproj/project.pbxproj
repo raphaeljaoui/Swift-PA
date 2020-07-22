@@ -279,7 +279,6 @@
 				4FF31631245B0C6B0006FF9C /* TabBarController.swift */,
 				4F18830F24659655006481B6 /* MessagesController.swift */,
 				4FF3163D245B0CD90006FF9C /* ProfilController.swift */,
-				4F32268E245F0A0400CAF083 /* DeleteController.swift */,
 				4F18830E24658E4B006481B6 /* xib */,
 			);
 			path = Controller;
@@ -337,6 +336,7 @@
 				EA3BB41324BE639800CD6383 /* PointsTableViewCell.xib */,
 				EAB00C8524BF26E700556269 /* ProfileFormViewController.swift */,
 				EAB00C8624BF26E700556269 /* ProfileFormViewController.xib */,
+				4F32268E245F0A0400CAF083 /* DeleteController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
